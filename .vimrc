@@ -16,6 +16,9 @@ if has("gui_running")
   elseif has("x11")
     echo "gui_x11"
     set guifont=-*-courier-medium-r-normal-*-*-180-*-*-m-*-*
+    "# On Solaris machine you can see font name Font desciption window
+    "# You get this when you type :set guifont=* 
+    "# The second tab is gui font description where font name is displayed
   else
     echo "default"
      set guifont=Courier_New:h12:cDEFAULT
