@@ -1,0 +1,4 @@
+              Operating System		: Windows, Linux, and Solaris 
+       Modeling Languages		: VHDL, C, System Verilog  , specMan E 
+etc 
+

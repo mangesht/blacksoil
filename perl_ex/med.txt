@@ -1,0 +1,27 @@
+
+A and B be the arrays
+lt_a=1,rt_a=n
+head_a=rt_a;
+while((rt_a-lt_a>1) && (rt_b-lt_b>1)
+    b_ptr = n-head_a;
+    if(A[head_a] >= B[b_ptr] && A[head_a] <= B[b_ptr+1])
+        median = A[head_a]
+        lt_a = rt_a // Loop breaking 
+     else if(A[head_a] >= B[b_ptr] && A[head_a] > B[b_ptr+1])
+        rt_a = head_a
+        head_a = (rt_a+lt_a)/2
+     else
+        lt_a = head_a
+        head_a = (rt_a+lt_a)/2
+        
+    a_ptr = n-head_b;
+    if(B[head_b] >= A[a_ptr] && B[head_b] <= A[a_ptr+1])
+        median = B[head_b]
+        lt_b = rt_b // Loop breaking 
+     else if(B[head_b] >= A[a_ptr] && B[head_b] > A[a_ptr+1])
+        rt_b = head_b
+        head_b = (rt_b+lt_b)/2
+     else
+        lt_b = head_b
+        head_b = (rt_b+lt_b)/2
+

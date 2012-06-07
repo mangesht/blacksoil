@@ -1,0 +1,41 @@
+LANGUAGE
+system verilog
+systemverilog
+verilog
+vhdl
+specman
+vera
+c
+c++
+ovm
+vmm
+uvm
+systemc
+system c
+
+TECHNOLOGIES
+ddr
+ddr controller
+ethernet
+networking
+axi
+ahb
+pci
+epon
+gpon
+aes
+sonet
+controller
+microcontroller
+microcontrollers
+amba
+wireless
+lte
+atm
+otn
+802.11
+pci-Express
+pcie
+gpio
+jtag
+

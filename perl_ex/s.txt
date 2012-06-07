@@ -1,0 +1,137 @@
+Sheetal Sen		                       				
+                                                                                                                   Contact: 09160501834
+                                                                                                                   Email: sen.sheetal@gmail.com
+
+        
+
+Professional Summary 
+
+* Accomplished VLSI professional, with 3.6 yrs of work experience
+* Employee of Silicon Interfaces Pvt Ltd, Mumbai as an Assistant Engineer in VLSI Design  and Verification since November 2006 till date
+* Currently working with Synopsys Hyderabad as a Customer Application Engineer
+* Worked on all aspects of Project life cycle -- Specification, Design Modeling, Integration and Verification.
+* Involved in Modeling Test Benches for various IP’s using Verilog.
+* Hands-on experience on System Verilog Language.
+* Conversant with VMM.
+* Have an experience of Client Location (USA) as CAE for VCS tools for Synopsys.
+
+
+Technical Skills:  
+                       
+              Operating System		: Windows, Linux, and Solaris 
+       Modeling Languages		: Verilog, VHDL, C, SystemVerilog  
+       Scripting Language		: Familiar with Perl 
+       Tools               		            : Synopsys VCS, VCS-MX, DVE debug tool, ModelSim,
+                                                                           Xilinx ISE
+
+
+Qualification  
+
+* PG Diploma in VLSI from Sandeepani School of VLSI Design, Bangalore (Jan – June 2006)
+* B.E (Electronics) – with First Class from Priyadarshini College of Engineering and Architecture, Nagpur University 
+* Diploma (Electronics and Telecommunication) – First Class with Distinction (82%) from Government Polytechnic Nagpur
+
+
+
+Project Details
+
+      #1.  Corporate Application Engineer (CAE)  
+
+              Company            	:  Synopsys, Hyderabad
+              Platforms	               : All Platforms VCS supports
+              Languages 		:  SystemVerilog, Verilog
+              Design Tools 		:  VCS, VCS-MX 
+
+          
+
+
+ 	My Role :
+
+* As the Corporate Applications Engineer, I was the interface between Synopsys field/Customers and R&D
+axi 
+ahb 
+* As the product expert, I have worked with R&D and Synopsys customers to qualify and deploy Synopsys VCS tool
+* Worked in the various customer verification environment to identify the issue and isolate a test case from it
+* Responsible for developing and implementing testplan for testing new System Verilog features incorporated in VCS
+* Captured the new SV features in form of test case and add them to regression
+* Worked on VMM related issues
+
+
+
+#2.     Functional Verification of Firewire Link Layer Controller using System Verilog  
+           Testbench
+
+               Description: The FireWire Link Layer Controller core is designed in Verilog. This project 
+	primarily focuses on conversion of the Test Environment into a purely System Verilog  
+               block, without changing the basic logic and architecture of the existing environment. 
+               This makes it possible to vet the features of the System Verilog vis-à-vis those of the 
+               existing HDLs and HVLs in a fairly foolproof manner.
+               
+              My Role:
+* Architecting the SV testbench environment
+* Added the ablity to generate random stimulus from the SV environment
+* Writing checkers for the DUT
+
+              
+
+     #3.	Functional Verification and Synthesis of Firewire Link Layer Controller 
+
+Company	:	Silicon Interfaces
+Platforms	:	Intel Workstation
+Operating Systems	:	Microsoft Windows NT, Linux 7.2
+Development Languages	:	Verilog and VHDL
+Design Tools	:	Synopsys VCSMX Simulator
+
+Description: The FireWire Link Layer Controller core is designed for high-speed data transfer using IEEE 1394-1995 standard. The device is working as interface between PHY layer and Upper Layer. The core supports 100, 200 and 400 Mbps 1394 bus rates. The Link Layer supports Asynchronous, Isochronous and cycle start packet. The link layer itself is capable to generate and check 32-bit CRC.
+
+       My Role:
+	
+* Was involved in detailed functional verification of the RTL 
+* Was responsible for writing Test Benches including generation of possible test  
+        vectors
+* Carried out functional simulation 
+
+
+     #4.     Multicycle MIPS Microprocessor Architecture Implementation using   
+               Verilog, Xilinx XST.
+       
+Company	:	Sandeepani School of VLSI Design
+Operating System	:	Linux
+Development Language	:	Verilog
+Simulation Tools	:	Modelsim
+Description: Implementation of Single Clock Instruction Processor & Multiple Clock Instruction Processor (MIPS-Datapath & Control Unit) using Verilog. The hardware implementation of computer architecture was learned and the hardware was modeled using Verilog and Xilinx XST tool. The MIPS CPUs with single cycle implementation and Multiple Clock cycle implementation were studied and implemented. The control unit was designed for different types of instructions.
+
+My Role:
+* Analysis and design of the module
+*  RTL coding in Verilog of Datapath & Control Unit of the processor
+
+
+
+     #5.    Digital Alarm Watch Implementation using Verilog and Xilinx XST
+
+Company	:	Sandeepani School of VLSI Design
+Operating System	:	Linux
+Development Language	:      Verilog
+Simulation Tools	:	Modelsim 6.1a Simulator
+
+Description: Alarm Clock Controller System using Verilog was designed. The system was partitioned into various modules such as Control block, Timer Logic Block, Final Display Block, Key Scan block. Control Block involved finite state machine implementation for controlling the other combinational logic in the system.
+
+My Role:
+
+*      Simulation and synthesis of the design
+*      RTL coding in Verilog  
+
+
+
+Personal Details
+
+Father’s Name		: Mr. Ramnath Sen
+Address		: H. No. 6-3-841/25 (26 SRT)
+                                             APHB Colony, Ameerpet,
+                                             Hyderabad-500016
+
+
+
+Other Experience:
+
+* Was working with Government Polytechnic, Nagpur as a Contributory Faculty 
