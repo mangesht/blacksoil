@@ -1,0 +1,320 @@
+Host command: /auto/edatools/cadence/ius/v9.20.017/Linux/tools/verilog/bin/verilog.exe
+Command arguments:
+    cpu32.v
+    adder.v
+    cpu32_test.v
+
+Tool:	VERILOG-XL	08.20.001-d log file created Dec  3, 2010  09:49:36
+Tool:	VERILOG-XL	08.20.001-d   Dec  3, 2010  09:49:36
+
+Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
+Unpublished -- rights reserved under the copyright laws of the United States.
+
+Copyright (c) 1995-2004 UNIX Systems Laboratories, Inc.  Reproduced with Permission.
+
+THIS SOFTWARE AND ON-LINE DOCUMENTATION CONTAIN CONFIDENTIAL INFORMATION
+AND TRADE SECRETS OF CADENCE DESIGN SYSTEMS, INC.  USE, DISCLOSURE, OR
+REPRODUCTION IS PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF
+CADENCE DESIGN SYSTEMS, INC.
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c)(1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+                Cadence Design Systems, Inc.
+                555 River Oaks Parkway
+                San Jose, California  95134
+
+For technical assistance please contact the Cadence Response Center at
+1-877-CDS-4911 or send email to support@cadence.com
+
+For more information on Cadence's Verilog-XL product line send email to
+talkv@cadence.com
+
+Compiling source file "cpu32.v"
+Compiling source file "adder.v"
+Compiling source file "cpu32_test.v"
+
+Warning!  Too few module port connections                   [Verilog-TFMPC]    
+          "cpu32_test.v", 16: mycpu(power, clk, pc, mem_s,                     
+          code, write_en, imm_en, branch_en, next_pc)
+Highest level modules:
+tris_32
+dff_32
+mux2to1_spcl
+addsub_8
+addsub_32
+shift_left_logic_8
+shift_right_logic_8
+stimulus
+
+    1: pwr=1, pc=  0, npc=  1, code=af08, loadi mem[15]<=         8
+    2: pwr=1, pc=  1, npc=  2, code=a137, loadi mem[ 1]<=        55
+    3: pwr=1, pc=  2, npc=  3, code=a02c, loadi mem[ 0]<=        44
+    4: pwr=1, pc=  3, npc=  4, code=011f, alu mem[ 1]<=     14080
+    5: pwr=1, pc=  4, npc=  5, code=2110, alu mem[ 1]<=     14124
+    6: pwr=1, pc=  5, npc=  6, code=a021, loadi mem[ 0]<=        33
+    7: pwr=1, pc=  6, npc=  7, code=011f, alu mem[ 1]<=   3615744
+    8: pwr=1, pc=  7, npc=  8, code=2110, alu mem[ 1]<=   3615777
+    9: pwr=1, pc=  8, npc=  9, code=a016, loadi mem[ 0]<=        22
+   10: pwr=1, pc=  9, npc= 10, code=011f, alu mem[ 1]<= 925638912
+   11: pwr=1, pc= 10, npc= 11, code=2110, alu mem[ 1]<= 925638934
+   12: pwr=1, pc= 11, npc= 12, code=a210, loadi mem[ 2]<=        16
+   13: pwr=1, pc= 12, npc= 13, code=a000, loadi mem[ 0]<=         0
+   14: pwr=1, pc= 13, npc= 14, code=022f, alu mem[ 2]<=      4096
+   15: pwr=1, pc= 14, npc= 15, code=2220, alu mem[ 2]<=      4096
+   16: pwr=1, pc= 15, npc= 16, code=a000, loadi mem[ 0]<=         0
+   17: pwr=1, pc= 16, npc= 17, code=022f, alu mem[ 2]<=   1048576
+   18: pwr=1, pc= 17, npc= 18, code=2220, alu mem[ 2]<=   1048576
+   19: pwr=1, pc= 18, npc= 19, code=a000, loadi mem[ 0]<=         0
+   20: pwr=1, pc= 19, npc= 20, code=022f, alu mem[ 2]<= 268435456
+   21: pwr=1, pc= 20, npc= 21, code=2220, alu mem[ 2]<= 268435456
+   22: pwr=1, pc= 21, npc= 22, code=a300, loadi mem[ 3]<=         0
+   23: pwr=1, pc= 22, npc= 23, code=a501, loadi mem[ 5]<=         1
+   24: pwr=1, pc= 23, npc= 24, code=a900, loadi mem[ 9]<=         0
+   25: pwr=1, pc= 24, npc= 25, code=3995, alu mem[ 9]<=4294967295
+   26: pwr=1, pc= 25, npc= 26, code=a600, loadi mem[ 6]<=         0
+   27: pwr=1, pc= 26, npc= 27, code=a800, loadi mem[ 8]<=         0
+   28: pwr=1, pc= 27, npc= 28, code=a71f, loadi mem[ 7]<=        31
+   29: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=         0
+   30: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=2147483647
+   31: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531840
+   32: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   33: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   34: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        30
+   35: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   36: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=         0
+   37: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=1073741823
+   38: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531840
+   39: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   40: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   41: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        29
+   42: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   43: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=         1
+   44: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<= 536870911
+   45: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531841
+   46: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   47: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   48: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        28
+   49: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   50: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=         3
+   51: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<= 268435455
+   52: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531843
+   53: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   54: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   55: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        27
+   56: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   57: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=         6
+   58: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<= 134217727
+   59: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531846
+   60: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   61: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   62: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        26
+   63: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   64: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=        13
+   65: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=  67108863
+   66: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531853
+   67: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   68: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   69: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        25
+   70: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   71: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=        27
+   72: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=  33554431
+   73: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531867
+   74: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   75: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   76: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        24
+   77: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   78: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=        55
+   79: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=  16777215
+   80: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531895
+   81: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   82: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   83: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        23
+   84: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   85: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=       110
+   86: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=   8388607
+   87: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026531950
+   88: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   89: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   90: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        22
+   91: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   92: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=       220
+   93: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=   4194303
+   94: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026532060
+   95: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+   96: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+   97: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        21
+   98: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+   99: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=       441
+  100: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=   2097151
+  101: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026532281
+  102: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  103: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  104: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        20
+  105: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  106: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=       882
+  107: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=   1048575
+  108: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026532722
+  109: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  110: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  111: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        19
+  112: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  113: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=      1765
+  114: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=    524287
+  115: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026533605
+  116: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  117: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  118: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        18
+  119: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  120: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=      3531
+  121: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=    262143
+  122: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026535371
+  123: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  124: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  125: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        17
+  126: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  127: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=      7062
+  128: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=    131071
+  129: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026538902
+  130: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  131: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  132: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        16
+  133: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  134: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=     14124
+  135: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=     65535
+  136: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026545964
+  137: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  138: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  139: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        15
+  140: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  141: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=     28248
+  142: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=     32767
+  143: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026560088
+  144: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  145: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  146: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        14
+  147: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  148: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=     56496
+  149: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=     16383
+  150: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026588336
+  151: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  152: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  153: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        13
+  154: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  155: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=    112993
+  156: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=      8191
+  157: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026644833
+  158: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  159: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  160: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        12
+  161: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  162: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=    225986
+  163: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=      4095
+  164: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026757826
+  165: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  166: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  167: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        11
+  168: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  169: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=    451972
+  170: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=      2047
+  171: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4026983812
+  172: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  173: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  174: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=        10
+  175: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  176: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=    903944
+  177: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=      1023
+  178: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4027435784
+  179: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  180: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  181: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         9
+  182: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  183: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=   1807888
+  184: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=       511
+  185: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4028339728
+  186: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  187: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  188: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         8
+  189: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  190: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=   3615777
+  191: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=       255
+  192: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4030147617
+  193: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  194: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  195: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         7
+  196: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  197: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=   7231554
+  198: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=       127
+  199: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4033763394
+  200: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  201: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  202: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         6
+  203: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  204: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=  14463108
+  205: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=        63
+  206: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4040994948
+  207: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  208: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  209: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         5
+  210: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  211: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=  28926216
+  212: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=        31
+  213: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4055458056
+  214: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  215: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  216: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         4
+  217: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  218: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<=  57852433
+  219: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=        15
+  220: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4084384273
+  221: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  222: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  223: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         3
+  224: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  225: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<= 115704866
+  226: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=         7
+  227: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4142236706
+  228: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  229: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  230: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         2
+  231: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  232: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<= 231409733
+  233: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=         3
+  234: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<=4257941573
+  235: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  236: pwr=1, pc= 32, npc= 37, code=b205, branch to  37
+  237: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         1
+  238: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  239: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<= 462819467
+  240: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=         1
+  241: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<= 194384011
+  242: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         0
+  243: pwr=1, pc= 32, npc= 33, code=b205, branch to  37
+  244: pwr=1, pc= 33, npc= 34, code=2665, alu mem[ 6]<=         1
+  245: pwr=1, pc= 34, npc= 35, code=4119, alu mem[ 1]<=         0
+  246: pwr=1, pc= 35, npc= 36, code=0447, alu mem[ 4]<= 388768022
+  247: pwr=1, pc= 36, npc= 37, code=2114, alu mem[ 1]<= 388768022
+  248: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=         0
+  249: pwr=1, pc= 38, npc= 28, code=c10c, branch to  28
+  250: pwr=1, pc= 28, npc= 29, code=1317, alu mem[ 3]<= 388768022
+  251: pwr=1, pc= 29, npc= 30, code=1995, alu mem[ 9]<=         0
+  252: pwr=1, pc= 30, npc= 31, code=3432, alu mem[ 4]<= 120332566
+  253: pwr=1, pc= 31, npc= 32, code=0665, alu mem[ 6]<=         2
+  254: pwr=1, pc= 32, npc= 33, code=b205, branch to  37
+  255: pwr=1, pc= 33, npc= 34, code=2665, alu mem[ 6]<=         3
+  256: pwr=1, pc= 34, npc= 35, code=4119, alu mem[ 1]<=         0
+  257: pwr=1, pc= 35, npc= 36, code=0447, alu mem[ 4]<= 120332566
+  258: pwr=1, pc= 36, npc= 37, code=2114, alu mem[ 1]<= 120332566
+  259: pwr=1, pc= 37, npc= 38, code=3775, alu mem[ 7]<=4294967295
+  260: pwr=1, pc= 38, npc= 39, code=c10c, branch to  28
+  261: pwr=1, pc= 39, npc= 39, code=ffff, stop
+  262: pc= 39, code=ffff, stop program
+L47 "cpu32_test.v": $finish at simulation time 13124
+1 warning
+0 simulation events (use +profile or +listcounts option to count) + 436185 accelerated events
+CPU time: 0.0 secs to compile + 0.1 secs to link + 2.2 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Dec  3, 2010  09:49:39

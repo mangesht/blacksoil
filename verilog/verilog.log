@@ -1,0 +1,493 @@
+Host command: /auto/edatools/cadence/ius/v9.20.017/Linux/tools/verilog/bin/verilog.exe
+Command arguments:
+    cpu32_test.v
+    adder.v
+
+Tool:	VERILOG-XL	08.20.001-d log file created Dec  8, 2010  02:36:27
+Tool:	VERILOG-XL	08.20.001-d   Dec  8, 2010  02:36:27
+
+Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
+Unpublished -- rights reserved under the copyright laws of the United States.
+
+Copyright (c) 1995-2004 UNIX Systems Laboratories, Inc.  Reproduced with Permission.
+
+THIS SOFTWARE AND ON-LINE DOCUMENTATION CONTAIN CONFIDENTIAL INFORMATION
+AND TRADE SECRETS OF CADENCE DESIGN SYSTEMS, INC.  USE, DISCLOSURE, OR
+REPRODUCTION IS PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF
+CADENCE DESIGN SYSTEMS, INC.
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c)(1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+                Cadence Design Systems, Inc.
+                555 River Oaks Parkway
+                San Jose, California  95134
+
+For technical assistance please contact the Cadence Response Center at
+1-877-CDS-4911 or send email to support@cadence.com
+
+For more information on Cadence's Verilog-XL product line send email to
+talkv@cadence.com
+
+Compiling source file "cpu32_test.v"
+Compiling source file "adder.v"
+Highest level modules:
+stimulus
+program_rom
+
+
+Warning!  Could not open file "code.hex" for reading.                          
+          Memory (rom) has not been altered                 [Verilog-CNOFM]    
+          "cpu32_test.v", 77: $readmemh("code.hex", rom);
+a =          0 b =         15 sum =         15 cout = 0 
+    SUM MATCHES
+
+a =  536870911 b =  536870926 sum = 1073741837 cout = 0 
+    SUM MATCHES
+
+a = 1073741822 b = 1073741837 sum = 2147483659 cout = 0 
+    SUM MATCHES
+
+a = 1610612733 b = 1610612748 sum = 3221225481 cout = 0 
+    SUM MATCHES
+
+a = 2147483644 b = 2147483659 sum =          7 cout = 1 
+    SUM MATCHES
+
+a = 2684354555 b = 2684354570 sum = 1073741829 cout = 1 
+    SUM MATCHES
+
+a = 3221225466 b = 3221225481 sum = 2147483651 cout = 1 
+    SUM MATCHES
+
+a = 3758096377 b = 3758096392 sum = 3221225473 cout = 1 
+    SUM MATCHES
+
+a = 4294967288 b =          7 sum = 4294967295 cout = 0 
+    SUM MATCHES
+
+a =  536870903 b =  536870918 sum = 1073741821 cout = 0 
+    SUM MATCHES
+
+a = 1073741814 b = 1073741829 sum = 2147483643 cout = 0 
+    SUM MATCHES
+
+a = 1610612725 b = 1610612740 sum = 3221225465 cout = 0 
+    SUM MATCHES
+
+a = 2147483636 b = 2147483651 sum = 4294967287 cout = 0 
+    SUM MATCHES
+
+a = 2684354547 b = 2684354562 sum = 1073741813 cout = 1 
+    SUM MATCHES
+
+a = 3221225458 b = 3221225473 sum = 2147483635 cout = 1 
+    SUM MATCHES
+
+a = 3758096369 b = 3758096384 sum = 3221225457 cout = 1 
+    SUM MATCHES
+
+a = 4294967280 b = 4294967295 sum = 4294967279 cout = 1 
+    SUM MATCHES
+
+a =  536870895 b =  536870910 sum = 1073741805 cout = 0 
+    SUM MATCHES
+
+a = 1073741806 b = 1073741821 sum = 2147483627 cout = 0 
+    SUM MATCHES
+
+a = 1610612717 b = 1610612732 sum = 3221225449 cout = 0 
+    SUM MATCHES
+
+a = 2147483628 b = 2147483643 sum = 4294967271 cout = 0 
+    SUM MATCHES
+
+a = 2684354539 b = 2684354554 sum = 1073741797 cout = 1 
+    SUM MATCHES
+
+a = 3221225450 b = 3221225465 sum = 2147483619 cout = 1 
+    SUM MATCHES
+
+a = 3758096361 b = 3758096376 sum = 3221225441 cout = 1 
+    SUM MATCHES
+
+a = 4294967272 b = 4294967287 sum = 4294967263 cout = 1 
+    SUM MATCHES
+
+a =  536870887 b =  536870902 sum = 1073741789 cout = 0 
+    SUM MATCHES
+
+a = 1073741798 b = 1073741813 sum = 2147483611 cout = 0 
+    SUM MATCHES
+
+a = 1610612709 b = 1610612724 sum = 3221225433 cout = 0 
+    SUM MATCHES
+
+a = 2147483620 b = 2147483635 sum = 4294967255 cout = 0 
+    SUM MATCHES
+
+a = 2684354531 b = 2684354546 sum = 1073741781 cout = 1 
+    SUM MATCHES
+
+a = 3221225442 b = 3221225457 sum = 2147483603 cout = 1 
+    SUM MATCHES
+
+a = 3758096353 b = 3758096368 sum = 3221225425 cout = 1 
+    SUM MATCHES
+
+a = 4294967264 b = 4294967279 sum = 4294967247 cout = 1 
+    SUM MATCHES
+
+a =  536870879 b =  536870894 sum = 1073741773 cout = 0 
+    SUM MATCHES
+
+a = 1073741790 b = 1073741805 sum = 2147483595 cout = 0 
+    SUM MATCHES
+
+a = 1610612701 b = 1610612716 sum = 3221225417 cout = 0 
+    SUM MATCHES
+
+a = 2147483612 b = 2147483627 sum = 4294967239 cout = 0 
+    SUM MATCHES
+
+a = 2684354523 b = 2684354538 sum = 1073741765 cout = 1 
+    SUM MATCHES
+
+a = 3221225434 b = 3221225449 sum = 2147483587 cout = 1 
+    SUM MATCHES
+
+a = 3758096345 b = 3758096360 sum = 3221225409 cout = 1 
+    SUM MATCHES
+
+a = 4294967256 b = 4294967271 sum = 4294967231 cout = 1 
+    SUM MATCHES
+
+a =  536870871 b =  536870886 sum = 1073741757 cout = 0 
+    SUM MATCHES
+
+a = 1073741782 b = 1073741797 sum = 2147483579 cout = 0 
+    SUM MATCHES
+
+a = 1610612693 b = 1610612708 sum = 3221225401 cout = 0 
+    SUM MATCHES
+
+a = 2147483604 b = 2147483619 sum = 4294967223 cout = 0 
+    SUM MATCHES
+
+a = 2684354515 b = 2684354530 sum = 1073741749 cout = 1 
+    SUM MATCHES
+
+a = 3221225426 b = 3221225441 sum = 2147483571 cout = 1 
+    SUM MATCHES
+
+a = 3758096337 b = 3758096352 sum = 3221225393 cout = 1 
+    SUM MATCHES
+
+a = 4294967248 b = 4294967263 sum = 4294967215 cout = 1 
+    SUM MATCHES
+
+a =  536870863 b =  536870878 sum = 1073741741 cout = 0 
+    SUM MATCHES
+
+a = 1073741774 b = 1073741789 sum = 2147483563 cout = 0 
+    SUM MATCHES
+
+a = 1610612685 b = 1610612700 sum = 3221225385 cout = 0 
+    SUM MATCHES
+
+a = 2147483596 b = 2147483611 sum = 4294967207 cout = 0 
+    SUM MATCHES
+
+a = 2684354507 b = 2684354522 sum = 1073741733 cout = 1 
+    SUM MATCHES
+
+a = 3221225418 b = 3221225433 sum = 2147483555 cout = 1 
+    SUM MATCHES
+
+a = 3758096329 b = 3758096344 sum = 3221225377 cout = 1 
+    SUM MATCHES
+
+a = 4294967240 b = 4294967255 sum = 4294967199 cout = 1 
+    SUM MATCHES
+
+a =  536870855 b =  536870870 sum = 1073741725 cout = 0 
+    SUM MATCHES
+
+a = 1073741766 b = 1073741781 sum = 2147483547 cout = 0 
+    SUM MATCHES
+
+a = 1610612677 b = 1610612692 sum = 3221225369 cout = 0 
+    SUM MATCHES
+
+a = 2147483588 b = 2147483603 sum = 4294967191 cout = 0 
+    SUM MATCHES
+
+a = 2684354499 b = 2684354514 sum = 1073741717 cout = 1 
+    SUM MATCHES
+
+a = 3221225410 b = 3221225425 sum = 2147483539 cout = 1 
+    SUM MATCHES
+
+a = 3758096321 b = 3758096336 sum = 3221225361 cout = 1 
+    SUM MATCHES
+
+a = 4294967232 b = 4294967247 sum = 4294967183 cout = 1 
+    SUM MATCHES
+
+a =  536870847 b =  536870862 sum = 1073741709 cout = 0 
+    SUM MATCHES
+
+a = 1073741758 b = 1073741773 sum = 2147483531 cout = 0 
+    SUM MATCHES
+
+a = 1610612669 b = 1610612684 sum = 3221225353 cout = 0 
+    SUM MATCHES
+
+a = 2147483580 b = 2147483595 sum = 4294967175 cout = 0 
+    SUM MATCHES
+
+a = 2684354491 b = 2684354506 sum = 1073741701 cout = 1 
+    SUM MATCHES
+
+a = 3221225402 b = 3221225417 sum = 2147483523 cout = 1 
+    SUM MATCHES
+
+a = 3758096313 b = 3758096328 sum = 3221225345 cout = 1 
+    SUM MATCHES
+
+a = 4294967224 b = 4294967239 sum = 4294967167 cout = 1 
+    SUM MATCHES
+
+a =  536870839 b =  536870854 sum = 1073741693 cout = 0 
+    SUM MATCHES
+
+a = 1073741750 b = 1073741765 sum = 2147483515 cout = 0 
+    SUM MATCHES
+
+a = 1610612661 b = 1610612676 sum = 3221225337 cout = 0 
+    SUM MATCHES
+
+a = 2147483572 b = 2147483587 sum = 4294967159 cout = 0 
+    SUM MATCHES
+
+a = 2684354483 b = 2684354498 sum = 1073741685 cout = 1 
+    SUM MATCHES
+
+a = 3221225394 b = 3221225409 sum = 2147483507 cout = 1 
+    SUM MATCHES
+
+a = 3758096305 b = 3758096320 sum = 3221225329 cout = 1 
+    SUM MATCHES
+
+a = 4294967216 b = 4294967231 sum = 4294967151 cout = 1 
+    SUM MATCHES
+
+a =  536870831 b =  536870846 sum = 1073741677 cout = 0 
+    SUM MATCHES
+
+a = 1073741742 b = 1073741757 sum = 2147483499 cout = 0 
+    SUM MATCHES
+
+a = 1610612653 b = 1610612668 sum = 3221225321 cout = 0 
+    SUM MATCHES
+
+a = 2147483564 b = 2147483579 sum = 4294967143 cout = 0 
+    SUM MATCHES
+
+a = 2684354475 b = 2684354490 sum = 1073741669 cout = 1 
+    SUM MATCHES
+
+a = 3221225386 b = 3221225401 sum = 2147483491 cout = 1 
+    SUM MATCHES
+
+a = 3758096297 b = 3758096312 sum = 3221225313 cout = 1 
+    SUM MATCHES
+
+a = 4294967208 b = 4294967223 sum = 4294967135 cout = 1 
+    SUM MATCHES
+
+a =  536870823 b =  536870838 sum = 1073741661 cout = 0 
+    SUM MATCHES
+
+a = 1073741734 b = 1073741749 sum = 2147483483 cout = 0 
+    SUM MATCHES
+
+a = 1610612645 b = 1610612660 sum = 3221225305 cout = 0 
+    SUM MATCHES
+
+a = 2147483556 b = 2147483571 sum = 4294967127 cout = 0 
+    SUM MATCHES
+
+a = 2684354467 b = 2684354482 sum = 1073741653 cout = 1 
+    SUM MATCHES
+
+a = 3221225378 b = 3221225393 sum = 2147483475 cout = 1 
+    SUM MATCHES
+
+a = 3758096289 b = 3758096304 sum = 3221225297 cout = 1 
+    SUM MATCHES
+
+a = 4294967200 b = 4294967215 sum = 4294967119 cout = 1 
+    SUM MATCHES
+
+a =  536870815 b =  536870830 sum = 1073741645 cout = 0 
+    SUM MATCHES
+
+a = 1073741726 b = 1073741741 sum = 2147483467 cout = 0 
+    SUM MATCHES
+
+a = 1610612637 b = 1610612652 sum = 3221225289 cout = 0 
+    SUM MATCHES
+
+a = 2147483548 b = 2147483563 sum = 4294967111 cout = 0 
+    SUM MATCHES
+
+a = 2684354459 b = 2684354474 sum = 1073741637 cout = 1 
+    SUM MATCHES
+
+a = 3221225370 b = 3221225385 sum = 2147483459 cout = 1 
+    SUM MATCHES
+
+a = 3758096281 b = 3758096296 sum = 3221225281 cout = 1 
+    SUM MATCHES
+
+a = 4294967192 b = 4294967207 sum = 4294967103 cout = 1 
+    SUM MATCHES
+
+a =  536870807 b =  536870822 sum = 1073741629 cout = 0 
+    SUM MATCHES
+
+a = 1073741718 b = 1073741733 sum = 2147483451 cout = 0 
+    SUM MATCHES
+
+a = 1610612629 b = 1610612644 sum = 3221225273 cout = 0 
+    SUM MATCHES
+
+a = 2147483540 b = 2147483555 sum = 4294967095 cout = 0 
+    SUM MATCHES
+
+a = 2684354451 b = 2684354466 sum = 1073741621 cout = 1 
+    SUM MATCHES
+
+a = 3221225362 b = 3221225377 sum = 2147483443 cout = 1 
+    SUM MATCHES
+
+a = 3758096273 b = 3758096288 sum = 3221225265 cout = 1 
+    SUM MATCHES
+
+a = 4294967184 b = 4294967199 sum = 4294967087 cout = 1 
+    SUM MATCHES
+
+a =  536870799 b =  536870814 sum = 1073741613 cout = 0 
+    SUM MATCHES
+
+a = 1073741710 b = 1073741725 sum = 2147483435 cout = 0 
+    SUM MATCHES
+
+a = 1610612621 b = 1610612636 sum = 3221225257 cout = 0 
+    SUM MATCHES
+
+a = 2147483532 b = 2147483547 sum = 4294967079 cout = 0 
+    SUM MATCHES
+
+a = 2684354443 b = 2684354458 sum = 1073741605 cout = 1 
+    SUM MATCHES
+
+a = 3221225354 b = 3221225369 sum = 2147483427 cout = 1 
+    SUM MATCHES
+
+a = 3758096265 b = 3758096280 sum = 3221225249 cout = 1 
+    SUM MATCHES
+
+a = 4294967176 b = 4294967191 sum = 4294967071 cout = 1 
+    SUM MATCHES
+
+a =  536870791 b =  536870806 sum = 1073741597 cout = 0 
+    SUM MATCHES
+
+a = 1073741702 b = 1073741717 sum = 2147483419 cout = 0 
+    SUM MATCHES
+
+a = 1610612613 b = 1610612628 sum = 3221225241 cout = 0 
+    SUM MATCHES
+
+a = 2147483524 b = 2147483539 sum = 4294967063 cout = 0 
+    SUM MATCHES
+
+a = 2684354435 b = 2684354450 sum = 1073741589 cout = 1 
+    SUM MATCHES
+
+a = 3221225346 b = 3221225361 sum = 2147483411 cout = 1 
+    SUM MATCHES
+
+a = 3758096257 b = 3758096272 sum = 3221225233 cout = 1 
+    SUM MATCHES
+
+a = 4294967168 b = 4294967183 sum = 4294967055 cout = 1 
+    SUM MATCHES
+
+a =  536870783 b =  536870798 sum = 1073741581 cout = 0 
+    SUM MATCHES
+
+a = 1073741694 b = 1073741709 sum = 2147483403 cout = 0 
+    SUM MATCHES
+
+a = 1610612605 b = 1610612620 sum = 3221225225 cout = 0 
+    SUM MATCHES
+
+a = 2147483516 b = 2147483531 sum = 4294967047 cout = 0 
+    SUM MATCHES
+
+a = 2684354427 b = 2684354442 sum = 1073741573 cout = 1 
+    SUM MATCHES
+
+a = 3221225338 b = 3221225353 sum = 2147483395 cout = 1 
+    SUM MATCHES
+
+a = 3758096249 b = 3758096264 sum = 3221225217 cout = 1 
+    SUM MATCHES
+
+a = 4294967160 b = 4294967175 sum = 4294967039 cout = 1 
+    SUM MATCHES
+
+a =  536870775 b =  536870790 sum = 1073741565 cout = 0 
+    SUM MATCHES
+
+a = 1073741686 b = 1073741701 sum = 2147483387 cout = 0 
+    SUM MATCHES
+
+a = 1610612597 b = 1610612612 sum = 3221225209 cout = 0 
+    SUM MATCHES
+
+a = 2147483508 b = 2147483523 sum = 4294967031 cout = 0 
+    SUM MATCHES
+
+a = 2684354419 b = 2684354434 sum = 1073741557 cout = 1 
+    SUM MATCHES
+
+a = 3221225330 b = 3221225345 sum = 2147483379 cout = 1 
+    SUM MATCHES
+
+a = 3758096241 b = 3758096256 sum = 3221225201 cout = 1 
+    SUM MATCHES
+
+a = 4294967152 b = 4294967167 sum = 4294967023 cout = 1 
+    SUM MATCHES
+
+a =  536870767 b =  536870782 sum = 1073741549 cout = 0 
+    SUM MATCHES
+
+a = 1073741678 b = 1073741693 sum = 2147483371 cout = 0 
+    SUM MATCHES
+
+FALSE TRUE = 0 
+
+L50 "cpu32_test.v": $finish at simulation time 7400
+1 warning
+0 simulation events (use +profile or +listcounts option to count) + 5041 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 0.0 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Dec  8, 2010  02:36:27

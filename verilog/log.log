@@ -1,0 +1,485 @@
+Tool:	VERILOG-XL	08.20.001-d   Dec  3, 2010  22:26:16
+
+Copyright (c) 1995-2004 Cadence Design Systems, Inc.  All Rights Reserved.
+Unpublished -- rights reserved under the copyright laws of the United States.
+
+Copyright (c) 1995-2004 UNIX Systems Laboratories, Inc.  Reproduced with Permission.
+
+THIS SOFTWARE AND ON-LINE DOCUMENTATION CONTAIN CONFIDENTIAL INFORMATION
+AND TRADE SECRETS OF CADENCE DESIGN SYSTEMS, INC.  USE, DISCLOSURE, OR
+REPRODUCTION IS PROHIBITED WITHOUT THE PRIOR EXPRESS WRITTEN PERMISSION OF
+CADENCE DESIGN SYSTEMS, INC.
+RESTRICTED RIGHTS LEGEND
+
+Use, duplication, or disclosure by the Government is subject to
+restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in
+Technical Data and Computer Software clause at DFARS 252.227-7013 or
+subparagraphs (c)(1) and (2) of Commercial Computer Software -- Restricted
+Rights at 48 CFR 52.227-19, as applicable.
+
+                Cadence Design Systems, Inc.
+                555 River Oaks Parkway
+                San Jose, California  95134
+
+For technical assistance please contact the Cadence Response Center at
+1-877-CDS-4911 or send email to support@cadence.com
+
+For more information on Cadence's Verilog-XL product line send email to
+talkv@cadence.com
+
+Compiling source file "adder.v"
+Compiling source file "adder_test.v"
+Highest level modules:
+stimulus
+program_rom
+
+
+Warning!  Could not open file "code.hex" for reading.                          
+          Memory (rom) has not been altered                 [Verilog-CNOFM]    
+          "adder_test.v", 76: $readmemh("code.hex", rom);
+a =          0 b =         15 sum =         15 cout = 0 
+    SUM MATCHES
+
+a =         15 b =         35 sum =         50 cout = 0 
+    SUM MATCHES
+
+a =         30 b =         55 sum =         85 cout = 0 
+    SUM MATCHES
+
+a =         45 b =         75 sum =        120 cout = 0 
+    SUM MATCHES
+
+a =         60 b =         95 sum =        155 cout = 0 
+    SUM MATCHES
+
+a =         75 b =        115 sum =        190 cout = 0 
+    SUM MATCHES
+
+a =         90 b =        135 sum =        225 cout = 0 
+    SUM MATCHES
+
+a =        105 b =        155 sum =        260 cout = 0 
+    SUM MATCHES
+
+a =        120 b =        175 sum =        295 cout = 0 
+    SUM MATCHES
+
+a =        135 b =        195 sum =        330 cout = 0 
+    SUM MATCHES
+
+a =        150 b =        215 sum =        365 cout = 0 
+    SUM MATCHES
+
+a =        165 b =        235 sum =        400 cout = 0 
+    SUM MATCHES
+
+a =        180 b =        255 sum =        435 cout = 0 
+    SUM MATCHES
+
+a =        195 b =        275 sum =        470 cout = 0 
+    SUM MATCHES
+
+a =        210 b =        295 sum =        505 cout = 0 
+    SUM MATCHES
+
+a =        225 b =        315 sum =        540 cout = 0 
+    SUM MATCHES
+
+a =        240 b =        335 sum =        575 cout = 0 
+    SUM MATCHES
+
+a =        255 b =        355 sum =        610 cout = 0 
+    SUM MATCHES
+
+a =        270 b =        375 sum =        645 cout = 0 
+    SUM MATCHES
+
+a =        285 b =        395 sum =        680 cout = 0 
+    SUM MATCHES
+
+a =        300 b =        415 sum =        715 cout = 0 
+    SUM MATCHES
+
+a =        315 b =        435 sum =        750 cout = 0 
+    SUM MATCHES
+
+a =        330 b =        455 sum =        785 cout = 0 
+    SUM MATCHES
+
+a =        345 b =        475 sum =        820 cout = 0 
+    SUM MATCHES
+
+a =        360 b =        495 sum =        855 cout = 0 
+    SUM MATCHES
+
+a =        375 b =        515 sum =        890 cout = 0 
+    SUM MATCHES
+
+a =        390 b =        535 sum =        925 cout = 0 
+    SUM MATCHES
+
+a =        405 b =        555 sum =        960 cout = 0 
+    SUM MATCHES
+
+a =        420 b =        575 sum =        995 cout = 0 
+    SUM MATCHES
+
+a =        435 b =        595 sum =       1030 cout = 0 
+    SUM MATCHES
+
+a =        450 b =        615 sum =       1065 cout = 0 
+    SUM MATCHES
+
+a =        465 b =        635 sum =       1100 cout = 0 
+    SUM MATCHES
+
+a =        480 b =        655 sum =       1135 cout = 0 
+    SUM MATCHES
+
+a =        495 b =        675 sum =       1170 cout = 0 
+    SUM MATCHES
+
+a =        510 b =        695 sum =       1205 cout = 0 
+    SUM MATCHES
+
+a =        525 b =        715 sum =       1240 cout = 0 
+    SUM MATCHES
+
+a =        540 b =        735 sum =       1275 cout = 0 
+    SUM MATCHES
+
+a =        555 b =        755 sum =       1310 cout = 0 
+    SUM MATCHES
+
+a =        570 b =        775 sum =       1345 cout = 0 
+    SUM MATCHES
+
+a =        585 b =        795 sum =       1380 cout = 0 
+    SUM MATCHES
+
+a =        600 b =        815 sum =       1415 cout = 0 
+    SUM MATCHES
+
+a =        615 b =        835 sum =       1450 cout = 0 
+    SUM MATCHES
+
+a =        630 b =        855 sum =       1485 cout = 0 
+    SUM MATCHES
+
+a =        645 b =        875 sum =       1520 cout = 0 
+    SUM MATCHES
+
+a =        660 b =        895 sum =       1555 cout = 0 
+    SUM MATCHES
+
+a =        675 b =        915 sum =       1590 cout = 0 
+    SUM MATCHES
+
+a =        690 b =        935 sum =       1625 cout = 0 
+    SUM MATCHES
+
+a =        705 b =        955 sum =       1660 cout = 0 
+    SUM MATCHES
+
+a =        720 b =        975 sum =       1695 cout = 0 
+    SUM MATCHES
+
+a =        735 b =        995 sum =       1730 cout = 0 
+    SUM MATCHES
+
+a =        750 b =       1015 sum =       1765 cout = 0 
+    SUM MATCHES
+
+a =        765 b =       1035 sum =       1800 cout = 0 
+    SUM MATCHES
+
+a =        780 b =       1055 sum =       1835 cout = 0 
+    SUM MATCHES
+
+a =        795 b =       1075 sum =       1870 cout = 0 
+    SUM MATCHES
+
+a =        810 b =       1095 sum =       1905 cout = 0 
+    SUM MATCHES
+
+a =        825 b =       1115 sum =       1940 cout = 0 
+    SUM MATCHES
+
+a =        840 b =       1135 sum =       1975 cout = 0 
+    SUM MATCHES
+
+a =        855 b =       1155 sum =       2010 cout = 0 
+    SUM MATCHES
+
+a =        870 b =       1175 sum =       2045 cout = 0 
+    SUM MATCHES
+
+a =        885 b =       1195 sum =       2080 cout = 0 
+    SUM MATCHES
+
+a =        900 b =       1215 sum =       2115 cout = 0 
+    SUM MATCHES
+
+a =        915 b =       1235 sum =       2150 cout = 0 
+    SUM MATCHES
+
+a =        930 b =       1255 sum =       2185 cout = 0 
+    SUM MATCHES
+
+a =        945 b =       1275 sum =       2220 cout = 0 
+    SUM MATCHES
+
+a =        960 b =       1295 sum =       2255 cout = 0 
+    SUM MATCHES
+
+a =        975 b =       1315 sum =       2290 cout = 0 
+    SUM MATCHES
+
+a =        990 b =       1335 sum =       2325 cout = 0 
+    SUM MATCHES
+
+a =       1005 b =       1355 sum =       2360 cout = 0 
+    SUM MATCHES
+
+a =       1020 b =       1375 sum =       2395 cout = 0 
+    SUM MATCHES
+
+a =       1035 b =       1395 sum =       2430 cout = 0 
+    SUM MATCHES
+
+a =       1050 b =       1415 sum =       2465 cout = 0 
+    SUM MATCHES
+
+a =       1065 b =       1435 sum =       2500 cout = 0 
+    SUM MATCHES
+
+a =       1080 b =       1455 sum =       2535 cout = 0 
+    SUM MATCHES
+
+a =       1095 b =       1475 sum =       2570 cout = 0 
+    SUM MATCHES
+
+a =       1110 b =       1495 sum =       2605 cout = 0 
+    SUM MATCHES
+
+a =       1125 b =       1515 sum =       2640 cout = 0 
+    SUM MATCHES
+
+a =       1140 b =       1535 sum =       2675 cout = 0 
+    SUM MATCHES
+
+a =       1155 b =       1555 sum =       2710 cout = 0 
+    SUM MATCHES
+
+a =       1170 b =       1575 sum =       2745 cout = 0 
+    SUM MATCHES
+
+a =       1185 b =       1595 sum =       2780 cout = 0 
+    SUM MATCHES
+
+a =       1200 b =       1615 sum =       2815 cout = 0 
+    SUM MATCHES
+
+a =       1215 b =       1635 sum =       2850 cout = 0 
+    SUM MATCHES
+
+a =       1230 b =       1655 sum =       2885 cout = 0 
+    SUM MATCHES
+
+a =       1245 b =       1675 sum =       2920 cout = 0 
+    SUM MATCHES
+
+a =       1260 b =       1695 sum =       2955 cout = 0 
+    SUM MATCHES
+
+a =       1275 b =       1715 sum =       2990 cout = 0 
+    SUM MATCHES
+
+a =       1290 b =       1735 sum =       3025 cout = 0 
+    SUM MATCHES
+
+a =       1305 b =       1755 sum =       3060 cout = 0 
+    SUM MATCHES
+
+a =       1320 b =       1775 sum =       3095 cout = 0 
+    SUM MATCHES
+
+a =       1335 b =       1795 sum =       3130 cout = 0 
+    SUM MATCHES
+
+a =       1350 b =       1815 sum =       3165 cout = 0 
+    SUM MATCHES
+
+a =       1365 b =       1835 sum =       3200 cout = 0 
+    SUM MATCHES
+
+a =       1380 b =       1855 sum =       3235 cout = 0 
+    SUM MATCHES
+
+a =       1395 b =       1875 sum =       3270 cout = 0 
+    SUM MATCHES
+
+a =       1410 b =       1895 sum =       3305 cout = 0 
+    SUM MATCHES
+
+a =       1425 b =       1915 sum =       3340 cout = 0 
+    SUM MATCHES
+
+a =       1440 b =       1935 sum =       3375 cout = 0 
+    SUM MATCHES
+
+a =       1455 b =       1955 sum =       3410 cout = 0 
+    SUM MATCHES
+
+a =       1470 b =       1975 sum =       3445 cout = 0 
+    SUM MATCHES
+
+a =       1485 b =       1995 sum =       3480 cout = 0 
+    SUM MATCHES
+
+a =       1500 b =       2015 sum =       3515 cout = 0 
+    SUM MATCHES
+
+a =       1515 b =       2035 sum =       3550 cout = 0 
+    SUM MATCHES
+
+a =       1530 b =       2055 sum =       3585 cout = 0 
+    SUM MATCHES
+
+a =       1545 b =       2075 sum =       3620 cout = 0 
+    SUM MATCHES
+
+a =       1560 b =       2095 sum =       3655 cout = 0 
+    SUM MATCHES
+
+a =       1575 b =       2115 sum =       3690 cout = 0 
+    SUM MATCHES
+
+a =       1590 b =       2135 sum =       3725 cout = 0 
+    SUM MATCHES
+
+a =       1605 b =       2155 sum =       3760 cout = 0 
+    SUM MATCHES
+
+a =       1620 b =       2175 sum =       3795 cout = 0 
+    SUM MATCHES
+
+a =       1635 b =       2195 sum =       3830 cout = 0 
+    SUM MATCHES
+
+a =       1650 b =       2215 sum =       3865 cout = 0 
+    SUM MATCHES
+
+a =       1665 b =       2235 sum =       3900 cout = 0 
+    SUM MATCHES
+
+a =       1680 b =       2255 sum =       3935 cout = 0 
+    SUM MATCHES
+
+a =       1695 b =       2275 sum =       3970 cout = 0 
+    SUM MATCHES
+
+a =       1710 b =       2295 sum =       4005 cout = 0 
+    SUM MATCHES
+
+a =       1725 b =       2315 sum =       4040 cout = 0 
+    SUM MATCHES
+
+a =       1740 b =       2335 sum =       4075 cout = 0 
+    SUM MATCHES
+
+a =       1755 b =       2355 sum =       4110 cout = 0 
+    SUM MATCHES
+
+a =       1770 b =       2375 sum =       4145 cout = 0 
+    SUM MATCHES
+
+a =       1785 b =       2395 sum =       4180 cout = 0 
+    SUM MATCHES
+
+a =       1800 b =       2415 sum =       4215 cout = 0 
+    SUM MATCHES
+
+a =       1815 b =       2435 sum =       4250 cout = 0 
+    SUM MATCHES
+
+a =       1830 b =       2455 sum =       4285 cout = 0 
+    SUM MATCHES
+
+a =       1845 b =       2475 sum =       4320 cout = 0 
+    SUM MATCHES
+
+a =       1860 b =       2495 sum =       4355 cout = 0 
+    SUM MATCHES
+
+a =       1875 b =       2515 sum =       4390 cout = 0 
+    SUM MATCHES
+
+a =       1890 b =       2535 sum =       4425 cout = 0 
+    SUM MATCHES
+
+a =       1905 b =       2555 sum =       4460 cout = 0 
+    SUM MATCHES
+
+a =       1920 b =       2575 sum =       4495 cout = 0 
+    SUM MATCHES
+
+a =       1935 b =       2595 sum =       4530 cout = 0 
+    SUM MATCHES
+
+a =       1950 b =       2615 sum =       4565 cout = 0 
+    SUM MATCHES
+
+a =       1965 b =       2635 sum =       4600 cout = 0 
+    SUM MATCHES
+
+a =       1980 b =       2655 sum =       4635 cout = 0 
+    SUM MATCHES
+
+a =       1995 b =       2675 sum =       4670 cout = 0 
+    SUM MATCHES
+
+a =       2010 b =       2695 sum =       4705 cout = 0 
+    SUM MATCHES
+
+a =       2025 b =       2715 sum =       4740 cout = 0 
+    SUM MATCHES
+
+a =       2040 b =       2735 sum =       4775 cout = 0 
+    SUM MATCHES
+
+a =       2055 b =       2755 sum =       4810 cout = 0 
+    SUM MATCHES
+
+a =       2070 b =       2775 sum =       4845 cout = 0 
+    SUM MATCHES
+
+a =       2085 b =       2795 sum =       4880 cout = 0 
+    SUM MATCHES
+
+a =       2100 b =       2815 sum =       4915 cout = 0 
+    SUM MATCHES
+
+a =       2115 b =       2835 sum =       4950 cout = 0 
+    SUM MATCHES
+
+a =       2130 b =       2855 sum =       4985 cout = 0 
+    SUM MATCHES
+
+a =       2145 b =       2875 sum =       5020 cout = 0 
+    SUM MATCHES
+
+a =       2160 b =       2895 sum =       5055 cout = 0 
+    SUM MATCHES
+
+a =       2175 b =       2915 sum =       5090 cout = 0 
+    SUM MATCHES
+
+a =       2190 b =       2935 sum =       5125 cout = 0 
+    SUM MATCHES
+
+L49 "adder_test.v": $finish at simulation time 7400
+1 warning
+0 simulation events (use +profile or +listcounts option to count) + 6315 accelerated events
+CPU time: 0.0 secs to compile + 0.0 secs to link + 0.0 secs in simulation
+End of Tool:	VERILOG-XL	08.20.001-d   Dec  3, 2010  22:26:16
