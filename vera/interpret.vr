@@ -1,0 +1,17 @@
+#include "on_fly_modify.vr"
+
+class my_on_fly extends on_fly_modify {
+
+    integer dummy;
+    //function reg[31:0] read(reg[31:0] read_addr);
+    //function reg[31:0] write(reg[31:0] write_addr,reg[31:0] write_data);
+
+
+}
+
+program main {
+
+    my_on_fly m = new ;
+    m.run();
+    
+}

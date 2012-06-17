@@ -1,0 +1,11 @@
+
+program main {
+ string a ;
+
+ integer i=  50 ;
+
+ 
+ a = psprintf("%0dM",i);
+ printf("a =%s\n",a);
+
+}

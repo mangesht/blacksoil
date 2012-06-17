@@ -1,0 +1,49 @@
+
+virtual class parent{
+
+    virtual task walk(integer i);
+    task run(integer i);
+}
+ task parent::walk(integer i){
+    printf("Parent walking %d \n",i);
+ }
+
+task parent::run(integer i){
+     walk(i);
+    printf("Parent running %d \n",i);
+}
+
+class child extends parent{
+    integer i ;
+    task walk(integer i);
+//    task run();
+}
+
+task child::walk(integer i){
+    printf("Child cannot walk %d\n",i);
+}
+
+// task child::run(){
+//     printf("Child cannot run\n");
+// }
+
+class grand_child extends child {
+    task walk();
+}
+task grand_child::walk(){
+    printf("Grand Child cannot walk . Expectation is too much \n");
+}
+program main{
+    child c ;
+    parent p ;
+    grand_child g;
+    c = new ;
+    //p = new ;
+   
+    //g.walk();
+    // c.walk(2);
+    c.run(2);
+    // p.walk(3);
+    // p.run(3);
+    
+}

@@ -1,0 +1,29 @@
+
+task modify(var bit[2:0] a ) {
+    a = 4 ; 
+    printf("In Task modify A = %x \n",a);
+}
+
+
+program main {
+bit[1:0] tpid_1;
+bit[1:0] tpid_2;
+bit [15:0] vec;
+
+bit [4:0] cv_inst = 8;
+integer bundle = 2;
+bit[4:0] new_var = 0; 
+
+new_var = cv_inst >> bundle ;
+
+tpid_2 = 4 ; 
+printf("CV inst = %x \n",cv_inst);
+printf("New inst = %x \n",new_var);
+modify(tpid_2);
+tpid_1 = tpid_2 ; 
+printf(" tpid_1 =  %x \n",tpid_1);
+printf(" tpid_2 =  %x \n",tpid_2);
+vec = 0; 
+vec |= tpid_1 << 0 ;
+printf("vector = %x \n",vec);
+}

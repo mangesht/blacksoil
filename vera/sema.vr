@@ -1,0 +1,46 @@
+#include <vera_defines.vrh>
+class gen { 
+    local reg[2:0] bit_field_a;
+    
+    static integer gu=alloc(SEMAPHORE, 0,1,2);
+    
+    task m1() { 
+        printf("The value of guard %0d, in gen\n", gu); 
+    } 
+    task new() { 
+        bit_field_a = random(); 
+    } 
+}
+
+
+program main { 
+    integer i, j; 
+    gen g1, g2, g3; 
+    printf("This is program test beginning.\n");
+    g1=new();
+    g2=new();
+    g3=new();
+    printf("The gnd in main %0d %0d %0d\n",g1.gu, g2.gu, g3.gu);
+        printf("This is g0 semaphore_get at cycle %0d\n", get_cycle());
+    fork { 
+        @(posedge CLOCK);
+        semaphore_get(WAIT, g1.gu, 1);
+        printf("This is g1 semaphore_get at cycle %0d\n", get_cycle());
+        repeat (2) @(posedge CLOCK);
+        semaphore_put(g1.gu, 1);
+    } 
+    { 
+        @(posedge CLOCK);
+        semaphore_get(WAIT, g2.gu, 1);
+        printf("This is g2 semaphore_get at cycle %0d\n", get_cycle());
+        repeat (2) @(posedge CLOCK);
+        semaphore_put(g2.gu, 1);
+    } 
+    { 
+        @(posedge CLOCK);
+        semaphore_get(WAIT, g3.gu, 1);
+        printf("This is g3 semaphore_get at cycle %0d\n", get_cycle());
+        repeat (2) @(posedge CLOCK);
+        semaphore_put(g3.gu, 1);
+    } join all 
+}

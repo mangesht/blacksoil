@@ -1,0 +1,29 @@
+
+program main {
+{
+shadow integer i ; 
+    for(i=0;i<10;i++){
+        fork 
+            my_i(i);
+         join none 
+         //suspend_thread();
+    }
+
+    fork 
+    {
+        my_i(25);
+        printf("25 done \n");
+    }
+    {
+        my_i(26);
+        printf("26 done \n");
+    }
+    join any 
+    suspend_thread();
+    printf("Tasks finished \n");
+}
+}
+task my_i(integer j){
+
+    printf(" This is my i = %d \n",j);
+} 

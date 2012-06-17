@@ -1,0 +1,88 @@
+#include <vera_defines.vrh>
+#include "str_lib.vr"
+
+virtual class on_fly_modify{
+    integer fh;
+    integer out_fh;
+    string line ;
+    string word_a[$];
+
+    task run();
+    function reg[31:0] read(reg[31:0] read_addr);
+    function reg[31:0] write(reg[31:0] write_addr,reg[31:0] write_data);
+}
+
+task on_fly_modify::run() {
+    bit cont = 1 ; 
+    while(cont) {
+    delay(1000);
+    fh = fopen("order.txt","rw",SILENT);
+    if(!fh){
+        printf("Could not open file order.txt\n");
+        delay(1000);
+        continue;
+    }else{
+        printf(" open file order.txt successful\n");
+    }
+
+    // Open the file for output 
+    out_fh = fopen("output.txt","a",SILENT);
+    if(!out_fh){
+        printf("Could not open output.txt\n");
+        out_fh = fopen("output.txt","w",SILENT);
+        if(!out_fh){
+            error("Could not open output.txt\n");
+        }
+
+    }
+    
+    line = freadstr(fh,SILENT);
+    
+
+    while(line.len()>0) {
+        integer num;
+        
+        get_strs(line,word_a);
+        printf("Number of arguments= %d A = %sEnd In Data str = %sEnd \n",num , line,word_a[0]);
+        case(word_a[0]){
+            "exit" :{ cont = 0 ; 
+                    printf("Exiting the loops \n");
+                    }
+             "read" :{
+                        integer read_addr;
+                        if(word_a.size()<2){
+                            error("Insufficient parameters for %sEnd\n",word_a[0]);
+                        }
+                        //sscanf(read_addr , "%h",word_a[1]);
+                        read_addr=word_a[1].atohex();
+                        printf("Read addr = %xEnd \n",read_addr);
+                        fprintf(out_fh,"%s \n Output = %h \n",line,read());
+                    }
+             default : {
+                        // No default 
+                    } 
+        } 
+        line = freadstr(fh,SILENT);
+    }
+    fclose(fh);
+    fclose(out_fh);
+    delay(1000);
+    }
+    // Clean file contents
+    fh = fopen("order.txt","w",SILENT);
+    if(!fh){
+        printf("1 Could not open file order.txt\n");
+        delay(1000);
+        return;
+    }
+    
+    fprintf(fh,"");
+    fclose(fh);
+    
+}
+
+function on_fly_modify::reg[31:0] read(){
+    read = 'h1234_5678;
+}
+
+

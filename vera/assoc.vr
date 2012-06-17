@@ -1,0 +1,25 @@
+#include <vera_defines.vrh>
+program main{
+integer dob [string];
+string k;
+bit ret_val;
+printf("Number of elements = %d \n",assoc_index(CHECK,dob));
+dob["mangesh"] = 1981;
+dob["rupesh"] = 1983;
+dob["shweta"] = 1986;
+
+printf("DOB for mangesh = %d \n",dob["mangesh"]);
+printf("Number of elements = %d \n",assoc_index(CHECK,dob));
+
+ret_val = assoc_index(FIRST,dob,k);
+printf("First Element =%s  dob = %d \n", k , dob[k] );
+if(ret_val){
+    while(assoc_index(NEXT,dob,k)){
+        printf("Other Element =%s  dob = %d \n", k , dob[k] );
+    }
+}else{
+    printf("Array empty\n");
+}
+
+
+}

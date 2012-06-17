@@ -1,0 +1,13 @@
+
+program main{
+bit [32:0] b ; 
+integer i;
+
+//b = 'b1000_0001;
+b = -1;
+
+i = b ;
+
+printf("b = %b i = %d \n",b , i );
+
+}
