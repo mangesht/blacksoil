@@ -1,7 +1,7 @@
 #!/bin/sh 
 username=mthakare
 diskth=95
-#mailsto=mthakare@cortina-systems.com,sysadmin-india@cortina-systems.com
+#mailsto=mthakare@gmail.com,sysadmin-india@gmail.com
 time_interval=1200
 usep=10
 while [ $diskth > 0 ] 
@@ -26,8 +26,8 @@ if [ $active_jobs -ge 0 ] ; then
         ls -al /work/$output | awk '{print $3 }' | grep -v root | while read user;
         do 
            if [ "$user" != "" ]; then 
-            mailsto=mthakare@cortina-systems.com,sysadmin-india@cortina-systems.com
-            mailsto=$mailsto,$user@cortina-systems.com 
+            mailsto=mthakare@gmail.com,sysadmin-india@gmail.com
+            mailsto=$mailsto,$user@gmail.com 
             echo "Running out of space \" $dp% \" on $output as on $(date)" | 
             mail -s "Alert: Almost out of disk space $dp%" $mailsto
             echo "Out " $mailsto
