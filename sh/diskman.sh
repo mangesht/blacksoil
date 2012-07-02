@@ -1,8 +1,8 @@
 #!/bin/sh 
 diskname='/work/ins072'
 diskth=10
-mailsto=mthakare@cortina-systems.com
-# Author : mthakare@cortina-systems.com
+mailsto=mthakare@gmail.com
+# Author : mthakare@gmail.com
 # Disclaimer : Touch the part below at your Own risk 
 # Auther Does not take any guarantee / warranty of the utility. Any service request should not be raised to Author.
 # Copyleft : You are free to use, distribute, change the contents or do what ever you wish...
