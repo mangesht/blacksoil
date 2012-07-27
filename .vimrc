@@ -3,6 +3,9 @@ set expandtab
 set ts=4
 set autoindent
 set hlsearch
+:syntax on
+:set syn=systemverilog
+au BUfRead,BufNewFile *.sv,*.svh set syntax=systemverilog
 if has("gui_running")
   echo "Gui running"
    if has("gui_gtk2")
