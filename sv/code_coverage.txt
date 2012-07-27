@@ -1,0 +1,21 @@
+You need to create cov.conf ie. coverage configutation file
+cov.conf looks like 
+---------------------------------
+set_expr_scoring -sop -all
+set_expr_coverable_operators -all
+set_fsm_scoring -hold_transition
+set_branch_scoring
+select_functional
+select_coverage -bef -module dut*
+----------------------------------
+
+In the irun command use following parameters 
+-covtest testname +nccoverage+F +nccovfile+cov.conf 
+
+For viewing coverage you may use
+nc -Is imc
+Or iccr 
+
+For merging use merge test_path/testname* -output cov_all/test_all
+
+
