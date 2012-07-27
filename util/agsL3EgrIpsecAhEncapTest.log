@@ -1,0 +1,1061 @@
+
+Error-[UCLI-020] Tool initialization error
+Internal error with tool initialization. null
+If problem persists, please report this error to a Synopsys representative.
+
+Notice: timing checks disabled with +notimingcheck at compile-time
+Chronologic VCS simulator copyright 1991-2009
+Contains Synopsys proprietary information.
+Compiler version D-2009.12-3; Runtime version D-2009.12-3;  Apr 16 03:04 2010
+registry: register 0xc541ea0: void: UpsStateInst
+registry: register 0xc58a1e8: void: UpsStateInst
+registry: register 0xc5d24b0: void: UpsStateInst
+
+Warning: (W505) object already exists: scTop.agsRefMdlWrapperInst.internalOutputPort. Latter declaration will be renamed to scTop.agsRefMdlWrapperInst.internalOutputPort_0
+In file: ../../../../src/sysc/kernel/sc_object.cpp:197
+registry: register 0xc58a1d0:  void: agsRefMdlInst
+DEBUG JP : In Constructor(agsWrapper) : value of agsRmsState is 0xc541ea0 
+DEBUG JP : In Constructor(agsWrapper) : value of agsRefMdlInst is 0xc58a1d0 
+registry: register 0xc53eed0:  void: agsRefMdlWrapperInst
+registry: register 0x99cf630:  void: agsRefMdl2EnvTxPortRxAdapterInst
+registry: register 0x99d4a30:  void: agsRefMdl2EnvSbbTxPortRxAdapterInst
+top.UpsAgsL3EgrTop_u.UpsAgsL3EncTop.UpsAgsL3EncAuth.xgcm_gfm128x128_inst_0:$Header: /nfs/gsg-asic/cvsroot/argus/design/lib/rtl/localIpTemplate/gcm/xgcm_gfm128x128.v,v 1.1 2010/03/05 10:10:41 sumsangh Exp $
+top.UpsAgsL3EgrTop_u.UpsAgsL3EncTop.UpsAgsL3EncAuth.xgcm_gfm128x128_inst_1:$Header: /nfs/gsg-asic/cvsroot/argus/design/lib/rtl/localIpTemplate/gcm/xgcm_gfm128x128.v,v 1.1 2010/03/05 10:10:41 sumsangh Exp $
+top.UpsAgsL3EgrTop_u.UpsAgsL3EncTop.UpsAgsL3EncAuth.xgcm_gfm128x128_inst_2:$Header: /nfs/gsg-asic/cvsroot/argus/design/lib/rtl/localIpTemplate/gcm/xgcm_gfm128x128.v,v 1.1 2010/03/05 10:10:41 sumsangh Exp $
+Warning! From $vcdpluson at time 0 in file /auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/upsEgrTop.sv line 68: [VCD+-NOSC]: 
+$vcdpluson is not supported for SystemC objects. Please use the UCLI synopsys::dump command for tracing SystemC objects.
+VCD+ Writer D-2009.12-3 Copyright 2009 Synopsys Inc.
+Normal[NOTE] on AgsL3EgrIpsecAhEncapTestEnv() at          0.000 ns:
+Initial random seed is 1
+[32mNORMAL[0m[NOTE] on RAL(Block/Sys) at          0.000 ns:
+topRalCallbacks.sv 7095 : Starting RAL/RMS hookup
+[32mNORMAL[0m[NOTE] on RAL(Block/Sys) at          0.000 ns:
+topRalCallbacks.sv 8088 : Finish RAL/RMS hookup
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv, 489
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at         95.999 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv 623 : Exiting cfg_dut method
+l3Prot  l3CmdProt : 63
+l3Prot  l3CtsProt : cf
+l3Prot  ipSecAhProt : f7
+l3Prot  ipSecEspProt : df
+getupssate called from egrrefmdl shekhar [32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at         95.999 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv 628 : Entering cfg_dut method
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at         95.999 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 267 : checkAckTimeout started
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at         98.990 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 0000c128 data = 0000000063cff7df moduleId=0
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        206.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv 652 : Entering stop
+Starting SBB RXBFMs
+Starting Stat RXBFMs
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        206.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEnv.sv 641 : Entered in wait for end
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsFlowGenerator.sv, 22
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsFlowGenerator.sv, 22
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsFlowGenerator.sv, 22
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+
+Warning-[CNST-PPRW] Constraint randomize NULL object warning
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsFlowGenerator.sv, 22
+Null object found during randomization.
+Please make sure all random variables/arrays/function calls being randomized
+are allocated fully and properly.
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        209.916 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsTxBfm.sv 131 : Entered in TXBFM txCycles task
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        406.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsSetupUtil.sv 210 : 
+Flow Configuration: ==============================================
+Flow ID             = 1
+SA index            = 1420
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        406.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsSetupUtil.sv 214 : 
+shekhar Configuring EART 
+
+eluEartData  sciL2OrIvSpiL3 : 9254868581b3f303
+eluEartData.frameAction  egrAction : 2
+eluEartData.byteCntActionMask  egrAction : 0
+eluEartData.secProtocol  securityProtocol : 2
+eluEartData  seqNumThresholdPtr : 5
+eluEartData  encapsulate : 1
+eluEartData  encrypt : 1
+eluEartData  authenticate : 1
+eluEartData.replayModeDtlsVer.AgsL3_EartReplayMode  replayMode : 1
+eluEartData  secProcessType : 1
+shekhar from callback idx 1420 wdat 492a4342c0d9f981c57b 
+getupssate called from egrrefmdl shekhar [32mNORMAL[0m[NOTE] on RAL(memory) at        406.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/k15RalAdj.sv 40 : Invoking AOP modified version of vmm_ral_mem::write()
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        406.919 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          0 adjustedAddress = 0000b618
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        407.954 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 0000b618 data = 000000000000492a moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        512.898 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          1 adjustedAddress = 0000b619
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        515.909 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 0000b619 data = 492a4342c0d9f981c57b moduleId=0
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        620.960 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsSetupUtil.sv 218 : 
+Configuring ERT 
+
+eluErtData.entryData.l3Ert.esnErtEntry  sequenceNumber : 66d9a166dff7365
+getupssate called from egrrefmdl shekhar [32mNORMAL[0m[NOTE] on RAL(memory) at        620.960 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/k15RalAdj.sv 40 : Invoking AOP modified version of vmm_ral_mem::write()
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        620.960 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          0 adjustedAddress = 0000a118
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        623.936 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 0000a118 data = 0000000000000000 moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        728.998 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          1 adjustedAddress = 0000a119
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        731.998 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 0000a119 data = 066d9a166dff7365 moduleId=0
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at        836.915 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsSetupUtil.sv 222 : 
+Configuring EAKY
+
+encEaky  EncEakyEntry : 12054357914241b3d74c9a2677277a66
+getupssate called from egrrefmdl shekhar [32mNORMAL[0m[NOTE] on RAL(memory) at        836.915 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/k15RalAdj.sv 40 : Invoking AOP modified version of vmm_ral_mem::write()
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        836.915 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          0 adjustedAddress = 00011750
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        839.921 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00011750 data = 0000000000000000 moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        941.993 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          1 adjustedAddress = 00011751
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at        944.990 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00011751 data = 12054357914241b3 moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1046.981 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          2 adjustedAddress = 00011752
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1049.987 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00011752 data = 12054357914241b3d74c9a2677277a66 moduleId=0
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1152.049 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsSetupUtil.sv 226 : 
+Configuring EHKY
+
+encEhky  EncEhkyEntry : 62319534f69a28f50c93693be1136342
+getupssate called from egrrefmdl shekhar [32mNORMAL[0m[NOTE] on RAL(memory) at       1152.049 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/k15RalAdj.sv 40 : Invoking AOP modified version of vmm_ral_mem::write()
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1152.049 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          0 adjustedAddress = 00013830
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1155.039 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00013830 data = 0000000000000000 moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1257.025 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          1 adjustedAddress = 00013831
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1260.041 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00013831 data = 62319534f69a28f5 moduleId=0
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1362.069 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 184 : entryIndex =       1420 wordIndex =          2 adjustedAddress = 00013832
+[32mNORMAL[0m[NOTE] on AgsCpuBfm(agsCpuBfm) at       1365.060 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/k15DvCommon/sv/src/cimRingBfm.sv 236 : Executing WRITE addr = 00013832 data = 62319534f69a28f50c93693be1136342 moduleId=0
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketGenerator.sv 62 : Packet Configuration 
+
+PKT FORMAT ::Eth->Ipv4->L3Cmd->Payload->END
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketGenerator.sv 65 : Packet Info 
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketInfo.sv 152 : 
+: dataId = 585 channelId = 0 userDefinedId = 0
+
+pktId = 7650
+preamble = 083271c7a73de776
+
+portId= 29
+ssId = 58c
+packetErr = 0
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 71 : start to configure packet configuration
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 75 : info: got Eth
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 75 : info: got Ipv4
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 75 : info: got L3Cmd
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 75 : info: got Payload
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 307 : start to set packet configuration
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 311 : agspkt_class set_pkt_cfg :seg_name=1
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 311 : agspkt_class set_pkt_cfg :seg_name=3
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 311 : agspkt_class set_pkt_cfg :seg_name=35
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacket.sv 311 : agspkt_class set_pkt_cfg :seg_name=47
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketGenerator.sv 242 : prePktGenGenDataCallBack 
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1466.963 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketGenerator.sv 246 : postPktGenGenDataCallBack 
+
+svpl:          0  1  2  3   4  5  6  7 
+svpl:  
+svpl:    0:   b1 c1 3a 30  b6 b9 3e 1f
+svpl:    8:   a8 50 f4 26  08 00 4b 89
+svpl:   16:   00 e9 bc 1f  38 e9 7f 99
+svpl:   24:   ef dd e8 50  98 b3 4d 1e
+svpl:   32:   3e 93 bf ad  6c 42 34 8e
+svpl:   40:   4c 5f 00 78  68 ef 48 ca
+svpl:   48:   95 09 7f d0  70 d8 c7 d6
+svpl:   56:   95 be 93 0e  01 ed af 3f
+svpl:   64:   ff ff ff ff  ff ff ff ff
+svpl:   72:   ff ff ff ff  ff ff ff ff
+svpl:   80:   ff ff b5 09  0c 6a 0b 9f
+svpl:   88:   8f 87 95 9d  ff ff ff ff
+svpl:   96:   ff ff ff ff  ff ff ff ff
+svpl:  104:   ff ff a8 ab  ce 51 33 a2
+svpl:  112:   00 00 63 e6  39 c7 2b 67
+svpl:  120:   31 14 ef c5  75 d2 51 7e
+svpl:  128:   6e 75 09 ab  f7 a6 2b 27
+svpl:  136:   0c 79 22 fc  c0 e4 e2 7a
+svpl:  144:   6e b6 b8 6d  ea ab 4b af
+svpl:  152:   fe 38 10 d8  e6 19 e1 68
+svpl:  160:   2f 53 d0 c0  0e 11 70 61
+svpl:  168:   6e b4 bb d0  65 98 d0 81
+svpl:  176:   ef a4 e5 36  3b 69 7b c4
+svpl:  184:   2a ae b8 b6  ce 6b 0a a0
+svpl:  192:   6e a7 21 c3  c4 c9 69 01
+svpl:  200:   2e e9 95 2d  f4 75 40 74
+svpl:  208:   ab d0 dc d1  4a bc fb b5
+svpl:  216:   18 f8 9e 3c  ac 79 6f 3d
+svpl:  224:   1f 00 dc c6  03 5b df f7
+svpl:  232:   ff c0 01 c0  de 00 00 00
+svpl:  240:   00 00 01 c0  01 c0 de 31
+svpl:  248:   1f e6 b0                
+
+svpl:          0  1  2  3   4  5  6  7 
+svpl:  
+svpl:    0:   b1 c1 3a 30  b6 b9 3e 1f
+svpl:    8:   a8 50 f4 26  08 00 4b 89
+svpl:   16:   00 e9 bc 1f  38 e9 7f 99
+svpl:   24:   ef dd e8 50  98 b3 4d 1e
+svpl:   32:   3e 93 bf ad  6c 42 34 8e
+svpl:   40:   4c 5f 00 78  68 ef 48 ca
+svpl:   48:   95 09 7f d0  70 d8 c7 d6
+svpl:   56:   95 be 93 0e  01 ed af 3f
+svpl:   64:   ff ff ff ff  ff ff ff ff
+svpl:   72:   ff ff ff ff  ff ff ff ff
+svpl:   80:   ff ff b5 09  0c 6a 0b 9f
+svpl:   88:   8f 87 95 9d  ff ff ff ff
+svpl:   96:   ff ff ff ff  ff ff ff ff
+svpl:  104:   ff ff a8 ab  ce 51 33 a2
+svpl:  112:   00 00 63 e6  39 c7 2b 67
+svpl:  120:   31 14 ef c5  75 d2 51 7e
+svpl:  128:   6e 75 09 ab  f7 a6 2b 27
+svpl:  136:   0c 79 22 fc  c0 e4 e2 7a
+svpl:  144:   6e b6 b8 6d  ea ab 4b af
+svpl:  152:   fe 38 10 d8  e6 19 e1 68
+svpl:  160:   2f 53 d0 c0  0e 11 70 61
+svpl:  168:   6e b4 bb d0  65 98 d0 81
+svpl:  176:   ef a4 e5 36  3b 69 7b c4
+svpl:  184:   2a ae b8 b6  ce 6b 0a a0
+svpl:  192:   6e a7 21 c3  c4 c9 69 01
+svpl:  200:   2e e9 95 2d  f4 75 40 74
+svpl:  208:   ab d0 dc d1  4a bc fb b5
+svpl:  216:   18 f8 9e 3c  ac 79 6f 3d
+svpl:  224:   1f 00 dc c6  03 5b df f7
+svpl:  232:   ff c0 01 c0  de 00 00 00
+svpl:  240:   00 00 01 c0  01 c0 de 31
+svpl:  248:   1f e6 b0                
+
+svpl_cts: frame_length = [DEC] 251 chop_len = [DEC] 148 chop = [DEC] 0 l2_pad=[DEC] 0 
+
+svpl_cts: Encrypt = 0	 Authenticate = 0	 Skip_IV = 0	
+
+svpl_cts: enc_start = [DEC] 0	 auth_start = [DEC] 0	
+
+svpl_cts: L3 : iv_offset = 0x 1e38baaa
+
+svpl_cts: L2 : mac_sa=0x 0	tci_an=0x 0	pn=0x 0	sci=0x 0
+
+svpl_cts: L2 : use_sci=[DEC] 0	user_sci=0x 0
+
+svpl_cts: key = 0x 8b337c0f1b7bf9887935842909e778c4	iv=0x 0
+
+svpl: eth[0]: da       = b1c13a30b6b9
+svpl: eth[0]: sa       = 3e1fa850f426
+svpl: eth[0]: eth_type = 0800
+svpl_ipv4[0]: version	4	header_length	b	tos		89
+svpl_ipv4[0]: tot_len	00e9	id		bc1f	reserved	0
+svpl_ipv4[0]: df	0	mf		1	fragment_offset	18e9
+svpl_ipv4[0]: ttl	7f	protocol	99	checksum	efdd
+svpl_ipv4[0]: ip_sa	e85098b3
+svpl_ipv4[0]: ip_da	4d1e3e93
+svpl_l3cmd[0]: nxt_hdr	93	version	01	hdr_len	0e	rsvd	ed
+svpl_l3cmd[0]: opt_len[0]	5	opt_type[0]	0f3f	opt_data[0]	ffffffffffffffffffffffffffffffffffffffffffffffffffffb5090c6a
+svpl_l3cmd[0]: opt_len[1]	0	opt_type[1]	0b9f	opt_data[1]	000000000000000000000000000000000000000000000000000043aa8f87
+svpl_l3cmd[0]: opt_len[2]	4	opt_type[2]	159d	opt_data[2]	ffffffffffffffffffffffffffffffffffffffffffffffffffffa8abce51
+svpl_l3cmd[0]: opt_len[3]	1	opt_type[3]	13a2	opt_data[3]	000000000000000000000000000000000000000000000000000063e639c7
+svpl_data: Payload Data Length = 129
+
+svpl_data: User length     = 14
+svpl_data: Fill payload    = RND
+svpl_data: Payload pattern = c0
+svpl: eth[0]: crc      = 311fe6b0
+svpl_cts: Recomputed ipv4 checksum = 0
+
+svpl:          0  1  2  3   4  5  6  7 
+svpl:  
+svpl:    0:   b1 c1 3a 30  b6 b9 3e 1f
+svpl:    8:   a8 50 f4 26  08 00 4b 89
+svpl:   16:   00 e9 bc 1f  38 e9 7f 99
+svpl:   24:   ef dd e8 50  98 b3 4d 1e
+svpl:   32:   3e 93 bf ad  6c 42 34 8e
+svpl:   40:   4c 5f 00 78  68 ef 48 ca
+svpl:   48:   95 09 7f d0  70 d8 c7 d6
+svpl:   56:   95 be 93 0e  01 ed af 3f
+svpl:   64:   ff ff ff ff  ff ff ff ff
+svpl:   72:   ff ff ff ff  ff ff ff ff
+svpl:   80:   ff ff b5 09  0c 6a 0b 9f
+svpl:   88:   8f 87 95 9d  ff ff ff ff
+svpl:   96:   ff ff ff ff  ff ff ff ff
+svpl:  104:   ff ff a8 ab  ce 51 33 a2
+svpl:  112:   00 00 63 e6  39 c7 2b 67
+svpl:  120:   31 14 ef c5  75 d2 51 7e
+svpl:  128:   6e 75 09 ab  f7 a6 2b 27
+svpl:  136:   0c 79 22 fc  c0 e4 e2 7a
+svpl:  144:   6e b6 b8 6d  ea ab 4b af
+svpl:  152:   fe 38 10 d8  e6 19 e1 68
+svpl:  160:   2f 53 d0 c0  0e 11 70 61
+svpl:  168:   6e b4 bb d0  65 98 d0 81
+svpl:  176:   ef a4 e5 36  3b 69 7b c4
+svpl:  184:   2a ae b8 b6  ce 6b 0a a0
+svpl:  192:   6e a7 21 c3  c4 c9 69 01
+svpl:  200:   2e e9 95 2d  f4 75 40 74
+svpl:  208:   ab d0 dc d1  4a bc fb b5
+svpl:  216:   18 f8 9e 3c  ac 79 6f 3d
+svpl:  224:   1f 00 dc c6  03 5b df f7
+svpl:  232:   ff c0 01 c0  de 00 00 00
+svpl:  240:   00 00 01 c0  01 c0 de 31
+svpl:  248:   1f e6 b0                
+
+agsParseBusGen sysRxExceptionPkt        : 0
+agsParseBusGen sysParseDone             : 1
+agsParseBusGen sysCmdVld                : 1
+agsParseBusGen sysIpv4ProtV6NxtHdr      : 99
+agsParseBusGen sysIpv4TotLenV6PayldLen  : e9
+agsParseBusGen sysOfstIpHdr             : e
+agsParseBusGen sysOfstAuth              : 0
+agsParseBusGen sysOfstEncr              : 0
+agsParseBusGen sysOfstAT                : 0
+agsParseBusGen sysSeqNum                : 0
+agsParseBusGen sysInitVec               : 0
+agsParseBusGen sysOfstAtVld             : 0
+agsParseBusGen sysOfstSecHdr            : 3a
+agsParseBusGen sysAhVld                 : 0
+agsParseBusGen sysIpv4Vld               : 1
+agsParseBusGen sysIpv6Vld               : 0
+agsParseBusGen sysIpv6ExtnHdrVld        : 0
+agsParseBusGen sysIpv6ExtnHdrNxtHdr     : 0
+agsParseBusGen sysOfstIpv6ExtnHdrNxtHdr : 0
+agsParseBusGen sysEspVld                : 0
+agsParseBusGen sysDtlsVld               : 0
+agsParseBusGen sysOfstL4Hdr             : 0
+agsParseBusGen sysL4Len                 : 0
+agsParseBusGen sysUdpVld                : 0
+agsParseBusGen sysDtlsNonAppType        : 0
+agsParseBusGen sysDtlsVer               : 0
+agsDrvr2RefMdlPktPush() gets called in C++
+C++ input pkt is b1c13a30b6b93e1fa850f42608004b8900e9bc1f38e97f99efdde85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+C++ input scIngress0Egress1  is 0 and portNumberIn is 0
+C++ input pkt is:b1c13a30b6b93e1fa850f42608004b8900e9bc1f38e97f99efdde85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de:
+MANISH: Incoming Pkt string 0xb1c13a30b6b93e1fa850f42608004b8900e9bc1f38e97f99efdde85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de 
+shekhar value of tempCheck register = 63
+shekhar value of tempCheck register = cf
+shekhar value of tempCheck register = f7
+shekhar value of tempCheck register = df
+agsRefMdlEgress :: packetLength = [DEC]247
+agsRefMdlEgress ::  Packet before processing ***
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 247 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b8900e9bc1f38e97f99efdde85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+
+
+----------------------------------------------------------------
+agsEgrRefMdl :: PRINTING ARGUS PARSELESS BUS FIELDS 
+----------------------------------------------------------------
+agsEgrRefMdl ::  sysAgsEgrPortNum=  [DEC]0 
+agsEgrRefMdl ::  sysAgsEgrPktErr=  [DEC]0 
+agsEgrRefMdl ::  sysAgsEgrPreamb=  0x 0xffffffff9abcdef0 
+agsEgrRefMdl ::  sysAgsEgrSecSessId=  0x 58c 
+agsEgrRefMdl :: portNum=  [DEC]0 
+agsEgrRefMdl :: parseDone=  [DEC]1 
+agsEgrRefMdl :: ssid=  DECIMAL : [DEC]1420 
+agsEgrRefMdl :: pktHasIpv4=  [DEC]1 
+agsEgrRefMdl :: pktHasIpv6=  [DEC]0 
+agsEgrRefMdl :: ipLength=  [DEC]233 
+agsEgrRefMdl :: ipNextHeader=  0x 99 
+agsEgrRefMdl ::  ipV6ExtensionHdrNextHeader=  0x 0 
+agsEgrRefMdl :: pktHasL3CMD=  [DEC]1 
+agsEgrRefMdl :: pktHasUdp=  [DEC]0 
+agsEgrRefMdl :: L4TotalLength=  [DEC]0 
+agsEgrRefMdl :: DtlsNonAppType=  [DEC]0 
+agsEgrRefMdl :: Offset2IpHeader=  [DEC]14 
+agsEgrRefMdl :: Offset2L3SecHdr=  [DEC]58 
+agsEgrRefMdl :: Offset2V6ExtensionHdrNextHeader=  [DEC]0 
+agsEgrRefMdl :: V6ExtensionHdrVld=  [DEC]3 
+agsEgrRefMdl :: Offset2L4Hdr=  [DEC]0 
+agsEgrRefMdl :: Error_Pkt=  [DEC]0 
+----------------------------------------------------------------
+
+
+
+----------------------------------------------------------------
+agsEgrRefMdl :: PRINTING EART ENTRY . INDEX = [DEC]1420 
+----------------------------------------------------------------
+agsEgrRefMdl :: Authenticate =  0x 1 
+agsEgrRefMdl ::  replayMode   =  0x 1 
+agsEgrRefMdl :: sciL2OrIvSpiL3.    =  0x 0x9254868581b3f303 
+agsEgrRefMdl :: FrameAction    =  0x 2 
+agsEgrRefMdl :: byteCntActionMask    =  0x 0 
+agsEgrRefMdl :: secProtocol   =  0x 2 
+agsEgrRefMdl :: seqNumThresholdPtr     =  0x 5 
+agsEgrRefMdl :: encapsulate   =  0x 1 
+agsEgrRefMdl :: encrypt    =  0x 1 
+agsEgrRefMdl :: authenticate    =  0x 1 
+agsEgrRefMdl :: secProcessType    =  0x 1 
+----------------------------------------------------------------
+
+
+
+----------------------------------------------------------------
+agsEgrRefMdl :: PRINTING ERT ENTRY . INDEX = [DEC]1420 
+----------------------------------------------------------------
+agsEgrRefMdl :: confidentialOffset =  0x 0 
+agsEgrRefMdl :: tciAn =  0x 0 
+agsEgrRefMdl :: sequenceNumberRsn =  0x 0 
+agsEgrRefMdl :: sequenceNumberEsn =  0x 0 
+agsEgrRefMdl :: sequenceNumberDtls=  0x 0 
+agsEgrRefMdl :: senderId =  0x 0 
+agsEgrRefMdl :: timeStampPtr =  0x 0 
+agsEgrRefMdl :: epoch =  0x 0 
+----------------------------------------------------------------
+
+agsEgrRefMdl : UltimateFrameAction = [DEC]3 
+
+
+agsRefMdlEgress :  ---------------------------------------------------------------------  
+agsRefMdlEgress :  EGRESS LOOK UP RESULTS  
+agsRefMdlEgress :  ---------------------------------------------------------------------  
+agsRefMdlEgress :eltHit = 0
+agsRefMdlEgress :EltLookupDone = 0
+agsRefMdlEgress :esatIndexValid = 1
+agsRefMdlEgress :eltIndex = 0
+agsRefMdlEgress :esatIndex = 0
+agsRefMdlEgress :ActionTableIndex = DEC 1420
+agsRefMdlEgress :pktIsSecure = 0
+agsRefMdlEgress :pktIsException = 0
+agsRefMdlEgress :pktHasSequenceNumberSaturated = 0
+agsRefMdlEgress :result.frameAction = 3
+agsRefMdlEgress :result.whichFrameActionUsed = 2
+agsRefMdlEgress :  ---------------------------------------------------------------------  
+
+
+agsRefMdlEgress :: INIT VALUE OF REWRITE ACTIONS
+
+
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl :: ------------------EGRESS REWRITE ACTION RESULTS ------------------ 
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl ::  pktLengthBeforeRewrite = [DEC]247  
+agsEgrRefMdl ::  pktLengthAfterRewrite= [DEC]0  
+agsEgrRefMdl ::  encryptionPaddingAdded= 0x 0  
+agsEgrRefMdl ::  numBytesEncryptionPadding= 0x 0  
+agsEgrRefMdl ::  pktLengthHasIncreased= 0x 0  
+agsEgrRefMdl ::  pktLengthHasDecreased= 0x 0  
+agsEgrRefMdl ::  netChangeInPktlength= [DEC]0  
+agsEgrRefMdl ::  layer2PaddingIsAdded= 0x 0  
+agsEgrRefMdl ::  numBytesLayer2Padding= [DEC]0  
+agsEgrRefMdl ::  pktIsTruncated= 0x 0  
+agsEgrRefMdl ::  numBytesTruncated= [DEC]0  
+agsEgrRefMdl ::  Offset2Encryption= [DEC]0  
+agsEgrRefMdl ::  Offset2Authentication= [DEC]0  
+agsEgrRefMdl ::  action_AddV4Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV6Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV4Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV6Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV4Ah= 0x 0  
+agsEgrRefMdl ::  action_AddV6Ah= 0x 0  
+agsEgrRefMdl ::  action_AddDtls= 0x 0  
+agsEgrRefMdl ::  action_UpdateDtls= 0x 0  
+agsEgrRefMdl ::  action_AddCmd= 0x 0  
+agsEgrRefMdl ::  action_AddPstInCmd= 0x 0  
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwHeader.addData   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwTrailor.addData  =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCMD.addData   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateTotalLength =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateCheckSum =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateProtocol =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCmdHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateEpoch   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateSequenceNumber   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateIV   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+
+
+agsEgrRefMdl :: GENERATING REWRITE ACTIONS :  FrameAction = 3 , SecProcessType = 1 , secProtocol  = 2 , V4 = 1 
+agsEgrRefMdl :: SOme ENUM : process = 3, layer3i = 1 ,stdesp= 1  agsRefMdlEgress :: PRINTING CALCULATED VALUE OF REWRITE ACTIONS 
+agsRefMdlEgress :: RewriteActions: CALCULATED CHANGE IN PKT LENGTH = [DEC]36 
+
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl :: ------------------EGRESS REWRITE ACTION RESULTS ------------------ 
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl ::  pktLengthBeforeRewrite = [DEC]247  
+agsEgrRefMdl ::  pktLengthAfterRewrite= [DEC]283  
+agsEgrRefMdl ::  encryptionPaddingAdded= 0x 0  
+agsEgrRefMdl ::  numBytesEncryptionPadding= 0x 0  
+agsEgrRefMdl ::  pktLengthHasIncreased= 0x 1  
+agsEgrRefMdl ::  pktLengthHasDecreased= 0x 0  
+agsEgrRefMdl ::  netChangeInPktlength= [DEC]36  
+agsEgrRefMdl ::  layer2PaddingIsAdded= 0x 0  
+agsEgrRefMdl ::  numBytesLayer2Padding= [DEC]0  
+agsEgrRefMdl ::  pktIsTruncated= 0x 0  
+agsEgrRefMdl ::  numBytesTruncated= [DEC]0  
+agsEgrRefMdl ::  Offset2Encryption= [DEC]-1  
+agsEgrRefMdl ::  Offset2Authentication= [DEC]14  
+agsEgrRefMdl ::  action_AddV4Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV6Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV4Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV6Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV4Ah= 0x 1  
+agsEgrRefMdl ::  action_AddV6Ah= 0x 0  
+agsEgrRefMdl ::  action_AddDtls= 0x 0  
+agsEgrRefMdl ::  action_UpdateDtls= 0x 0  
+agsEgrRefMdl ::  action_AddCmd= 0x 0  
+agsEgrRefMdl ::  action_AddPstInCmd= 0x 0  
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwHeader.addData   =  [DEC]1 
+agsRefMdlCommon : Byte Array String Is ::  0x9907000081b3f30300000000000000000000000000000000000000000000000000000000
+agsEgrRefMdl :: rwAction.RwHeader.length   =  [DEC]36 
+agsEgrRefMdl :: rwAction.RwHeader.insertionOffset   =  [DEC]58 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwTrailor.addData  =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCMD.addData   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateTotalLength =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newTotalLength =  [DEC]269 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateCheckSum =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newCheckSum. Will be updated as per IP Header change 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateProtocol =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newProtocol =  0x f7 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCmdHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateEpoch   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateSequenceNumber   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateIV   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+
+
+agsRefMdlEgress :: EGRESS REWRITE STARTS 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 247 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b8900e9bc1f38e97f99efdde85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+
+
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl :: ------------------EGRESS REWRITE ACTION RESULTS ------------------ 
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+agsEgrRefMdl ::  pktLengthBeforeRewrite = [DEC]247  
+agsEgrRefMdl ::  pktLengthAfterRewrite= [DEC]283  
+agsEgrRefMdl ::  encryptionPaddingAdded= 0x 0  
+agsEgrRefMdl ::  numBytesEncryptionPadding= 0x 0  
+agsEgrRefMdl ::  pktLengthHasIncreased= 0x 1  
+agsEgrRefMdl ::  pktLengthHasDecreased= 0x 0  
+agsEgrRefMdl ::  netChangeInPktlength= [DEC]36  
+agsEgrRefMdl ::  layer2PaddingIsAdded= 0x 0  
+agsEgrRefMdl ::  numBytesLayer2Padding= [DEC]0  
+agsEgrRefMdl ::  pktIsTruncated= 0x 0  
+agsEgrRefMdl ::  numBytesTruncated= [DEC]0  
+agsEgrRefMdl ::  Offset2Encryption= [DEC]-1  
+agsEgrRefMdl ::  Offset2Authentication= [DEC]14  
+agsEgrRefMdl ::  action_AddV4Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV6Cts= 0x 0  
+agsEgrRefMdl ::  action_AddV4Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV6Esp= 0x 0  
+agsEgrRefMdl ::  action_AddV4Ah= 0x 1  
+agsEgrRefMdl ::  action_AddV6Ah= 0x 0  
+agsEgrRefMdl ::  action_AddDtls= 0x 0  
+agsEgrRefMdl ::  action_UpdateDtls= 0x 0  
+agsEgrRefMdl ::  action_AddCmd= 0x 0  
+agsEgrRefMdl ::  action_AddPstInCmd= 0x 0  
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwHeader.addData   =  [DEC]1 
+agsRefMdlCommon : Byte Array String Is ::  0x9907000081b3f30300000000000000000000000000000000000000000000000000000000
+agsEgrRefMdl :: rwAction.RwHeader.length   =  [DEC]36 
+agsEgrRefMdl :: rwAction.RwHeader.insertionOffset   =  [DEC]58 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwTrailor.addData  =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCMD.addData   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateTotalLength =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newTotalLength =  [DEC]269 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateCheckSum =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newCheckSum. Will be updated as per IP Header change 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwIpHeader.updateProtocol =  [DEC]1 
+agsEgrRefMdl :: rwAction.RwIpHeader.newProtocol =  0x f7 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwCmdHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateEpoch   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateSequenceNumber   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateIV   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: rwAction.RwDtlsHeader.updateTotalLength   =  [DEC]0 
+agsEgrRefMdl ::--------------------------------------------------
+agsEgrRefMdl :: ------------------------------------------------------------------------- 
+
+
+agsRefMdlEgress :: Rewrite : Adding Header 
+agsEgrRefMdl :: 7 
+agsEgrRefMdl :: 8 
+agsEgrRefMdl :: 9 
+agsEgrRefMdl :: 7 
+agsRefMdlEgress :: Rewrite : Updating Ipv4 Total length 
+agsRefMdlEgress :: Rewrite : Updating Ipv4 Protocol 
+agsRefMdlEgress :: Rewrite : Updating Ipv4 Checksum 
+agsRefMdlEgress :: Rewrite : output String of Rewrite Module 
+agsRefMdlEgress :: Rewrite : Output string length = [DEC]283 
+agsRefMdlEgress :: Rewrite : output String of Rewrite Module---------- 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+agsRefMdlEgress ::  gcm_iv is 0x92548685a0fba40000000000
+agsRefMdlEgress ::  Packet before encryption/authentication 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+agsRefMdlEgress :: Offset2Authentication is [DEC]14 and Offset2Encryption is [DEC]-1
+agsRefMdlEgress ::  AESkey         = 0x12054357914241b3d74c9a2677277a66 
+
+agsRefMdlEgress ::  HASHkey         = 0x62319534f69a28f50c93693be1136342 
+
+agsRefMdlEgress :: Encrypt = [DEC]1 , Authenticate = [DEC]1 
+agsEgrRefMdl ::Recalculated ::  Offset2Auth = 14 , Offset2Enc = -1 pkt_len_orig = 283 , AUTH_SZ = 16 , ConfidentialOffset = 0 , numBytesLayer2Padding = 0  
+agsEgrrefMdl: Before adding the Pkt IV , Before  hash   
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdff7ffc001c0de000000000001c001c0de
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+agsEgrRefMdl :: ivOffset  when inserting Iv back = 70 
+agsEgrrefMdl: Added the Pkt IV back 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+agsRefMdlEgress ::  Packet after encryption/authentication 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+agsRefMdlEgress :: Encrypt : output String of Encrypt Module 
+agsRefMdlEgress :: Encrypt : Output string length = [DEC]283 
+agsRefMdlEgress :: Encrypt : output String of Encrypt Module---------- 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+
+
+----------------------------------------------------------------
+agsEgrRefMdl :: PRINTING STATISTICS STRUCT 
+----------------------------------------------------------------
+agsEgrRefMdl :: agsEgrEppL2UnsecPktCntrIncr =   0x 0 
+agsEgrRefMdl :: agsEgrEppL2SecPktCntrIncr =   0x 0 
+agsEgrRefMdl :: agsEgrEppInPktCntrIncr =   0x 0 
+agsEgrRefMdl :: agsEgrEluHitSecCntrIncr =   0x 0 
+agsEgrRefMdl :: agsEgrEluHitUnsecCntrIncr=   0x 1 
+agsEgrRefMdl :: agsEgrEluHitBypassCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEluHitDropCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEluHitProcCntrIncr=   0x 1 
+agsEgrRefMdl :: agsEgrEluHitSeqActDropCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEluIncompletePktCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEluPktDropCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrErwByteCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrErwExceedMtuDropPktCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEncEncryptAuthCntrIncr=   0x 1 
+agsEgrRefMdl :: agsEgrEncAuthOnlyCntrIncr=   0x 0 
+agsEgrRefMdl :: agsEgrEncBypassCntrIncr =   0x 0 
+----------------------------------------------------------------
+
+agsRefMdlEgress :: Finished Argus Egress Reference Model Processing
+agsRefMdlEgress :: packetLength = [DEC]283
+agsRefMdlEgress :: Output packet is ------ 
+
+
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET LENGTH = 283 
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+agsRefMdlCommon : PACKET STRING ::  0xb1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+agsRefMdlCommon :  ---------------------------------------------------------------------  
+
+
+
+----------------------------------------------------------------
+agsEgrRefMdl :: PRINTING ARGUS OUTPUT BUS FIELDS 
+----------------------------------------------------------------
+agsEgrRefMdl ::     agsEgrSysPortNum=  0x 0 
+agsEgrRefMdl ::    agsEgrSysPktErr=  0x 0 
+agsEgrRefMdl ::     agsEgrSysPreamb=  0x 9abcdef0 
+agsEgrRefMdl ::     agsEgrSysAddByte=  [DEC] 36 
+agsEgrRefMdl ::    agsEgrSysIpsecOvrwr=  0x 1 
+agsEgrRefMdl ::     agsEgrSysIpSecOfstIcv=  [DEC] 78 
+agsEgrRefMdl ::     agsEgrSysIpSecNewIcv=  0x 0 
+agsEgrRefMdl ::    agsEgrSysDtlsOvrwr=  0x 0 
+agsEgrRefMdl ::   agsEgrSysDtlsOfstUdpCksm=  0x 0 
+agsEgrRefMdl ::     agsEgrSysDtlsOfstUdpLen=  [DEC] 0 
+agsEgrRefMdl ::     agsEgrSysDtlsUdpLen=  0x 0 
+agsEgrRefMdl ::    agsEgrSysStatVld=  0x 1 
+agsEgrRefMdl ::   agsEgrSysStatVec=  0x 400010 
+agsEgrRefMdl ::     agsEgrSysStatSecSessId=  0x 58c 
+agsEgrRefMdl ::     agsEgrSysStatPortNum=  0x 0 
+agsEgrRefMdl ::     agsEgrSysDtlsUdpCksm=  0x 0 
+agsEgrRefMdl ::    agsEgrSysPktChopped=  0x 0 
+agsEgrRefMdl ::    agsEgrSysPktL2Padded=  0x 0 
+After agsRefMdlOutPktPushPort0(str)
+YUB: Entered on c side in file agsRefMdl2EnvTxPortRxAdapter.cpp after wait
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1469.975 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsTxBfm.sv 136 : in TXBFM txCycles task, txDataBuffer[0] != 0
+agsTxBfm: Data got 000000000000000000dec001c0010000000000dec001c0fff7df5b03c6dc001f3d6f79ac3c9ef818b5fbbc4ad1dcd0ab744075f42d95e92e0169c9c4c321a76ea00a6bceb6b8ae2ac47b693b36e5a4ef81d09865d0bbb46e6170110ec0d0532f68e119e6d81038feaf4babea6db8b66e7ae2e4c0fc22790c272ba6f7ab09756e7e51d275c5ef1431672bc739e6630000a23351ceaba8ffffffffffffffffffffffffffff9d95878f9f0b6a0c09b5ffffffffffffffffffffffffffffffffffff3fafed010e93be95d6c7d870d07f0995ca48ef6878005f4c8e34426cadbf933e1e4db39850e8ddef997fe9381fbce900894b000826f450a81f3eb9b6303ac1b1
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1469.975 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsTxBfm.sv 143 : Entered in TXBFM with clockCnt 00000010 and clockCntToDriveParseBus 00000001
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1515.011 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsTxBfm.sv 202 : TxBFM: Completed sending cell
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1688.934 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEgrSbbRxBfmAtEop.sv 49 : Entered in SBB RX BFM
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1688.934 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEgrSbbRxBfmAtEop.sv 62 : Exiting SBB RX BFM
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsRxBfm.sv 135 : JPORIA: Pkt string from agsRxBfm is b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/gsData.sv 202 : TestDutPacketAnalyzer 0 received following packet:: dataId = 1021 channelId = 0 userDefinedId = 0
+
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketAnalyzer.sv 68 : JPORIA: Pkt string from ANALYZER is b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 for channelId :          0
+
+ZZZ DBG : referenceModelPacketString is b1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000
+
+[31mERROR[0m[FAILURE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsPacketAnalyzer.sv 79 : Ref. Model Packet Comaprision failed : Ref Model Pkt : b1c13a30b6b93e1fa850f42608004b89010dbc1f38e97ff7ef5be85098b34d1e3e93bfad6c42348e4c5f007868ef48ca95097fd070d8c7d695be9907000081b3f30300000000000000000000000000000000000000000000000000000000930e01edaf3fffffffffffffffffffffffffffffffffffffb5090c6a0b9f8f87959dffffffffffffffffffffffffffffa8abce5133a2000063e639c72b673114efc575d2517e6e7509abf7a62b270c7922fcc0e4e27a6eb6b86deaab4baffe3810d8e619e1682f53d0c00e1170616eb4bbd06598d081efa4e5363b697bc42aaeb8b6ce6b0aa06ea721c3c4c969012ee9952df4754074abd0dcd14abcfbb518f89e3cac796f3d1f00dcc6035bdf9818dc0e000000000000000000000000  RTL Pkt : b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa850f42608004b89b1c13a30b6b93e1fa85000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEgrSbbAnalyzerAtEop.sv 47 : Entering in SBB Analyzer
+[32mNORMAL[0m[NOTE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEgrSbbAnalyzerAtEop.sv 62 : agsEgrSbbAnalyzerAtEop: Port Id MATCH between refMdl 000000000000 and RTL 000000000000
+[41mFATAL[0m[FAILURE] on gsGlobalLogger(gsGlobalLoggerInst) at       1691.931 ns:
+/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/dv/sv/env/ags/agsEgrSbbAnalyzerAtEop.sv 66 : agsEgrSbbAnalyzerAtEop: agsEgrPktChopped mismatch between refMdl 0 and RTL x
+Simulation *FAILED* on /./ (/./) at       1691.931 ns: 2 errors, 0 warnings
+$finish called from file "/auto/edatools/synopsys/vcs/v2009.12-3/etc/rvm/vmm.sv", line 9311.
+$finish at simulation time       1691.931 ns
+**** Following assertions did not fire at all during simulation. *****
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 43: \$unit ::vmm_ral_sys__get_subsys_by_name.unnamed$$_0: No attempt started
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 55: \$unit ::vmm_ral_sys__get_block_by_name.unnamed$$_0: No attempt started
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 68: \$unit ::vmm_ral_block_or_sys__get_reg_by_name.unnamed$$_0: No attempt started
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 78: \$unit ::vmm_ral_reg__get_fullname.unnamed$$_0: No attempt started
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 94: \$unit ::vmm_ral_reg__read.unnamed$$_0: No attempt started
+"/auto/gsg-dump5/sheagraw/argus_AGS_REL_000_001/argus/kxDvCommon/sv/src/gsLib/ral/ralCApi.sv", 126: \$unit ::vmm_ral_reg__write.unnamed$$_0: No attempt started
+V C S   S i m u l a t i o n   R e p o r t 
+Time: 1691931 ps
+CPU Time:      7.340 seconds;       Data structure size:   7.9Mb
+Fri Apr 16 03:04:54 2010

@@ -1,0 +1,51 @@
+#!/router/bin/perl
+use strict;
+my $tempFileName = "tag_it.tmp";
+my $line;
+my $workingRevision;
+my $cvsFileName; 
+my $tagFileName;
+my $tagListName = "/users/mthakare/util/tagList";
+if(!open(TAGLIST,'>',$tagListName)){
+    die "Die Could not open $tagListName for writing \n";
+}
+while($line =<TAGLIST>){
+
+}
+
+system('cvs stat | grep File: -A 3 > tag_it.tmp');
+
+if(!open(FILELIST,"<$tempFileName")){
+    die "Die Could not open $tempFileName for reading \n";
+}
+while($line=<FILELIST>){
+        chomp($line);
+        $_ = $line;
+        if (/^File:/){
+## Sample Search File: upsAgsIgrL3CtsTest.sv     Status: Up-to-date
+                $line =~ /^File:.*Status/;
+                $line = $&;
+                $line =~ s/^File: *//g;
+                $line =~ s/Status$//g;
+                $cvsFileName = $line; 
+        }elsif(/Working revision:/){
+##        Working revision:    1.3     Fri Apr 30 14:20:58 2010
+          $line =~ s/Working revision: *//g;
+          $line =~ s/://g;
+          $line =~ s/  *\W//g;
+          $line =~s/  *\w\w*//g;
+          $line =~ s/[a-zA-Z]*//g;
+          $workingRevision = $line ;
+          #print "Working Num = $workingRevision \n";
+        }elsif(/Repository revision/){
+##      Repository revision: 1.3     /nfs/gsg-asic/cvsroot/argus/dv/sv/tests/ags/upsAgsIgrL3CtsTest.sv,v
+            $line =~ /\/nfs.*,/;
+            $line = $& ;
+            $line =~ s/\/nfs.*cvsroot\///g;
+            $line =~s/,//g;
+            $cvsFileName = $line ; 
+            print "$cvsFileName $workingRevision\n"
+
+        }
+}
+close FILELIST;

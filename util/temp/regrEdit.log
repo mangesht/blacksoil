@@ -1,0 +1,50 @@
+### EVO Version 1.9.3317 (trunk)
+##
+## Editing Regression agsIgrPortMapTc (Regr ID 26)
+##
+#
+# (*) - Values are optional (do NOT delete the fields themselves). All
+#       fields are case sensitive
+# 
+# (*) name             - Optional. Enter a regression name
+#     locked           - 0 or 1 (locked regressions can only be edited by owner)
+# (*) item_list        - Optional. comma separated list of previously defined 
+#                        items. Refer to the item list format described below
+#                        Leaving this field blank creates a 'dynamic' regression
+# (*) creator          - Optional. Change the default creator/owner.
+# (*) tags             - Optional tags for this regression. Alphanumeric
+#                        characters. : delimits tags.
+#     notify_on_change - Set to '1' or '0'. Default is 0. This option will send
+#                        an email if the regr is changed
+# (*) cc_on_edit       - A list of email addresses (comma separated) to send mail
+#                        upon a change (if notify_on_change = 1)
+# (*) description      - Optional - up to 511 characters of description
+# 
+#  Item list format - item_name/id(#_of_iterations):R|:B|:T, ...
+# 
+#         item_name/id    - should exist in the EVO test database 
+#     (*) #_of_iterations - integer
+#     (*) :R|:B|:T|:F     - Item is regression, build or test. If no qualifier
+#                           is specified, EVO assumes the name/id refers to a 
+#                           test. ':F' can be used to specify a file name that
+#                           contains the item list
+# 
+# Examples- TstA, TstB, 3             - run TstA, TstB and test #3
+#           bld1:B, TstB(2), 3:R      - run bld1, TstB two times and regr #3
+#           [bld1:B] [TstB:T, 3(4):R] - Stage 1, build bld1. 
+#                                       Stage 2, run tstB and regr #3 4 times
+#                                       All stages of regr #3 are collapsed
+#                                       into stage 2 of this regr
+#           contrib/dyn_regr:F        - pick up items from the specified file
+
+
+$name = agsIgrPortMapTc
+$item_list = [agsL2Igr:B][dhlAgsIgrPerModCpuRdWriteRegMemTest:T,agsL2IgrIluPktSciTest:T,agsL2IgrIluImplSciTest:T, agsL2IgrIluMultSaTest:T,agsL2IgrIluSrchKeyL2Test:T,agsL2IgrIluGlobalKeyMsk:T,agsL2IgrIluSaiRemapTest:T,agsL2IgrIluSrchKeyVldTest:T,agsL2IgrIluInvBindTest:T,agsL2IgrIluSrchKeyVlanTest:T,agsL2IgrIrwSecTagStrpClrTxtTest:T,agsL2IgrIrwSecTagRetnClrTxtTest:T,agsL2IgrIrwBindingChkFailTest:T,agsL2IgrIrwMacSecTagVerChkTest:T,agsL2IgrIrwMacSecTagIllegalSlTest:T,agsL2IgrBusParIrwTest:T,agsL2IgrIrpReplayChkOutOfOrderTest:T,agsL2IgrIrpReplayFailActionTest:T,agsL2IgrIrwTruncPktTest:T,agsL2IgrIrwRemMacSecPadTest:T,agsL2IgrImplB2bPktsTest:T,agsL2IgrImplSwpPaldTest:T,agsL2IgrRstPktTest:T,agsL2IgrIluUnsecFrmActTest:T,agsL2IgrIluSrchKeyMacSecTest:T,agsL2IgrIluMultSaTest:T,agsL2IgrIrwAddL2PadTest:T,agsL2IgrIppSopSeqErrTest:T,agsL2IgrIppSocSeqErrTest:T,agsL2IgrIppEocSeqErrTest:T,agsL2IgrIppEopSeqErrTest:T,agsL2IgrIppSopWoSocSeqErrTest:T,agsL2IgrIppEopWoEocSeqErrTest:T,agsL2IgrIppVldWoSocSeqErrTest:T,agsL2IgrIdcSopSeqErrTest:T,agsL2IgrIdcSocSeqErrTest:T,agsL2IgrIdcEocSeqErrTest:T,agsL2IgrIdcVldWoSocSeqErrTest:T,agsL2IgrIdcEopSeqErrTest:T,agsL2IgrIdcSopWoSocSeqErrTest:T,agsL2IgrIdcEopWoEocSeqErrTest:T,agsL2IgrIrpSopSeqErrTest:T,agsL2IgrIrpSocSeqErrTest:T,agsL2IgrIrpEocSeqErrTest:T,agsL2IgrIrpEopSeqErrTest:T,agsL2IgrIrpSopWoSocSeqErrTest:T,agsL2IgrIrpEopWoEocSeqErrTest:T,agsL2IgrIrpVldWoSocSeqErrTest:T,agsL2IgrIrwSopSeqErrTest:T,agsL2IgrIrwSocSeqErrTest:T,agsL2IgrIrwVldWoSocSeqErrTest:T,agsL2IgrIrwEocSeqErrTest:T,agsL2IgrIrwEopSeqErrTest:T,agsL2IgrIrwSopWoSocSeqErrTest:T,agsL2IgrIrwEopWoEocSeqErrTest:T,agsL2IgrIspIpv4Test:T,agsL2IgrIspIpv6Test:T,agsL2IgrIluMacSciTest:T,agsL2IgrImplIgrFifoRdDisableFifoFullEmptyTest:T,agsL2IgrBusParGblTest:T,agsL2IgrBusParIdcTest:T,agsL2IgrCpuInvalidAddrTest:T,agsL2IgrBusParRxBfmTest:T,agsL2IgrErrorPktErrTest:T,  agsL2IgrIpfFifoTest:T, agsL2IgrIpfFifoPtrRollOverTest:T, agsL2IgrIrfFifoPtrRollOverTest:T, agsL2IgrL21588v2ParsingTest:T, agsL2IgrMplsParsingTest:T, agsL2IgrIrwTrigCaptureAtEopTest:T, agsL2IgrIrwTrigCaptureWithoutMatchAtEopTest:T, agsL2IgrIrwCaptureAtEopTest:T, agsL2IgrIrwTrigCaptureWithMatchAtEopTest:T,agsL2IgrIluPktSciPortMapTest0:T,agsL2IgrIluPktSciPortMapTest1:T,agsL2IgrIluPktSciPortMapTest2:T,agsL2IgrIluPktSciPortMapTest3:T,agsL2IgrIluPktSciPortMapTest4:T,agsL2IgrIluPktSciPortMapTest5:T,agsL2IgrIluPktSciPortMapTest6:T,agsL2IgrIluPktSciPortMapTest7:T,agsL2IgrIluPktSciPortMapTest8:T,agsL2IgrIluPktSciPortMapTest9:T,agsL2IgrIluPktSciPortMapTest10:T,agsL2IgrIluPktSciPortMapTest11:T,agsL2IgrIluPktSciPortMapTest12:T,agsL2IgrIluPktSciPortMapTest13:T,agsL2IgrIluPktSciPortMapTest14:T,agsL2IgrIluPktSciPortMapTest15:T,agsL2IgrIluPktSciPortMapTest16:T,agsL2IgrIluPktSciPortMapTest17:T,agsL2IgrIluPktSciPortMapTest18:T,agsL2IgrIluPktSciPortMapTest19:T,agsL2IgrIluPktSciPortMapTest20:T,agsL2IgrIluPktSciPortMapTest21:T,agsL2IgrIluPktSciPortMapTest22:T,agsL2IgrIluPktSciPortMapTest23:T,agsL2IgrIluPktSciPortMapTest24:T,agsL2IgrIluPktSciPortMapTest25:T,agsL2IgrIluPktSciPortMapTest26:T,agsL2IgrIluPktSciPortMapTest27:T,agsL2IgrIluPktSciPortMapTest28:T,agsL2IgrIluPktSciPortMapTest29:T,agsL2IgrIluPktSciPortMapTest30:T,agsL2IgrIluPktSciPortMapTest31:T,agsL2IgrIluPktSciPortMapTest32:T,agsL2IgrIluPktSciPortMapTest33:T,agsL2IgrIluPktSciPortMapTest34:T,agsL2IgrIluPktSciPortMapTest35:T,agsL2IgrIluPktSciPortMapTest36:T,agsL2IgrIluPktSciPortMapTest37:T,agsL2IgrIluPktSciPortMapTest38:T,agsL2IgrIluPktSciPortMapTest39:T,agsL2IgrIluPktSciPortMapTest40:T,agsL2IgrIluPktSciPortMapTest41:T,agsL2IgrIluPktSciPortMapTest42:T,agsL2IgrIluPktSciPortMapTest43:T,agsL2IgrIluPktSciPortMapTest44:T,agsL2IgrIluPktSciPortMapTest45:T,agsL2IgrIluPktSciPortMapTest46:T,agsL2IgrIluPktSciPortMapTest47:T,agsL2IgrIrwMacSecTagIllegalTciTest:T,agsL2IgrL2ExcepSL1Test:T,agsL2IgrL2ExcepPN0Test:T,agsL2IgrL2ExcepPLGTSLTest:T,agsL2IgrL2ExcepPLLTSLTest:T,agsL2IgrIluBytCntActMskTest:T,mangesh:T]
+$creator = mthakare
+$tags = 
+$extra_args = 
+$notify_on_change = 1
+$cc_on_edit = mthakare,saudasgu
+$locked = 0
+$deleted = 0
+$description = EVO Mini Regression with back to back build

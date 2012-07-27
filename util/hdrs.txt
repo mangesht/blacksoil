@@ -1,0 +1,33 @@
+Arp Arp
+BtagItag
+Eth Eth
+Fch Fch
+InnerEth InnerEth
+InnerIpv4 InnerIpv4
+InnerIpv6 InnerIpv6
+Ipv4  Ipv4
+Ipv6  Ipv6
+Ipv6Ipv6ExtnDstnOption2 Ipv6ExtnDstnOption2
+Ipv6Ipv6ExtnFragment Ipv6ExtnFragment
+Itag Itag
+L2Cmd L2Cmd
+L2Sia 
+L2_1588 L21588
+L3_1588 L31588
+MacSec16 MacSec
+MacSec8 MacSec
+Mpls1 Mpls
+Mpls1Mpls2 Mpls
+Mpls1Mpls2Mpls3 Mpls 
+Rarp Rarp
+Sap Sap
+Sil Sil
+SilTag1q  
+Snap Snap 
+Stag Stag
+StagTag1q 
+Tag1q Qtag
+Tag1qTag1q
+Tcp Tcp
+Udp Udp
+VnTag VnTag
