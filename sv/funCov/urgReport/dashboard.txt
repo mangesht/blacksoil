@@ -1,0 +1,15 @@
+Dashboard
+
+Date: Fri Nov 26 03:03:43 2010
+
+User: mthakare
+
+Version: B-2008.12-9
+Command line: urg -format both -dir simv.vdb 
+
+
+-------------------------------------------------------------------------------
+Total Coverage Summary 
+SCORE  GROUP  
+ 57.64  57.64 
+

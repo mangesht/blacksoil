@@ -1,0 +1,90 @@
+0 
+19
+/auto/edatools/synopsys/vcs/v2008.12-9/linux/bin/vcs1
+-Mcfl= -pipe -m32 -O -I/auto/edatools/synopsys/vcs/v2008.12-9/include 
+-Mldf=-melf_i386 -m32 
+-Mout=simv
+-Mrun=/auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/libvcs.a
+-Mamsrun=
+-Mvcsaceobjs=
+-Mscsrun= 
+-Mcmodrun=
+-Mobjects= /auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/libvirsim.a /auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/librterrorinf.so /auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/libsnpsmalloc.so 
+-Msaverestoreobj=/auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/vcs_save_restore.o
+-Mcrtn=
+-Mcsrc=
+-Msyslibs=/auto/edatools/synopsys/vcs/v2008.12-9/linux/lib/ctype-stubs_32.a -ldl 
+-ntb_opts
+dtm
+funCov.sv
+-sverilog
+-gen_obj
+62
+tools_bu_int=true
+XCURSOR_THEME=default
+XCURSOR_SIZE=
+VNCDESKTOP=gsbudv14-lnx:1 (mthakare)
+VMR_MODE_FLAG=32
+VIRSIMHOME=/auto/edatools/synopsys/vcs/v2008.12-9/gui/virsim
+VENDOR=unknown
+VCS_LIC_EXPIRE_WARNING=5
+VCS_HOME=/auto/edatools/synopsys/vcs/v2008.12-9
+VCS_ARCH=linux
+VCS_AMD_PURE32=1
+USER_PATH=~/bin
+UNAME=/bin/uname
+TOOL_HOME=/auto/edatools/synopsys/vcs/v2008.12-9/linux
+SW_PATH=/router/bin
+SUPPORTED=en_US.UTF-8:en_US:en
+SSH_TTY=/dev/pts/11
+SSH_CONNECTION=::ffff:64.103.137.129 3422 ::ffff:172.28.109.192 22
+SSH_CLIENT=::ffff:64.103.137.129 3422 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SESSION_MANAGER=local/gsbudv14-lnx:/tmp/.ICE-unix/32300
+SCRNAME=vcs
+REMOTEHOST=dhcp-64-103-137-129.cisco.com
+QTDIR=/usr/lib64/qt-3.3
+OVA_UUM=0
+OS_PATH=/bin /usr/X11R6/bin /usr/sbin /sbin /usr/bin /usr/cisco/bin
+OSTYPE=linux
+NNTPSERVER=usenet.cisco.com
+MGLS_LICENSE_FILE=1717@issg-lmgr1:6025@ls-na-west:6025@ls-na-east:1717@issg-lmgr2
+MERGE_ENV_2007=TRUE
+LOCAL_PATH=/usr/cisco/bin /usr/cisco/etc
+LM_PROJECT=INTERACTIVE
+LESSOPEN=|/usr/bin/lesspipe.sh %s
+LDEMULATION=elf_i386
+KONSOLE_DCOP_SESSION=DCOPRef(konsole-3305,session-1)
+KONSOLE_DCOP=DCOPRef(konsole-3305,konsole)
+KDE_MULTIHEAD=false
+KDE_FULL_SESSION=true
+KDEDIR=/usr
+INPUTRC=/etc/inputrc
+HOSTTYPE=x86_64-linux
+HOSTNAME=gsbudv14-lnx
+HOST=gsbudv14-lnx
+G_BROKEN_FILENAMES=1
+GTK_RC_FILES=/etc/gtk/gtkrc:/users/mthakare/.gtkrc:/users/mthakare/.kde/share/config/gtkrc
+GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/users/mthakare/.gtkrc-2.0:/users/mthakare/.kde/share/config/gtkrc
+GS_LIB=/users/mthakare/.fonts:/users/mthakare/.fonts:/users/mthakare/.fonts:/users/mthakare/.fonts
+GROUP=eng
+GCONF_SHARED_LOCKS=1
+GCONF_GLOBAL_LOCKS=1
+FULLPATH=true
+FULLENV=false
+EVO_ROOT=/auto/gsg-users/vkadamby/mlt/evo_ags
+EVO_CFG_DIR=/auto/gsg-users/vkadamby/mlt/config
+EDATOOLS=/auto/edatools
+DENALID_LICENSE_FILE=5085@ls-na-west:5085@issg-lmgr1:5085@smblmgr1:5085@ls-na-east:5085@ls-csi
+C_CC=/router/bin/gcc.c4.2.1-p0
+CVSROOT=/nfs/gsg-asic/cvsroot
+CSHENV_SET=true
+COLORTERM=
+CISCO_BU=SVS
+APPS_PATH=
+0
+2
+1290769418 funCov.sv
+1290769418 funCov.sv
+1290769421 simv.daidir
+1290769422 csrc

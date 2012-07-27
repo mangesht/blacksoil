@@ -1,0 +1,12 @@
+Testbench Group List
+
+Total Groups Coverage Summary 
+SCORE  WEIGHT 
+ 57.64 1      
+
+
+Total groups in report: 1
+-------------------------------------------------------------------------------
+SCORE  WEIGHT GOAL   NAME                    
+ 57.64 1      100    \$unit ::Festival::fcov 
+

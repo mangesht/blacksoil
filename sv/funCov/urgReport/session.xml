@@ -1,0 +1,17 @@
+<trend>
+<datadef>
+  <metdef name="Group" type="percent" />
+</datadef>
+<session timestp="2010-11-26 11:03:42 GMT">
+  <scope type="top" name="top">
+    <metric name="Group" value="57.64%" />
+  </scope>
+  <scope type="instance" name="top">
+  </scope>
+  <scope type="group" name="top">
+    <scope type="group" name="\$unit ::Festival::fcov">
+      <metric name="Group" value="57.6389%" />
+    </scope>
+  </scope>
+</session>
+</trend>

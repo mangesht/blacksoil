@@ -1,0 +1,201 @@
+Group : \$unit ::Festival::fcov
+
+===============================================================================
+Group : \$unit ::Festival::fcov
+===============================================================================
+SCORE  WEIGHT GOAL   
+ 57.64 1      100    
+
+
+
+
+-------------------------------------------------------------------------------
+
+Summary for Group   \$unit ::Festival::fcov
+
+
+
+CATEGORY  EXPECTED UNCOVERED COVERED PERCENT 
+Variables 20       10        10      65.62   
+Crosses   13       8         5       41.67   
+
+
+Variables for Group  \$unit ::Festival::fcov
+
+
+
+VARIABLE      EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT 
+cover_point_f 6        3         3       50.00   100  1      
+i             3        0         3       100.00  100  1      
+j             3        0         3       100.00  100  1      
+holiCovArray  8        7         1       12.50   100  1      
+
+
+Crosses for Group  \$unit ::Festival::fcov
+
+
+
+CROSS EXPECTED UNCOVERED COVERED PERCENT GOAL WEIGHT 
+x1    9        6         3       33.33   100  1      
+x2    4        2         2       50.00   100  1      
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable cover_point_f
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 6        3         3       50.00   
+
+
+User Defined Bins for cover_point_f
+
+
+Uncovered bins
+
+NAME         COUNT AT LEAST NUMBER 
+diwaliBins_0 0     1        1      
+diwaliBins_1 0     1        1      
+diwaliBins_2 0     1        1      
+
+
+Covered bins
+
+NAME         COUNT AT LEAST  
+diwaliBins_3 1     1        
+diwaliBins_4 1     1        
+diwaliBins_5 1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable i
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for i
+
+
+Bins
+
+NAME COUNT AT LEAST  
+i_0  2     1        
+i_1  2     1        
+i_2  1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable j
+
+
+CATEGORY          EXPECTED UNCOVERED COVERED PERCENT 
+User Defined Bins 3        0         3       100.00  
+
+
+User Defined Bins for j
+
+
+Bins
+
+NAME COUNT AT LEAST  
+j_0  2     1        
+j_1  2     1        
+j_2  1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Variable holiCovArray
+
+
+CATEGORY                     EXPECTED UNCOVERED COVERED PERCENT 
+Automatically Generated Bins 8        7         1       12.50   
+
+
+Automatically Generated Bins for holiCovArray
+
+
+Uncovered bins
+
+NAME                COUNT AT LEAST NUMBER 
+[auto[0] - auto[1]] --    --       2      
+[auto[3] - auto[7]] --    --       5      
+
+
+Covered bins
+
+NAME    COUNT AT LEAST  
+auto[2] 5     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x1
+
+
+Samples crossed: i j
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+Automatically Generated Cross Bins 9        6         3       33.33   6       
+
+
+Automatically Generated Cross Bins for x1
+
+
+Uncovered bins
+
+i     j           COUNT AT LEAST NUMBER 
+[i_0] [j_1 , j_2] --    --       2      
+[i_1] [j_0]       0     1        1      
+[i_1] [j_2]       0     1        1      
+[i_2] [j_0 , j_1] --    --       2      
+
+
+Covered bins
+
+i   j   COUNT AT LEAST  
+i_0 j_0 2     1        
+i_1 j_1 2     1        
+i_2 j_2 1     1        
+
+
+-------------------------------------------------------------------------------
+
+Summary for Cross x2
+
+
+Samples crossed: i j
+CATEGORY                           EXPECTED UNCOVERED COVERED PERCENT MISSING 
+TOTAL                              4        2         2       50.00   2       
+Automatically Generated Cross Bins 3        2         1       33.33   2       
+User Defined Cross Bins            1        0         1       100.00          
+
+
+Automatically Generated Cross Bins for x2
+
+
+Uncovered bins
+
+i     j           COUNT AT LEAST NUMBER 
+[i_2] [j_0 , j_1] --    --       2      
+
+
+Covered bins
+
+i   j   COUNT AT LEAST  
+i_2 j_2 1     1        
+
+
+User Defined Cross Bins for x2
+
+
+Bins
+
+NAME   COUNT AT LEAST  
+i_zero 4     1        
+
+
