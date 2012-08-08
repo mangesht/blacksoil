@@ -1,0 +1,19 @@
+        Dim bm As New Bitmap(PictureBox1.Image)
+        Dim x As Int32 = 360 'variable for new width size
+        Dim y As Int32 = 268 'variable for new height size
+        Dim width As Integer = Val(x) 'image width.
+        Dim height As Integer = Val(y) 'image height
+        Dim thumb As New Bitmap(width, height)
+        Dim g As Graphics = Graphics.FromImage(thumb)
+        g.InterpolationMode = Drawing2D.InterpolationMode.HighQualityBicubic
+        g.DrawImage(bm, New Rectangle(0, 0, width, height), New Rectangle(0, 0, bm.Width, _
+        bm.Height), GraphicsUnit.Pixel)
+        g.Dispose()
+        'image path. better to make this dynamic. I am hardcoding a path just for example sake
+        thumb.Save("d:\newimage.bmp", _
+        System.Drawing.Imaging.ImageFormat.Bmp) 'can use any image format
+        PictureBox1.Image = thumb
+        'bm.Dispose()
+        ' thumb.Dispose()
+        PictureBox1.Show()
+        
