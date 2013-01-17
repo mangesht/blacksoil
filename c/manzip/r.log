@@ -1,0 +1,84 @@
+
+FileName = /home/mangesh/tryzip/r_man.txt 
+getpath input= /home/mangesh/tryzip/r_man.txt 
+destination = /home/mangesh/tryzip/r_man.gz 
+destination file = /home/mangesh/tryzip/r_man.gz----
+input file handle = 3 output file handle = 4 
+fill window assigning 
+ m a n g e s h   T h a k a r e   m a n g e r i 
+ m a n g e s h   T h a k a r e 
+
+Finding hash for position = 0 . Hash value = 384e for m  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 0 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 1 . Hash value = 9a7 for a  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 1 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 2 . Hash value = 3485 for n  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 2 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 3 . Hash value = 10d3 for g  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 3 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 4 . Hash value = 1a08 for e  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 4 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 5 . Hash value = 4120 for s  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 5 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 6 . Hash value = 2454 for h  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 6 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 7 . Hash value = ae8 for    
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 7 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 8 . Hash value = 5d61 for T  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 8 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 9 . Hash value = 2c4b for h  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 9 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 10 . Hash value = 901 for a  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 10 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 11 . Hash value = 2052 for k  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 11 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 12 . Hash value = a25 for a  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 12 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 13 . Hash value = 4480 for r  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 13 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 14 . Hash value = 106d for e  
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 14 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 15 . Hash value = dc1 for    
+chain len = 0 	 link = 0 2_link = 0 Using new free location = 15 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 16 . Hash value = 384e for m  
+chain len = 1 	 Using free location = 0 link = 0 
+Search location = 0 
+The longest match for this round = 0 and distance = 0 
+Finding hash for position = 17 . Hash value = 9a7 for a  
+chain len = 1 	 Using free location = 1 link = 0 
+Search location = 1 
+New search location = 0 
+called get_match_info 
+starting comparision of a and a 
