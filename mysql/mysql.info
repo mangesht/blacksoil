@@ -1,0 +1,2 @@
+# to check is the server is running or not 
+mysqladmin -u root -p status
