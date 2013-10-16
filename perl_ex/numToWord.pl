@@ -15,7 +15,7 @@ $tens{5} = "Fifty";
 $tens{6} = "Sixty";
 $tens{7} = "Seventy";
 $tens{8} = "Eighty";
-$tens{9} = "ninty";
+$tens{9} = "Ninty";
 
 $units{0} = "Zero";
 $units{1} = "One";
@@ -44,7 +44,6 @@ $place{3} = "Thousand";
 $place{4} = "Lac";
 my $num = @ARGV;
 $data = shift @ARGV ;
-$data = 3668;
 print "Input number = $data num = $num \n";
 $itNum = 0 ; 
 my $rem;
@@ -54,33 +53,37 @@ while($data > 0 ){
         if($itNum == 0){
                 if($data%100 < 20){
                        $rem = $data % 100 ; 
-                       print "UNIT $units{$rem} \n";
+                       #print "UNIT $units{$rem} \n";
                        $final_word[$idx++] = "$units{$rem} " ;
                        $data = floor($data / 100) ;
                        $itNum++;
                 }else{
                        $rem = $data % 10 ; 
                        $data = floor($data / 10) ;
-                       print "UNIT $units{$rem} \n";
-                       $final_word[$idx++] = "$units{$rem} ";
+                       #print "UNIT $units{$rem} \n";
+                       if($rem != 0) {
+                           $final_word[$idx++] = "$units{$rem} ";
+                        }
                 }
         }elsif($itNum == 1 ) {
             $rem = $data % 10 ;
             $data = floor($data / 10) ;
-            print "Tens $tens{$rem} \n";
+            #print "Tens $tens{$rem} \n";
             $final_word[$idx++] = "$tens{$rem} " ;
         }else{
             $rem = $data % 10 ;
             $data = floor($data / 10) ;
-            print "$units{$rem} $place{$itNum} \n";
+            #print "$units{$rem} $place{$itNum} \n";
             $final_word[$idx++] = "$units{$rem} $place{$itNum} " ;
         }
         $itNum++;
 }
 my $i;
-print "Idx = $idx \n"; 
-print @final_word;
+#print "Idx = $idx \n"; 
+#print @final_word;
 print "\n";
 for($i=$idx-1;$i>=0;$i--){
         print "$final_word[$i]";
 }
+print "\n";
+print "This is not completed program \n"
