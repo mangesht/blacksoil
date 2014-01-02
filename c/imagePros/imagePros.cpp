@@ -9,7 +9,21 @@
 #include<signal.h>
 #include<fcntl.h>
 
-struct DIBGHeader{
+class Image{
+    public : 
+    struct DIBHeader * dibH;
+    struct BMPHeader * bmpH;
+    unsigned char *imgHeader;
+    int ** bitmap;
+    int allocateBitmap(int width,int height) {
+        int x,y;
+        bitmap = (int ** ) malloc(sizeof(int *)*width);
+        for(x=0;x<width;x++) {
+            bitmap[x] = (int *) malloc(sizeof(int)*height);
+        }
+    } 
+};
+struct DIBHeader{
     int headerSize;
     int width;
     int height;
@@ -17,6 +31,10 @@ struct DIBGHeader{
 
 }; 
 
+struct BMPHeader{
+    int fileSize;
+    int pixelStartOffset;
+};
 int getInt(unsigned char *p) {
    // It gets the integer of size 4 bytes starting from p
     int fs;
@@ -24,11 +42,12 @@ int getInt(unsigned char *p) {
     return fs;
  
 }
-void displayHeader(unsigned char *p){
+void displayHeader(unsigned char *p,Image *imgInfo){
+    // The function extracts information from p and updates imgHeader
     int fs;
     int i;
     int offset;
-    struct DIBGHeader dib;
+    struct DIBHeader dib;
     printf("%c %c \n",*p,*(p+1));
     printf("File size = %d \n",getInt(p+2));
     printf("Reserved = %x %x %x %x \n",*(p+6),*(p+7),*(p+8),*(p+9));
@@ -40,13 +59,18 @@ void displayHeader(unsigned char *p){
     dib.height = getInt(p+22);
     dib.compr = getInt(p+0x1E); 
     printf("DIB : headerSize = %d width = %d height = %d compr = %d \n",dib.headerSize,dib.width,dib.height,dib.compr);
+    // Allocate imgHeader with offset size and copy the header in it
+    imgInfo->imgHeader = (unsigned char *) malloc(offset);
+    memcpy(imgInfo->imgHeader,p,offset); 
 }
 
 int main(){
 int img_fd;
 char *img_file;
 unsigned char *buf;
+unsigned char *imgHeader;
 int bytes_read;
+Image *img;
     printf ("ImagePros started \n");
     img_file = (char *) malloc(256);
     strcpy(img_file,"/home/mangesh/blacksoil/c/imagePros/desk.bmp");
@@ -56,8 +80,9 @@ int bytes_read;
     if(img_fd == 0) {
         perror("image open error: ");
     }
+    img = new Image ;
     bytes_read = read(img_fd,buf,256); 
-    displayHeader(buf);
+    displayHeader(buf,img);
     // Close opened image
     close(img_fd);
     return 0;
