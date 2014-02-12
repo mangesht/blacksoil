@@ -1,6 +1,6 @@
 #!/tools/bin/tcsh
 
-if(-e pcreate.log) then
+if(-e file.log) then
      echo "EXISTS" 
  else 
 
