@@ -41,6 +41,7 @@ class JFIFSegment {
 
     int *th_data; // Uncompressed 24 bit RGB raster thumbnail data 
 
+
     // Methods 
     JFIFSegment(){
         app0_marker = 0;
@@ -52,6 +53,64 @@ class JFIFSegment {
 
 };
 
+class QuantTblMarker {
+public : 
+    unsigned char precision;
+    unsigned char quantTblIdx;
+    unsigned char quantVal[64];
+    QuantTblMarker() {
+        int i;
+        precision = 0 ;
+        quantTblIdx = 0xff;
+        for(i=0;i<64;i++) {
+            quantVal[i] = 0;
+        }
+    }
+    
+    int setFields(unsigned char *p);
+    void display();
+};
+
+class SOFMarker{
+public:
+    unsigned char precision;
+    uint16 Y;
+    uint16 X;
+    unsigned char Nf;
+    unsigned char CID[3]; // For maximum 3 components for color baseline JPEG images 
+    unsigned char H[3];
+    unsigned char V[3];
+    unsigned char quantTblIdx[3];
+
+    SOFMarker(){
+        Nf=0;
+    }
+    int setFields(unsigned char *p);
+    void display();
+};
+
+class HuffmanMarker {
+public:
+    unsigned char tbl_class;
+    unsigned char identifier;
+    unsigned char codesOfLen[17];
+    unsigned char values[96];
+   
+    unsigned char valuesCount; 
+    HuffmanMarker(){
+        identifier = 0;
+        valuesCount = 0;
+    }
+    int setFields(unsigned char *p);
+    void display();
+};
+
+class APP12Marker {
+public:
+    unsigned char *info;
+    int setFields(unsigned char *p);
+    void display();
+};
 // It extracts the stream and sets header fields 
 int JFIFSegment::setFields(unsigned char *p) {
     int idx=0;
@@ -87,7 +146,7 @@ int JFIFSegment::readThumbnailData(unsigned char *p, int tw,int th){
 }
 
 void JFIFSegment::display(){
-     printf("\n");
+     printf("JFIF Segment \n");
      printf(" count = %2x\t",count);
      printf(" app0_marker = %2x\t",app0_marker);
      printf(" length = %2x\t",length);
@@ -101,7 +160,110 @@ void JFIFSegment::display(){
      printf("---------------\n");
     return;
 }
+int QuantTblMarker::setFields(unsigned char *p){
+    int idx;
+    int i;
+    precision = p[0] >> 4 ;
+    quantTblIdx = p[0] & 0xf;
+    idx++;
+    // Mangesh TODO You may need to enter these values in zig-zag format 
+    for(i=0;i<64;i++,idx++){
+        quantVal[i] = p[idx];
+    }
+    return idx; 
+}
 
+void QuantTblMarker::display(){
+    int i;
+    printf("Quantization Table marker \n");
+    printf("Precision = %x Quantization Table index = %x \n",precision,quantTblIdx);
+    printf("Quantization table \n");
+    for(i=0;i<64;i++) {
+        printf("%x\t",quantVal[i]);
+        if(i%8==7) printf("\n");
+    }
+    
+}
+
+int SOFMarker::setFields(unsigned char *p){
+    int idx=0;
+    int i;
+    precision = *(p+idx++);
+    Y = get_uint16(p+idx);
+    idx+=2;
+    X = get_uint16(p+idx);
+    idx+=2;
+    Nf = *(p+idx++);
+    for(i=0;i<Nf;i++){
+        CID[i] = *(p+idx++);
+        H[i] = *(p+idx) >> 4;
+        V[i] = *(p+idx) &  0xf;
+        idx++;
+        quantTblIdx[i] = *(p+idx++);
+    }
+
+    return idx;
+}
+
+void SOFMarker::display(){
+    int i;
+    printf("SOFMarker : ");
+    printf("Y =  %x \t",Y);
+    printf("X =  %x \t",X);
+    printf("Nf  %x \t",Nf);
+    for(i=0;i<Nf;i++){
+        printf("\nCID  %x \t",CID[i]);
+        printf("H  %x \t",H[i]);
+        printf("V  %x \t",V[i]);
+        printf("Qunatization Table num  %x \t",quantTblIdx[i]);
+    }
+    printf("\n");
+}
+int HuffmanMarker::setFields(unsigned char *p){
+    int idx =0;
+    int i;
+    int j;
+    int cnt;
+    tbl_class = *(p+idx) >> 4 ; 
+    identifier = *(p+idx) & 0xf;
+    for(idx=1;idx<=16;idx++){
+        codesOfLen[idx] = p[idx];
+    }
+    cnt = 0;
+    for(i=1;i<=16;i++){
+        for(j=0;j<codesOfLen[i];j++){
+            values[cnt++] = p[idx++];
+        }
+    }
+    valuesCount = cnt;
+
+}
+void HuffmanMarker::display(){
+    int idx;
+    int i;
+    int j;
+    printf("HuffmanMarker \n");
+    printf("table class = %x \t ",tbl_class);
+    printf("identifier  = %x \t ",identifier);
+    printf("Codes of Length \n");
+    for(idx=1;idx<=16;idx++){
+        printf("C[%x] = %x\t",idx,codesOfLen[idx]); ;
+    }
+    printf("\n Values ...Count = %x \n",valuesCount);
+    for(i=0;i<valuesCount;i++){
+        printf("%x\t",values[i]);
+    }
+    
+    printf("\n"); 
+    
+}
+int setFields(unsigned char *p){
+
+}
+void APP12Marker::display(){
+    printf("APP12 Marker \n");
+    printf("%s\n",info);
+}
 int getInt(unsigned char *p) {
    // It gets the integer of size 4 bytes starting from p
     int fs;
@@ -133,6 +295,9 @@ int img_fd;
     unsigned char end_reached ; 
 
     JFIFSegment *jfif;
+    QuantTblMarker *quantTbl;
+    HuffmanMarker *huffmanMarker;
+    SOFMarker *sofMarker;
     img_file = (char *) malloc(256);
     buf = (unsigned char *) malloc(4096);
     //jfif = new JFIFSegment;
@@ -154,7 +319,7 @@ int img_fd;
     end_reached = 0;
     while(!end_reached) { 
        bytes_read = read(img_fd,buf,2); 
-       printf("Bytes Read = %d image handle = %x \n",bytes_read,img_fd);
+       //printf("Bytes Read = %d image handle = %x \n",bytes_read,img_fd);
        marker = get_uint16(buf);
        printf("Marker = %x \t",marker);
        if(marker == SOI) {
@@ -173,27 +338,46 @@ int img_fd;
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
-       }else if (marker == APP12 || marker == APP14) {
+       }else if ( marker == APP14) {
+            printf("APP12 or APP14  Marker needs info \n");
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
+       }else if (marker == APP12) {
+            printf("App12 Old Camera info \n");
+            bytes_read = read(img_fd,buf,2);
+            length = get_uint16(buf);
+            printf("length = %x \n",length);
+            bytes_read = read(img_fd,buf,length-2);
+            printf("info = %s \n",buf);
        }else if (marker == QUANT) {
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
+            //quantTbl = new QuantTblMarker;
+            quantTbl = (QuantTblMarker *) malloc(sizeof(QuantTblMarker));
+            quantTbl->setFields(buf);
+            quantTbl->display();
        }else if (marker == HUFFMAN) {
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
+            huffmanMarker = (HuffmanMarker *) malloc(sizeof(HuffmanMarker));
+            huffmanMarker->setFields(buf);
+            huffmanMarker->display();
        }else if (marker == SOF) {
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
+            sofMarker = (SOFMarker *) malloc(sizeof(SOFMarker));
+            sofMarker->setFields(buf);
+            sofMarker->display();
        }else if (marker == SOSM) {
+            printf("SOSM Marker needs info \n");
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
@@ -226,7 +410,7 @@ int img_fd;
           bytes_read = read(img_fd,buf,1);
           if(buf[0] == 0xFF) { 
             bytes_read = read(img_fd,buf,1);
-            printf("Marker = %x %x\n",0xFF,buf[0]);
+            printf("Marker = %x %x\t",0xFF,buf[0]);
             if(buf[0] == 0xD9) { 
                 end_reached = 1 ;
             }
