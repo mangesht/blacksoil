@@ -282,7 +282,7 @@ void displayJpegHeader(unsigned char *p) {
 
 }
 
-int main() {
+int main(int argc,char **argv) {
 
 char *img_file;
 int img_fd;
@@ -303,10 +303,17 @@ int img_fd;
     //jfif = new JFIFSegment;
     jfif = (JFIFSegment *) malloc(sizeof(JFIFSegment));
     strcpy(img_file,"/home/mangesh/blakcsoil/c/jpeg_read/sky_main.jpg");
+
+    if(argc > 0) {
+         for(i=0;i<argc;i++){
+            printf("Inputs = %s\n",argv[i]);
+        }
+    }
     img_fd = open(img_file,O_RDONLY);
     if(img_fd <= 0) {
         printf("Error reading file %s \n",img_file);
         perror("image open error: ");
+        return 1;
     }
     bytes_read = read(img_fd,buf,50);
    displayJpegHeader(buf);
@@ -377,7 +384,7 @@ int img_fd;
             sofMarker->setFields(buf);
             sofMarker->display();
        }else if (marker == SOSM) {
-            printf("SOSM Marker needs info \n");
+            printf("SOSM Start of Scan Marker needs info \n");
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
