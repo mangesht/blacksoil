@@ -55,15 +55,21 @@ class JFIFSegment {
 
 class QuantTblMarker {
 public : 
-    unsigned char precision;
-    unsigned char quantTblIdx;
-    unsigned char quantVal[64];
+    unsigned char precision_0;
+    unsigned char quantTblIdx_0;
+    unsigned char quantVal_0[64];
+    unsigned char precision_1;
+    unsigned char quantTblIdx_1;
+    unsigned char quantVal_1[64];
     QuantTblMarker() {
         int i;
-        precision = 0 ;
-        quantTblIdx = 0xff;
+        precision_0 = 0 ;
+        precision_1 = 0 ;
+        quantTblIdx_0 = 0xff;
+        quantTblIdx_1 = 0xff;
         for(i=0;i<64;i++) {
-            quantVal[i] = 0;
+            quantVal_0[i] = 0;
+            quantVal_1[i] = 0;
         }
     }
     
@@ -88,13 +94,106 @@ public:
     int setFields(unsigned char *p);
     void display();
 };
+#define HFTDEPTH 1024
+#define HFMAXCODELEN 16
+
+struct HuffmanCode{
+      unsigned short code;
+      unsigned char value;
+      unsigned char codeLen;
+};
+class HuffmanTable{
+public:
+    struct HuffmanCode hfc[128];
+    unsigned char codePtr;
+    HuffmanTable(){
+        codePtr = 0 ; 
+    }
+   void pushCode(unsigned short nc,unsigned char cl,unsigned char val){
+        hfc[codePtr].code = nc ;
+        hfc[codePtr].codeLen = cl ;
+        hfc[codePtr].value = val ;
+        codePtr++;
+   } 
+   int setCode(unsigned char *count,unsigned char *values){
+        int i,j,k;
+        int vidx=0;
+        struct HuffmanCode **ha;//[HFTDEPTH];
+        struct HuffmanCode **ha_p;//[HFTDEPTH];
+        struct HuffmanCode **ha_trans;//HFTDEPTH];
+        int ha_len = 0 ; 
+        int ha_p_len = 0 ; 
+        int allotted;
+        unsigned short nc;
+        ha = (struct HuffmanCode **) malloc(HFTDEPTH*sizeof(struct HuffmanCode *));
+        for(i=0;i<HFTDEPTH;i++){
+            ha[i] = (struct HuffmanCode *) malloc(sizeof(struct HuffmanCode));
+        } 
+        
+        ha_p = (struct HuffmanCode **) malloc(HFTDEPTH*sizeof(struct HuffmanCode *));
+        for(i=0;i<HFTDEPTH;i++){
+            ha_p[i] = (struct HuffmanCode *) malloc(sizeof(struct HuffmanCode));
+        } 
+        // Initialize ha and ha_p 
+        for(i=0;i<HFTDEPTH;i++){
+            ha[i]->code = 0 ; 
+            ha[i]->codeLen = 0 ; 
+            ha_p[i]->code = 0 ; 
+            ha_p[i]->codeLen = 0 ; 
+        }
+ 
+        ha_p_len = 1 ; 
+        for(i=1;i<HFMAXCODELEN;i++) {
+            allotted = 0 ;
+            ha_len = 0;
+            for(j=0;j<ha_p_len;j++) {
+                nc = ha_p[j]->code << 1 ;
+                if(allotted < count[i]){
+                    pushCode(nc,i,values[vidx++]);
+                    allotted++;
+                }else{
+                    ha[ha_len]->code = nc;
+                    ha[ha_len]->codeLen = i;
+                    ha_len++;
+                }
+                nc = nc | 0x1 ;
+                if(allotted < count[i]){
+                    pushCode(nc,i,values[vidx++]);
+                    allotted++;
+                }else{
+                    ha[ha_len]->code = nc;
+                    ha[ha_len]->codeLen = i;
+                    ha_len++;
+                }
+
+            } 
+
+            // Copy the contents of ha to ha_p  
+           ha_trans = ha_p;
+           ha_p = ha;
+           ha = ha_trans; 
+           ha_p_len = ha_len;
+        }
+   }
+    void display(){
+        int i;
+        printf("\n  Code\tCodeLen\tValue\n");
+        for(i=0;i<codePtr;i++){
+            printf("%x\t %d\t %x \n",hfc[i].code,(int)hfc[i].codeLen,(int)hfc[i].value);            
+
+        }
+    }
+         
+};
 
 class HuffmanMarker {
 public:
-    unsigned char tbl_class;
-    unsigned char identifier;
-    unsigned char codesOfLen[17];
-    unsigned char values[96];
+    unsigned char tbl_class; // DC = 0 and AC = 1 
+    unsigned char identifier; // 
+    // The values in 4 rows are indexed by 
+    // identifier * 2 + tbl_class 
+    unsigned char codesOfLen[4][17];
+    unsigned char values[4][96];
    
     unsigned char valuesCount; 
     HuffmanMarker(){
@@ -108,6 +207,20 @@ public:
 class APP12Marker {
 public:
     unsigned char *info;
+    int setFields(unsigned char *p);
+    void display();
+};
+
+class SOSMarker {
+public :
+    unsigned char nComponent;
+    // Following two fields are per component 
+    unsigned char cid[3];
+    unsigned char tbl[3];
+    unsigned char ident[3];
+    unsigned char misc[12];
+    unsigned char spectSelect[2] ; // Spectral selection 
+    unsigned char sAprox; // Successive approximation 
     int setFields(unsigned char *p);
     void display();
 };
@@ -163,12 +276,21 @@ void JFIFSegment::display(){
 int QuantTblMarker::setFields(unsigned char *p){
     int idx;
     int i;
-    precision = p[0] >> 4 ;
-    quantTblIdx = p[0] & 0xf;
+    idx=0;
+    precision_0 = p[0] >> 4 ;
+    quantTblIdx_0 = p[0] & 0xf;
     idx++;
     // Mangesh TODO You may need to enter these values in zig-zag format 
     for(i=0;i<64;i++,idx++){
-        quantVal[i] = p[idx];
+        quantVal_0[i] = p[idx];
+        printf("idx=%d ",idx);
+        printf("%d ",p[idx]);
+    }
+    precision_1 = p[idx] >> 4 ;
+    quantTblIdx_1 = p[idx] & 0xf;
+    idx++;
+    for(i=0;i<64;i++,idx++){
+        quantVal_1[i] = p[idx];
     }
     return idx; 
 }
@@ -176,12 +298,19 @@ int QuantTblMarker::setFields(unsigned char *p){
 void QuantTblMarker::display(){
     int i;
     printf("Quantization Table marker \n");
-    printf("Precision = %x Quantization Table index = %x \n",precision,quantTblIdx);
+    printf("Precision = %x Quantization Table index = %x \n",precision_0,quantTblIdx_0);
     printf("Quantization table \n");
     for(i=0;i<64;i++) {
-        printf("%x\t",quantVal[i]);
+        printf("%x\t",quantVal_0[i]);
         if(i%8==7) printf("\n");
     }
+    printf("Precision = %x Quantization Table index = %x \n",precision_1,quantTblIdx_1);
+    printf("Quantization table \n");
+    for(i=0;i<64;i++) {
+        printf("%x\t",quantVal_1[i]);
+        if(i%8==7) printf("\n");
+    }
+
     
 }
 
@@ -224,37 +353,61 @@ int HuffmanMarker::setFields(unsigned char *p){
     int i;
     int j;
     int cnt;
-    tbl_class = *(p+idx) >> 4 ; 
-    identifier = *(p+idx) & 0xf;
-    for(idx=1;idx<=16;idx++){
-        codesOfLen[idx] = p[idx];
+    int k;
+    printf("\n");
+    for(k=0;k<20;k++){
+        printf("%x",*(p+k));
     }
-    cnt = 0;
-    for(i=1;i<=16;i++){
-        for(j=0;j<codesOfLen[i];j++){
-            values[cnt++] = p[idx++];
+    
+    printf("\n");
+    for(k=0;k<4;k++) { 
+        tbl_class = *(p+idx) >> 4 ; 
+        identifier = *(p+idx) & 0xf;
+        idx++;
+        for(i=0;i<16;i++){
+            codesOfLen[identifier*2+tbl_class][i+1] = p[idx];
+            printf("CodeofLen(%d) = %d at idx = %d\n",i+1,codesOfLen[identifier*2+tbl_class][i+1],idx);
+            idx++;
         }
-    }
-    valuesCount = cnt;
+        cnt = 0;
+        for(i=1;i<=16;i++){
+            for(j=0;j<codesOfLen[identifier*2+tbl_class][i];j++){
+                values[identifier*2+tbl_class][cnt++] = p[idx++];
+            }
+        }
+        valuesCount = cnt;
+        display();
+   }
 
 }
 void HuffmanMarker::display(){
     int idx;
     int i;
     int j;
+    int k ; 
     printf("HuffmanMarker \n");
-    printf("table class = %x \t ",tbl_class);
-    printf("identifier  = %x \t ",identifier);
-    printf("Codes of Length \n");
-    for(idx=1;idx<=16;idx++){
-        printf("C[%x] = %x\t",idx,codesOfLen[idx]); ;
+    for(k=0;k<3;k++) { 
+            printf("table class = %x  ",k%2);
+            printf("identifier  = %x  ",k/2);
+            printf("Codes of Length \n");
+            i = 0 ; 
+            
+            for(idx=1;idx<=16;idx++){
+                printf("\nC[%d] = %x\t",idx,codesOfLen[k][idx]); ;
+                for(j=0;j< codesOfLen[k][idx];j++){
+                    printf(" %X",values[k][i]);
+                    i++;
+                }
+                
+            }
+         printf("\n"); 
     }
+    /*
     printf("\n Values ...Count = %x \n",valuesCount);
     for(i=0;i<valuesCount;i++){
-        printf("%x\t",values[i]);
+        printf("%x\t",values[identifier*2+tbl_class][i]);
     }
-    
-    printf("\n"); 
+    */
     
 }
 int setFields(unsigned char *p){
@@ -263,6 +416,34 @@ int setFields(unsigned char *p){
 void APP12Marker::display(){
     printf("APP12 Marker \n");
     printf("%s\n",info);
+}
+
+
+int SOSMarker::setFields(unsigned char *p){
+   int i;
+   int idx;
+   idx  = 0;
+   nComponent = p[idx++];
+   for(i=0;i<nComponent;i++){
+       cid[i] = p[idx++];
+       tbl[i] = p[idx] >> 4 ;
+       ident[i] = p[idx] & 0xf; 
+       idx++;
+   }
+   spectSelect[0] = p[idx++];
+   spectSelect[1] = p[idx++];
+   sAprox = p[idx++];
+   return idx;
+}
+
+void SOSMarker::display(){
+   int i;
+   printf("\n-------------------Start of Scan Marker \n");
+   for(i=0;i<nComponent;i++){
+        printf("Component %d cid = %d table = %d Identifier = %d \n",i,cid[i],tbl[i],ident[i]);
+    }
+    printf("Spectral selection %d to %d \n",spectSelect[0],spectSelect[1]);
+    printf("Successive Approximation = %d \n",sAprox);
 }
 int getInt(unsigned char *p) {
    // It gets the integer of size 4 bytes starting from p
@@ -293,21 +474,40 @@ int img_fd;
     uint16 marker;
     uint16 length;
     unsigned char end_reached ; 
+    int  agcCount = 1;
+    char *argP;
 
     JFIFSegment *jfif;
     QuantTblMarker *quantTbl;
     HuffmanMarker *huffmanMarker;
     SOFMarker *sofMarker;
+    SOSMarker *sosMarker;
+    HuffmanTable *hft;
     img_file = (char *) malloc(256);
+    
     buf = (unsigned char *) malloc(4096);
     //jfif = new JFIFSegment;
     jfif = (JFIFSegment *) malloc(sizeof(JFIFSegment));
     strcpy(img_file,"/home/mangesh/blakcsoil/c/jpeg_read/sky_main.jpg");
-
+    argP= (char *) malloc(256);
     if(argc > 0) {
          for(i=0;i<argc;i++){
             printf("Inputs = %s\n",argv[i]);
         }
+        while(agcCount < argc) { 
+            strcpy(argP,argv[agcCount]);
+            if(strstr(argP,"-f")!=NULL){
+                if(argc>agcCount+1) {
+                    strcpy(img_file,argv[agcCount+1]);
+                    agcCount++;
+                }
+            }
+            if(strstr(argP,"-h")!=NULL){
+                printf("Display Help\n");
+                return 0;
+            }
+            agcCount++;
+        } 
     }
     img_fd = open(img_file,O_RDONLY);
     if(img_fd <= 0) {
@@ -384,23 +584,26 @@ int img_fd;
             sofMarker->setFields(buf);
             sofMarker->display();
        }else if (marker == SOSM) {
-            printf("SOSM Start of Scan Marker needs info \n");
+            printf("\nSOSM Start of Scan Marker needs info \n");
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
             bytes_read = read(img_fd,buf,length-2);
+            sosMarker = (SOSMarker *) malloc(sizeof(SOSMarker));
+            sosMarker->setFields(buf);
+            sosMarker->display();
            for(i=0;i<length-2;i++){
               printf("%x\t",buf[i]);
            }
        printf("\n");
 
        }else{
-            printf("Unknown marker reached = %x \n", marker);
+            printf("Unknown marker reached = %x at offset = %d (%x)\n", marker,(int)lseek(img_fd,0,SEEK_CUR),(int)lseek(img_fd,0,SEEK_CUR));
             end_reached = 1;
        }
     }
-            printf("After setFields = %d \n",pros);
-            jfif->display();
+    printf("After setFields = %d \n",pros);
+    jfif->display();
        //displayJpegHeader(buf);
 
      if((pros=lseek(img_fd,0,SEEK_CUR)) < 0) {
@@ -421,12 +624,21 @@ int img_fd;
             if(buf[0] == 0xD9) { 
                 end_reached = 1 ;
             }
+            printf("Bytes = %x\t",buf[0]);
+            bytes_read = read(img_fd,buf,2);
+            printf("%x %x at %d \n",buf[0],buf[1],(int)lseek(img_fd,0,SEEK_CUR));
           }
        }
      if((pros=lseek(img_fd,0,SEEK_CUR)) < 0) {
          printf("ERROR : lseek \n");
      }
        printf("\nseeking = %d Rest of info \n",pros);
+
+     printf("Huffman table \n");
+     hft = (HuffmanTable *) malloc(sizeof(HuffmanTable));
+     hft->setCode(huffmanMarker->codesOfLen[1],huffmanMarker->values[1]);
+     hft->display();
+
 
 return 1;
 }
