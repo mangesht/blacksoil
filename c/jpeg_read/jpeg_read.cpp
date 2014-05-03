@@ -10,6 +10,8 @@
 #include<fcntl.h>
 #include<unistd.h>
 #define get_uint16(p) (uint16((*((p)+0) << 8 )+ *((p)+1)))
+#define get_uint32(p) (((uint32)*((p)+1)) << 24 )
+//| (((uint32)*((p)+1)) << 16 ) | (((uint32)*((p)+2)) << 8 ) | ((uint32)(*(p)+3))
 #define SOI 0xFFD8
 #define EOI 0xFFD9
 #define APP0 0xFFE0
@@ -24,6 +26,9 @@
 #define SOSM 0xFFDA
 
 typedef unsigned short int uint16; 
+typedef unsigned  int uint32; 
+
+
 
 class JFIFSegment { 
    public : 
@@ -177,7 +182,7 @@ public:
    }
     void display(){
         int i;
-        printf("\n  Code\tCodeLen\tValue\n");
+        printf("\nCode\tCodeLen\tValue\n");
         for(i=0;i<codePtr;i++){
             printf("%x\t %d\t %x \n",hfc[i].code,(int)hfc[i].codeLen,(int)hfc[i].value);            
 
@@ -185,11 +190,78 @@ public:
     }
          
 };
-
+#define HUFFMAN_LOOKUP_WIDTH 16
+#define HUFFMAN_LOOKUP_DEPTH (1<<16)
+struct LookupTable{
+    unsigned char num; // Number of codes contained in this struct 
+    unsigned char remNum; // Number of unused bits in this set of WIDTH
+    unsigned char val[HUFFMAN_LOOKUP_WIDTH/2];
+    unsigned char codeLen[HUFFMAN_LOOKUP_WIDTH/2];
+};
+class HuffmanLookup{
+    public :
+    struct LookupTable lkpt[HUFFMAN_LOOKUP_DEPTH];
+    void display(){
+        int i;
+        int j;
+        for(i=0;i<64;i++){
+            printf("Lookup info for Idx = %04x  Valid code = %d num of unused bits = %d \n",i,lkpt[i].num,lkpt[i].remNum);
+            for(j=0;j<lkpt[i].num;j++){
+                printf("\t\t value = %x \n",lkpt[i].val[j]);
+            }
+        }
+    }
+    void setLookUpTable(HuffmanTable *ht){
+        unsigned int idx;
+        unsigned int tidx; // Temporary shadow of idx 
+        unsigned int v;
+        unsigned int cl; // CodeLens 
+        unsigned short code;
+        unsigned char codeFound;
+        unsigned char remNum;
+        unsigned short ctv; // Code Table values
+        for(idx=0;idx<HUFFMAN_LOOKUP_DEPTH;idx++){
+        //for(idx=0;idx<64;idx++){
+            lkpt[idx].num=0;
+            lkpt[idx].remNum=0;
+            tidx =  idx;
+            remNum = HUFFMAN_LOOKUP_WIDTH ;
+            do{
+               codeFound = 0 ;
+               for(cl=2;cl<=remNum;cl++){
+                     code = tidx>>(16-cl); // 16 because size of tidx is 16 
+                     // Match this code against CodeTable values
+                     for(ctv=0;ctv<ht->codePtr;ctv++){
+                           if(ht->hfc[ctv].codeLen == cl) {
+                               // CodeLen matches , now go for code match 
+                               if(ht->hfc[ctv].code == code) {
+                                   // This is matching code
+                                   lkpt[idx].val[lkpt[idx].num] = ht->hfc[ctv].value;
+                                   lkpt[idx].codeLen[lkpt[idx].num] = cl;
+                                   lkpt[idx].num++;
+                                   // Remove this bits from rest of code
+                                   tidx = tidx << cl;
+                                   codeFound = 1; 
+                                   remNum -= cl;
+                                   break; 
+                               }
+                           }
+                   }
+                   if(codeFound == 1) {
+                       break;
+                   } 
+               }
+            }while(codeFound == 1);
+            lkpt[idx].remNum = remNum;
+        }
+        
+    }
+     
+};
 class HuffmanMarker {
 public:
     unsigned char tbl_class; // DC = 0 and AC = 1 
-    unsigned char identifier; // 
+    unsigned char identifier; // Luma = 0 , Chroma = 1  
     // The values in 4 rows are indexed by 
     // identifier * 2 + tbl_class 
     unsigned char codesOfLen[4][17];
@@ -463,6 +535,67 @@ void displayJpegHeader(unsigned char *p) {
 
 }
 
+void decode(unsigned char *p, HuffmanLookup *huff[4]) {
+    int i;
+    unsigned short rx;
+    unsigned int rxp;
+    unsigned char val;
+    unsigned char remNum;
+    unsigned char len;
+    unsigned char rxResidue;
+    unsigned short ab; // additional bits 
+    int dcVal;
+    printf("String for decoding\n");
+    for(i=0;i<64;i++){
+        printf("%02x ",p[i]);
+    }
+    printf("\n");
+    rxResidue =32 ; 
+    rxp = get_uint16(p);
+    p+=4;
+    rx = rxp;
+    printf("rx = %x rxp = %x \n");
+    if (rx == 0xFF00) {
+        // Remove the stuffed 0s
+        rx = rx | p[0]; 
+        p++;
+    }
+    if(huff[0]->lkpt[rx].num <= 0) {
+        printf("ERROR: Invalid code\n");
+    }else{
+        val = huff[0]->lkpt[rx].val[0];
+        len = huff[0]->lkpt[rx].codeLen[0];
+        printf("Val = %d len = %d \n",val,len);
+        rx = rx << len; // Move out searched bit
+        rxp = rxp << len;
+        rxResidue -= len;
+        while(rxResidue <= 24) {
+            rxp = rxp | (((unsigned int)p[0])<<(32-rxResidue-8));
+            p++;
+            rxResidue += 8 ;
+        }
+        // Get in bits from p to fillrx
+        // Get val bits from stream, it represent additional bits 
+        ab = rxp >> (32-val); 
+        rxp = rxp << val;
+        rxResidue -= val;
+        while(rxResidue <= 24) {
+            rxp = rxp | (((unsigned int)p[0])<<(32-rxResidue-8));
+            p++;
+            rxResidue += 8 ;
+        }
+
+        // You have val and additional bits find out present dc value
+       if(ab < (1<<(val-1))) { 
+           dcVal = ab  - (1<<val) +1 ;
+       }else{
+            dcVal = ab;
+       }
+       printf("DCVAl = %d ab = %d\n",dcVal,ab); 
+
+    }
+}
+
 int main(int argc,char **argv) {
 
 char *img_file;
@@ -482,7 +615,8 @@ int img_fd;
     HuffmanMarker *huffmanMarker;
     SOFMarker *sofMarker;
     SOSMarker *sosMarker;
-    HuffmanTable *hft;
+    HuffmanTable *hft[4];
+    HuffmanLookup *hfl[4];
     img_file = (char *) malloc(256);
     
     buf = (unsigned char *) malloc(4096);
@@ -568,6 +702,7 @@ int img_fd;
             quantTbl->setFields(buf);
             quantTbl->display();
        }else if (marker == HUFFMAN) {
+            int hidx;
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
             printf("length = %x \n",length);
@@ -575,6 +710,19 @@ int img_fd;
             huffmanMarker = (HuffmanMarker *) malloc(sizeof(HuffmanMarker));
             huffmanMarker->setFields(buf);
             huffmanMarker->display();
+            // Make the Huffman table
+            //hidx = huffmanMarker->identifier * 2 + huffmanMarker->tbl_class ;
+            for(hidx=0;hidx <4;hidx++){
+                hft[hidx] = (HuffmanTable *) malloc(sizeof(HuffmanTable));
+                hft[hidx]->setCode(huffmanMarker->codesOfLen[hidx],huffmanMarker->values[hidx]);
+                printf("Huffman Table number = %d \n",hidx);
+                hft[hidx]->display();
+                //
+
+                hfl[hidx] = (HuffmanLookup *) malloc(sizeof(HuffmanLookup));
+                hfl[hidx]->setLookUpTable(hft[0]);
+            }
+
        }else if (marker == SOF) {
             bytes_read = read(img_fd,buf,2);
             length = get_uint16(buf);
@@ -595,7 +743,10 @@ int img_fd;
            for(i=0;i<length-2;i++){
               printf("%x\t",buf[i]);
            }
-       printf("\n");
+            // At this point, start reading actual data
+            printf("\n");
+            bytes_read = read(img_fd,buf,64);
+            decode(buf,hfl); 
 
        }else{
             printf("Unknown marker reached = %x at offset = %d (%x)\n", marker,(int)lseek(img_fd,0,SEEK_CUR),(int)lseek(img_fd,0,SEEK_CUR));
@@ -634,11 +785,15 @@ int img_fd;
      }
        printf("\nseeking = %d Rest of info \n",pros);
 
+    /*
      printf("Huffman table \n");
      hft = (HuffmanTable *) malloc(sizeof(HuffmanTable));
      hft->setCode(huffmanMarker->codesOfLen[1],huffmanMarker->values[1]);
      hft->display();
-
+     hfl = (HuffmanLookup *) malloc(sizeof(HuffmanLookup));
+     hfl->setLookUpTable(hft[0]);
+     hfl->display();
+    */
 
 return 1;
 }
