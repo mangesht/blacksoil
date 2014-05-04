@@ -10,8 +10,7 @@
 #include<fcntl.h>
 #include<unistd.h>
 #define get_uint16(p) (uint16((*((p)+0) << 8 )+ *((p)+1)))
-#define get_uint32(p) (((uint32)*((p)+1)) << 24 )
-//| (((uint32)*((p)+1)) << 16 ) | (((uint32)*((p)+2)) << 8 ) | ((uint32)(*(p)+3))
+#define get_uint32(p) (((uint32)*((p)+0)) << 24 ) | (((uint32)*((p)+1)) << 16 ) | (((uint32)*((p)+2)) << 8 ) | ((uint32)*((p)+3))
 #define SOI 0xFFD8
 #define EOI 0xFFD9
 #define APP0 0xFFE0
@@ -261,7 +260,7 @@ class HuffmanLookup{
 class HuffmanMarker {
 public:
     unsigned char tbl_class; // DC = 0 and AC = 1 
-    unsigned char identifier; // Luma = 0 , Chroma = 1  
+    unsigned char identifier; // Y Luma = 0 , Chroma = 1  
     // The values in 4 rows are indexed by 
     // identifier * 2 + tbl_class 
     unsigned char codesOfLen[4][17];
@@ -551,10 +550,13 @@ void decode(unsigned char *p, HuffmanLookup *huff[4]) {
     }
     printf("\n");
     rxResidue =32 ; 
-    rxp = get_uint16(p);
+    rxp = get_uint32(p);
+    printf("Values as %x %x %x %x \n",(((uint32)*((p)+0)) << 24 ) , (((uint32)*((p)+1)) << 16 ) , (((uint32)*((p)+2)) << 8 ) ,*(p+3) );
+
     p+=4;
-    rx = rxp;
-    printf("rx = %x rxp = %x \n");
+
+    rx = rxp >>  16;
+    printf("rx = %x rxp = %x \n",rx,rxp);
     if (rx == 0xFF00) {
         // Remove the stuffed 0s
         rx = rx | p[0]; 
@@ -592,7 +594,65 @@ void decode(unsigned char *p, HuffmanLookup *huff[4]) {
             dcVal = ab;
        }
        printf("DCVAl = %d ab = %d\n",dcVal,ab); 
-
+    }
+    // End of Y DC  decoding 
+    // Start looking at Y AC components
+    int decodedCount = 0 ; 
+    int numZeros ;
+    while(decodedCount <63) { 
+    rx = rxp >>  16;
+    printf("rx = %04x rxp = %08x \n",rx,rxp);
+    if (rx == 0xFF00) {
+        // Remove the stuffed 0s
+        rx = rx | p[0]; 
+        p++;
+    }
+    if(huff[1]->lkpt[rx].num <= 0) {
+        printf("ERROR: Invalid code\n");
+    }else{
+        val = huff[1]->lkpt[rx].val[0];
+        len = huff[1]->lkpt[rx].codeLen[0];
+        printf("Val = %d len = %d \n",val,len);
+        rx = rx << len; // Move out searched bit
+        rxp = rxp << len;
+        rxResidue -= len;
+        while(rxResidue <= 24) {
+            rxp = rxp | (((unsigned int)p[0])<<(32-rxResidue-8));
+            p++;
+            rxResidue += 8 ;
+            printf("Residual shifting done \n");
+        }
+        // Get in bits from p to fillrx
+        // Get val bits from stream, it represent additional bits 
+        if(val == 0) { 
+             // This means end of block
+             printf("End of Block\n");
+             decodedCount = 63;
+        } else{
+        numZeros= val >> 4 ;
+        for(i=0;i<numZeros;i++){
+            printf("ACVal = %d \n",0);
+        }
+        val = val & 0xF;
+        ab = rxp >> (32-val); 
+        rxp = rxp << val;
+        rxResidue -= val;
+        while(rxResidue <= 24) {
+            rxp = rxp | (((unsigned int)p[0])<<(32-rxResidue-8));
+            p++;
+            rxResidue += 8 ;
+            printf("Residual shifting done 2 \n");
+        }
+        // You have val and additional bits find out present dc value
+       if(ab < (1<<(val-1))) { 
+           dcVal = ab  - (1<<val) +1 ;
+       }else{
+            dcVal = ab;
+       }
+       decodedCount++;
+       printf("abVal = %d ACVal = %d \n",ab,dcVal);
+       }
+    }
     }
 }
 
@@ -720,7 +780,7 @@ int img_fd;
                 //
 
                 hfl[hidx] = (HuffmanLookup *) malloc(sizeof(HuffmanLookup));
-                hfl[hidx]->setLookUpTable(hft[0]);
+                hfl[hidx]->setLookUpTable(hft[hidx]);
             }
 
        }else if (marker == SOF) {
