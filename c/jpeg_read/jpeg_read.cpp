@@ -10,6 +10,8 @@
 #include<signal.h>
 #include<fcntl.h>
 #include<unistd.h>
+#include "imagePros.h"
+
 #define get_uint16(p) (uint16((*((p)+0) << 8 )+ *((p)+1)))
 #define get_uint32(p) (((uint32)*((p)+0)) << 24 ) | (((uint32)*((p)+1)) << 16 ) | (((uint32)*((p)+2)) << 8 ) | ((uint32)*((p)+3))
 #define SOI 0xFFD8
@@ -57,6 +59,106 @@ void display_8_8(short int  *p){
     }
     
 }
+
+void display_8_8_2d(short int clear_8_8[8][8]) {
+    int i,j;
+    printf("\n");
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%4x ",clear_8_8[i][j]);
+        }
+        printf("\n");
+    }
+}
+void display_8_8_2di(int clear_8_8[8][8]) {
+    int i,j;
+    printf("\n");
+    for(i=0;i<8;i++){
+        for(j=0;j<8;j++){
+            printf("%4x ",clear_8_8[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+//-------------------IDCT 
+float C(int u){
+    if(u==0) return(1.0f/sqrtf(2));
+    else return 1.0f;
+}
+
+int calcIDCTxy(int x, int y, const short int block[8][8])
+{
+	const float PI = 3.14f;
+    float sum=0;
+    for( int u=0; u<8; u++)
+    {
+         for(int v=0; v<8; v++)
+         {
+             sum += ( C(u) * C(v) ) * block[u][v] * cosf( ((2*x+1) * u * PI) / 16)  * cosf( ((2*y+1) * v * PI) / 16);
+         }
+    }         
+    return (int) ((1.0/4.0) * sum);
+}
+
+void PerformIDCT(short int outBlock[8][8], const short int inBlock[8][8])
+{
+	for(int y=0; y<8; y++)
+	{
+		for(int x=0; x<8; x++)
+		{
+			outBlock[x][y]  =  calcIDCTxy( x, y, inBlock);
+		}
+	}
+}
+//----------------------------------
+// Color Space conversion 
+
+unsigned int YCbCrToRGB(short int Y,short int Cb , short int Cr) { 
+   // The equations are 
+   /*
+        R = 298 * Y / 256  + 408 * Cr / 256 - 223 
+        G = 298 * Y / 256  - 100 * Cb / 256 - 208 * Cr / 256 + 135
+        B = 298 * Y / 256  + 516 * Cb / 256 - 277
+   */
+    short int R,G,B;
+    int res = 0 ; 
+        /*
+        R = (298.0 *(float)Y / 256.0 + 408.0*(float)Cr / 256.0- 223.0);
+        G = (298.0 *(float)Y / 256.0 - 100.0*(float)Cb / 256.0- 208.0* (float)Cr / 256.0 + 135.0) ; 
+        B = (298.0 *(float)Y / 256.0 + 516.0*(float)Cb / 256.0- 277.0); 
+        */
+        R = Y + 1.402 * (Cr-128);
+        G = Y - 0.34414* (Cb-128) - 0.71414 * ( Cr-128);
+        B = Y + 1.772 * ( Cb - 128); 
+        
+        if(R <0) {
+            printf(" r = %d %d %d %d ",R,Y,Cb,Cr);
+            res = 1; 
+        }
+        if(G <0) {
+            printf(" g = %d %d %d %d ",G,Y,Cb,Cr);
+            res = 1; 
+        }
+        if(B <0) {
+            printf(" b = %d %d %d %d ",B,Y,Cb,Cr);
+            res = 1; 
+        }
+        R = R < 0 ? 0 : R > 255 ? 255 : R ;
+        G = G < 0 ? 0 : G > 255 ? 255 : G ;
+        B = B < 0 ? 0 : B > 255 ? 255 : B ;
+        //G = G < 0 ? 0 : G & 0xFF;
+        //B = B < 0 ? 0 : B & 0xFF;
+        //res = (R << 16) | (G<<8) | B ; 
+        res = (res << 24 )| ((int)B << 16) | ((int)G<<8) | (int)R ; 
+        //res = res & 0xFF00FF;
+
+    return res;
+}
+
+
+
 class JFIFSegment { 
     public : 
     int count ;
@@ -567,6 +669,7 @@ void SOSMarker::display(){
     printf("Spectral selection %d to %d \n",spectSelect[0],spectSelect[1]);
     printf("Successive Approximation = %d \n",sAprox);
 }
+/*
 int getInt(unsigned char *p) {
     // It gets the integer of size 4 bytes starting from p
     int fs;
@@ -574,6 +677,7 @@ int getInt(unsigned char *p) {
     return fs;
     
 }
+*/
 
 void displayJpegHeader(unsigned char *p) {
     int i;
@@ -624,7 +728,7 @@ void displayJpegHeader(unsigned char *p) {
 
 int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantTblMarker *quantTbl,SOFMarker *sofMarker) {
     
-    int i;
+    int i,j;
     unsigned short rx;
     unsigned int rxp;
     unsigned char val;
@@ -644,10 +748,25 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
     int t ; // Very temporary var 
     unsigned char endReached = 0 ; 
     int br; // Bytes read 
+    short int dct_8_8[8][8];
+    short int clear_8_8[3][8][8];
+    int rgb_8_8[8][8];
     int dcd_dbg; 
+    short int p_dc[3];
+    int **bitmap; 
+
+
+    // Initializations 
+    bitmap = (int ** ) malloc(sofMarker->Y*sizeof(int *));
+    for(i=0;i<sofMarker->Y;i++) {
+        bitmap[i] = (int *) malloc(sofMarker->X*sizeof(int));
+    }
     br = 0 ; 
     dcd_dbg = 0 ; 
     setUpZigZagToLinear();
+    for(i=0;i<3;i++){ 
+        p_dc[i] = 0;
+    }
     printf("String for decoding\n");
     for(i=0;i<64;i++){
         //printf("%02x ",p[i]);
@@ -656,6 +775,8 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
     }
     printf("\n");
     rxResidue =32 ; 
+    
+// ------------------------------------------------------
     rxp = get_uint32(p);
     printf("Values as %x %x %x %x \n",(((uint32)*((p)+0)) << 24 ) , (((uint32)*((p)+1)) << 16 ) , (((uint32)*((p)+2)) << 8 ) ,*(p+3) );
     p+=4;
@@ -669,7 +790,7 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
     printf("Total tmcux = %d tmcuy = %d \n",tmcux,tmcuy);
     mcuCount = 0 ; 
     while(endReached == 0){ 
-        if(dcd_dbg) printf("Getting mcu (%d,%d)\n",cmcux,cmcuy);
+        //printf("Getting mcu (%d,%d)\n",cmcux,cmcuy);
         for(cc=0;cc<3 ;cc++) { 
             if(dcd_dbg) printf("CC Loop = %d sleeping \n",cc);
             if(dcd_dbg) SHOWP;
@@ -843,12 +964,56 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
                     }
                 }
             }
-            dcd_dbg = 1; 
+            //dcd_dbg = 1; 
             if(dcd_dbg) printf("Getting mcu (%d,%d)\n",cmcux,cmcuy);
             if(dcd_dbg) printf(" MCU #%d MCU for component = %d \n",mcuCount,cc);
             if(dcd_dbg) display_8_8(mcu);
             dcd_dbg = 0; 
+            // The current dc is differentail value 
+            if(dcd_dbg) printf("p_dc = 0x%x = 0d%d \n",p_dc[cc],p_dc[cc]);
+            mcu[0] = mcu[0] + p_dc[cc]; 
+            p_dc[cc] = mcu[0]; 
+            // Convert 1-D into 2 array as required for IDCT 
+            for(i=0;i<64;i++){
+                dct_8_8[(int)floor(i/8)][i%8] = mcu[i];
+            }
+            if(dcd_dbg) printf("DCT values ");
+            if(dcd_dbg)  display_8_8_2d(dct_8_8);
+            PerformIDCT(clear_8_8[cc],dct_8_8);
+            if(dcd_dbg) printf("Cleared Image  values ");
+            // Perform addition of 128 to all the values
+            for(i=0;i<8;i++){ 
+                for(j=0;j<8;j++){ 
+                    clear_8_8[cc][i][j] += 128;
+                }
+            }
+            if(dcd_dbg) display_8_8_2d(clear_8_8[cc]);
         }
+        for(i=0;i<8;i++){ 
+            for(j=0;j<8;j++){ 
+                // Color space conversion to RGB 
+                rgb_8_8[i][j] = YCbCrToRGB(clear_8_8[0][i][j],clear_8_8[1][i][j],clear_8_8[2][i][j]);
+                if(rgb_8_8[i][j] >> 24 != 0 ) { 
+                    printf("Error X = %d Y = %d i = %d j = %d \n",cmcux,cmcuy,i,j);
+                }
+                rgb_8_8[i][j] = rgb_8_8[i][j] & 0x00FFFFFF;   
+            }
+        }
+        if(dcd_dbg) printf("RGB Composition = \n");
+        if(dcd_dbg) display_8_8_2di(rgb_8_8);
+        // Rellocate this pixel information to bitmap
+        for(i=0;i<8;i++) {
+            for(j=0;j<8;j++) {
+                // here 
+                if(cmcux*8+j<sofMarker->X && (cmcuy)*8+i < sofMarker->Y){
+                    //COLOR(cmcux*8+j,cmcuy*8+i) =rgb_8_8[i][j] ; 
+                    bitmap[sofMarker->Y-1-(cmcuy)*8-i][cmcux*8+j] = rgb_8_8[i][j] ;
+                }else{
+                    if(dcd_dbg) printf("Skipping for %d %d %d ",cmcuy,i,j);
+                }
+            }
+        }
+        //return 0;
         cmcux++; 
         if(cmcux == tmcux ) { 
             cmcux = 0 ; 
@@ -856,6 +1021,8 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
         }
         mcuCount++;
     }
+    printf("Saving the file \n");
+    saveBitmapToFile(bitmap,sofMarker->X,sofMarker->Y,"rupesh.bmp");
     return br; 
 }
 
