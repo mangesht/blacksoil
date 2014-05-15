@@ -599,6 +599,7 @@ int HuffmanMarker::setFields(unsigned char *p){
         }
         valuesCount = cnt;
         display();
+        printf("Huffman::setFields idx = %d \n");
     }
     return idx;    
 }
@@ -608,7 +609,7 @@ void HuffmanMarker::display(){
     int j;
     int k ; 
     printf("HuffmanMarker \n");
-    for(k=0;k<3;k++) { 
+    for(k=0;k<4;k++) { 
         printf("table class = %x  ",k%2);
         printf("identifier  = %x  ",k/2);
         printf("Codes of Length \n");
@@ -790,6 +791,12 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
     printf("Total tmcux = %d tmcuy = %d \n",tmcux,tmcuy);
     mcuCount = 0 ; 
     while(endReached == 0){ 
+        if(cmcux == 17 && cmcuy == 5) { 
+            dcd_dbg = 1; 
+        }
+        if(cmcux == 19 && cmcuy == 5) { 
+            dcd_dbg = 0; 
+        }
         //printf("Getting mcu (%d,%d)\n",cmcux,cmcuy);
         for(cc=0;cc<3 ;cc++) { 
             if(dcd_dbg) printf("CC Loop = %d sleeping \n",cc);
@@ -931,12 +938,14 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
                         decodedCount = 63;
                     } else{
                         numZeros= val >> 4 ;
+                        if(dcd_dbg) printf("ZRL [ %d ] \n",numZeros);
                         for(i=0;i<numZeros;i++){
                             //mcu[mcuIdx++] = 0;
                             mcu[zigZagToLinear[mcuIdx++]] = 0 ;
                             if(dcd_dbg) printf("ACVal = %d \n",0);
                         }
                         val = val & 0xF;
+                        if(val != 0 ) { 
                         ab = rxp >> (32-val); 
                         rxp = rxp << val;
                         rxResidue -= val;
@@ -957,6 +966,9 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
                             dcVal = ab;
                         }
                         dcVal = dcVal * quantTbl->quantVal[qtblIdx][mcuIdx]; 
+                        } else { 
+                            dcVal = 0 ; 
+                        }
                         if(dcd_dbg) printf("abVal = %d ACVal = %d quantVal = %d \n",ab,dcVal,quantTbl->quantVal[qtblIdx][mcuIdx]);
                         mcu[zigZagToLinear[mcuIdx++]] = dcVal ;
                         //mcu[mcuIdx++] = dcVal ;
@@ -968,7 +980,7 @@ int decode(unsigned char *p, HuffmanLookup *huff[4], SOSMarker *sosMarker,QuantT
             if(dcd_dbg) printf("Getting mcu (%d,%d)\n",cmcux,cmcuy);
             if(dcd_dbg) printf(" MCU #%d MCU for component = %d \n",mcuCount,cc);
             if(dcd_dbg) display_8_8(mcu);
-            dcd_dbg = 0; 
+            //dcd_dbg = 0; 
             // The current dc is differentail value 
             if(dcd_dbg) printf("p_dc = 0x%x = 0d%d \n",p_dc[cc],p_dc[cc]);
             mcu[0] = mcu[0] + p_dc[cc]; 
