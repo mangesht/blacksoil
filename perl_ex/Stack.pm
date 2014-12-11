@@ -10,7 +10,7 @@ package Node;
        _next   =>undef,
        previous =>undef
     };
-    #print "Adding Node $self->{element} \n";
+    print "Adding Node $self->{element} \n";
     bless $self,$class;
     return $self;
   }

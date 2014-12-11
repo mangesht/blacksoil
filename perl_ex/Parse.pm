@@ -3,25 +3,40 @@ use strict;
 
 package Parse;
 my @id_list;
+my $file_to_parse;
+my $name;
+#my $fh;
 sub new{
-    my ($class)  = shift;
+    print "New called with @_\n";
+    my $fh;
+    my ($class)  =shift;
     my $self = {
-        file_to_parse =>shift
+        file_to_parse =>shift,
+        fh => "",
+        name => ""
     };
-
-    if(!open(MYINFILE,$self->{file_to_parse})){
-        die "Can't read  $self->{file_to_parse file} \n";
+    $file_to_parse = $self->{file_to_parse};
+    if(!open($fh,$file_to_parse)){
+        die "Can't read  $file_to_parse file \n";
     }
+    $self->{fh} = $fh;
     bless $self,$class;
     return $self;
 }
 sub get_token(){
+    my ($self) = @_;
     my $token;
+    my $line;
     my $eof = 0 ;
-    while($id_list<= 0 and $eof = 0 ) {
-        if($line(<MYINFILE>)){
+    my $id=@id_list ; 
+    my $fh = $self->{fh};
+    #print "1 @id_list\nid=$id";
+    while((@id_list<= 0) and ($eof == 0) ) {
+        #print "2\n";
+        if($line=<$fh>){
             @id_list= get_identifier($line);
         }else{
+            #print "3\n";
             # End of File
             $eof = 1 ;
         }

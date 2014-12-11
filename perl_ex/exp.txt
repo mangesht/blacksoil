@@ -1,7 +1,8 @@
 This is my file 
-
-
+a_k= *b+c;
+include "abc.txt"
 I 
 am
-    mangesh 
+    "mangesh" 
+include "abc.txt"
 
