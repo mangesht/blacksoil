@@ -117,4 +117,15 @@ my @line_3 = @{$hoa{"line1"}};
 print "hash Line 1 " ;print @{$hoa{"line1"}};
 print "\nline 3 \n";
 print @line_3;
-print "Line 4 - "; print @{$hoa{"line4"}};
+print "Line 4 - "; print "@{$hoa{qq(line4)}}\n";
+if(defined($hoa{"mangesh"})){
+    print "hoa of mangesh is defined \n" ;
+}else{
+    print "hoa of mangesh is NOT defined \n" ;
+}
+
+if(defined($hoa{"line1"})){
+    print "Hoa of line1 is defined \n";
+}else {
+    print "Hoa of line1 is NOT defined \n";
+}
