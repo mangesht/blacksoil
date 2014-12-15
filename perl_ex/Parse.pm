@@ -23,6 +23,21 @@ sub new{
     bless $self,$class;
     return $self;
 }
+sub DESTROY{
+    my ($self) = @_;
+    my $fh = $self->{fh};
+    close $fh;
+}
+sub get_line(){
+    my ($self) = @_;
+    my $fh = $self->{fh};
+    my $line;
+    if($line=<$fh>){
+        return $line;
+    }else{
+        return "__EOFPARSE";
+    }
+}
 sub get_token(){
     my ($self) = @_;
     my $token;
@@ -33,12 +48,13 @@ sub get_token(){
     #print "1 @id_list\nid=$id";
     while((@id_list<= 0) and ($eof == 0) ) {
         #print "2\n";
-        if($line=<$fh>){
-            @id_list= get_identifier($line);
-        }else{
+        $line = get_line();
+        if($line cmp "__EOFPARSE"){
             #print "3\n";
             # End of File
             $eof = 1 ;
+        }else{
+            @id_list= get_identifier($line);
         }
     }
     if($eof==0) {

@@ -3,7 +3,7 @@ use strict;
 use Parse;
 my $obj = new Parse("exp.txt");
 my $token;
-my $i;
+my $i = "mang";
 
 
 $obj->{name} = "Mangesh";
@@ -38,6 +38,10 @@ if(!($token cmp "include")){
     $token = "FG";
     print "Inc Name = $incObj->{name} \n";
     print " Name = $obj->{name} \n";
+}
+printf("Checking end of loop with $token %d\n",length($token));
+if($token cmp "__EOFPARSE"){
+    print "Token equals EOF\n";
 }
 }while($token ne "__EOFPARSE");
 
