@@ -18,6 +18,8 @@ sub new{
     $file_to_parse = $self->{file_to_parse};
     if(!open($fh,$file_to_parse)){
         die "Can't read  $file_to_parse file \n";
+    }else{
+        print "File $file_to_parse opened fh=$fh\n";
     }
     $self->{fh} = $fh;
     bless $self,$class;
@@ -26,16 +28,29 @@ sub new{
 sub DESTROY{
     my ($self) = @_;
     my $fh = $self->{fh};
+    print "destroying fh\n";
     close $fh;
+}
+sub get_rest_of_the_line(){
+    my ($self) = @_;
+    my $token;
+    my $k;
+    while(@id_list>0){
+        $token = $token ." ". shift @id_list;
+    }
+    return $token;
 }
 sub get_line(){
     my ($self) = @_;
     my $fh = $self->{fh};
     my $line;
     if($line=<$fh>){
+        print "Reading $line\n";
         return $line;
     }else{
+        print "Reading $line\n";
         return "__EOFPARSE";
+        
     }
 }
 sub get_token(){
@@ -48,23 +63,29 @@ sub get_token(){
     #print "1 @id_list\nid=$id";
     while((@id_list<= 0) and ($eof == 0) ) {
         #print "2\n";
-        $line = get_line();
+        $line = $self->get_line();
+        #print "Getline returns $line\n";
         if($line cmp "__EOFPARSE"){
+            @id_list= $self->get_identifier($line);
+            $eof = 0 ;
+        }else{
             #print "3\n";
             # End of File
             $eof = 1 ;
-        }else{
-            @id_list= get_identifier($line);
         }
     }
     if($eof==0) {
         $token = shift @id_list;
+        #print "From there\t";
     }else{
+        #print "From here\t";
         $token = "__EOFPARSE";
     }
+    print "Returning --$token--\n";
     return $token;
 }
 sub get_identifier(@){
+my ($self) = shift @_;
 my $inputLine = shift @_; 
 my @chars;
 my $char;
@@ -73,6 +94,7 @@ my $id_index = 0;
 my $len;
 my @id_list;
 my $started_collecting;
+#print "get_identifier inline $inputLine \n";
 #print "Analysing $inputLine \n";
     @chars = split(//,$inputLine);
     $len = $#chars;
@@ -96,8 +118,21 @@ my $started_collecting;
                 #print "Space -$id- char -$chars[$i]-\n"
             }else{
                  # This is puntuations and operators
-                 $id=$chars[$i];
-                $id_list[$id_index++] = $id;
+                 if(($chars[$i] =~ /[+-=\*\/]/) and ($chars[$i+1] =~ /[+-=\*\/]/)){
+                    $id=$chars[$i];
+                    $i++;
+                    $id = $id . $chars[$i];
+                    $id_list[$id_index++] = $id;
+                    print "Double Operator $id\n";
+                    # Check if next is also operator of same kind 
+                    #if($chars[$i+1] =~ /[+-=\*\/]/){
+                    #    print "Operator $chars[$i]$chars[$i+1]\n";
+                    #}
+                 }else{
+                    print "Single Operator $chars[$i]\n";
+                    $id=$chars[$i];
+                    $id_list[$id_index++] = $id;
+                }
                 #print "\n Spl Id = $id \n";
             }
             $id="";

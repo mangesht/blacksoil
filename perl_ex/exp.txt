@@ -1,8 +1,13 @@
 This is my file 
 a_k= *b+c;
+++
 include "abc.txt"
 I 
 am
     "mangesh" 
 include "abc.txt"
+/* comment starts and 
+ends */
+// This is also comment\
+
 
