@@ -7,7 +7,7 @@ my $i = "mang";
 
 
 $obj->{name} = "Mangesh";
-$obj->{nocomments} = 1; 
+$obj->{nocomments} = 0; 
 print "Name = $obj->{name} \n";
 # Loop starts here 
 do{
@@ -21,10 +21,11 @@ if(($token cmp "//") == 0 ){
 if(($token cmp "/*") == 0 ){
     my $cb;
     print "Block Comment \n";
-    while($token cmp "*/"){
-        $token = $obj->get_token();
-        $cb = $cb . " " . $token ;
-    }
+#    while($token cmp "*/"){
+#        $token = $obj->get_token();
+#        $cb = $cb . " " . $token ;
+#    }
+    $cb = $obj->get_block("/*","*/");
     print "cb=$cb\n"
 }
 if(!($token cmp "include")){

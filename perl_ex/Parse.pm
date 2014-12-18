@@ -115,6 +115,27 @@ sub get_token_c(){
     }
     return $token;
 }
+sub get_block{
+my ($self) = shift @_;
+my $opening = shift @_; 
+my $closing = shift @_; 
+my $cnt = 1;
+my $blk;
+my $token;
+my $comment_status = $self->{nocomments};
+while($cnt > 0 ) {
+    $token = $self->get_token();
+    if(($token cmp $opening ) == 0 ) {
+        $cnt++;
+    }elsif(($token cmp $closing) == 0) {
+        $cnt--;
+    }
+    $blk = $blk . " " . $token ;
+}
+
+$self->{nocomments} = $comment_status;
+return $blk;
+}
 sub get_identifier(@){
 my ($self) = shift @_;
 my $inputLine = shift @_; 
