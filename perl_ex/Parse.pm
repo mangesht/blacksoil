@@ -116,9 +116,14 @@ sub get_token_c(){
     return $token;
 }
 sub get_block{
+
+# This function starts with opening bracket / indentifier and concates all the tokens till corresponding end of bracket / identifier is encountered 
+# It is assumed that the function is called when you already encountered opening indentifier. So the count starts with 1 here 
+
 my ($self) = shift @_;
 my $opening = shift @_; 
 my $closing = shift @_; 
+
 my $cnt = 1;
 my $blk;
 my $token;
