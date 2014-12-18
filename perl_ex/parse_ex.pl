@@ -7,6 +7,7 @@ my $i = "mang";
 
 
 $obj->{name} = "Mangesh";
+$obj->{nocomments} = 1; 
 print "Name = $obj->{name} \n";
 # Loop starts here 
 do{

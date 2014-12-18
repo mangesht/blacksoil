@@ -5,6 +5,7 @@ package Parse;
 my @id_list;
 my $file_to_parse;
 my $name;
+
 #my $fh;
 sub new{
     print "New called with @_\n";
@@ -13,8 +14,11 @@ sub new{
     my $self = {
         file_to_parse =>shift,
         fh => "",
-        name => ""
+        name => "",
+        nocomments=>0
     };
+    # nocomments = 0 -> token is returned as is without checking for comments
+    # nocomments = 1 -> commented portion is not sent to user, it is dropped
     $file_to_parse = $self->{file_to_parse};
     if(!open($fh,$file_to_parse)){
         die "Can't read  $file_to_parse file \n";
@@ -45,15 +49,43 @@ sub get_line(){
     my $fh = $self->{fh};
     my $line;
     if($line=<$fh>){
-        print "Reading $line\n";
+        #print "Reading $line\n";
         return $line;
     }else{
-        print "Reading $line\n";
+        #print "Reading $line\n";
         return "__EOFPARSE";
         
     }
 }
 sub get_token(){
+    my ($self) = @_;
+    my $token ;
+    my $exit_loop = 0;
+    #print "get_token called \n";
+    do{
+        #print "doing \n";
+        $token = $self->get_token_c();
+        if($self->{nocomments} == 1){
+            #print "Nocomments \n";
+            if (($token cmp "//") == 0 ){
+                $token = $self->get_rest_of_the_line();
+            }elsif(($token cmp "/*") == 0) {
+                do{
+                    $token = $self->get_token_c();
+                }while($token cmp "*/");
+            }else{
+                $exit_loop = 1;
+            }
+        }else{
+            #print "Yescomments \n";
+            $exit_loop = 1;
+        }
+    }while($exit_loop == 0);
+    #print "Returning --$token--\n";
+    return $token;
+}
+# gets token with comments 
+sub get_token_c(){
     my ($self) = @_;
     my $token;
     my $line;
@@ -81,7 +113,6 @@ sub get_token(){
         #print "From here\t";
         $token = "__EOFPARSE";
     }
-    print "Returning --$token--\n";
     return $token;
 }
 sub get_identifier(@){
@@ -123,13 +154,13 @@ my $started_collecting;
                     $i++;
                     $id = $id . $chars[$i];
                     $id_list[$id_index++] = $id;
-                    print "Double Operator $id\n";
+                    #print "Double Operator $id\n";
                     # Check if next is also operator of same kind 
                     #if($chars[$i+1] =~ /[+-=\*\/]/){
                     #    print "Operator $chars[$i]$chars[$i+1]\n";
                     #}
                  }else{
-                    print "Single Operator $chars[$i]\n";
+                    #print "Single Operator $chars[$i]\n";
                     $id=$chars[$i];
                     $id_list[$id_index++] = $id;
                 }
