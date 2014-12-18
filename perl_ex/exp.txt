@@ -10,4 +10,14 @@ include "abc.txt"
 ends */
 // This is also comment\
 
+void fname (int a , int b , int c){
+
+    Mangesh has this line 1 
+    { Mangesh has this line 2  }
+Mangesh has this { line 3 }
+Mangesh has this line 4 
+ {} 
+
+}
+
 

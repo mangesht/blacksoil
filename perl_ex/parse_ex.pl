@@ -28,6 +28,16 @@ if(($token cmp "/*") == 0 ){
     $cb = $obj->get_block("/*","*/");
     print "cb=$cb\n"
 }
+if(($token cmp "{") == 0 ){
+    my $cb ;
+    $cb = $obj->get_block("{","}");
+    print "Curly brace block is $cb \n";
+}
+if(($token cmp "(") == 0 ){
+    my $cb ;
+    $cb = $obj->get_block("(",")");
+    print "Round brace block is $cb \n";
+}
 if(!($token cmp "include")){
     my $fname="";
     print "\t Include token \n";
