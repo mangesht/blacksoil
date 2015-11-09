@@ -1,5 +1,6 @@
 #!/usr/local/bin/perl
 use strict;
+use List::Util qw(shuffle);
 
 my @data = (20 , 30 , 40 , 50 ,10 );
 
@@ -9,7 +10,8 @@ for(@data){
     print "Element = $_ \n";
 }
 my $v;
-print "Using for Each \n";
+print "Using for Each After Shuffling  \n";
+@data = shuffle @data;
 
 foreach my $k(@data){
         print "Element = $k\n";
