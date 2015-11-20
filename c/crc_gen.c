@@ -6,6 +6,7 @@
 // The polymonial to be specified without any omission of leading 
 // or trailing zeros / ones 
 // Eg. x^3 + x^2 + 1 Be represeted as i.e. D (1101)
+// The input polynomial should be specific in hex 
 //--------------------------------------------------------
 
 #include<stdio.h>
@@ -92,7 +93,8 @@ int main(int argc,char *argv[]) {
          return -1; 
      }
    
-    writef("module crc_4(reset,clk,inp,rem);\n");
+    sprintf(str,"module crc_%d(reset,clk,inp,rem);\n",POLY_ORDER+1);
+    writef(str);
     writef("input reset;\n");
     writef("input clk;\n");
     sprintf(str,"input[%d:0] inp;\n",WIDTH-1);
