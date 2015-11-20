@@ -85,7 +85,7 @@ int main(int argc,char *argv[]) {
     printf("D = %d\n",(int )l);
     printf("Polynomial = %s Poly Order = %d Width = %d \n",polynomial,POLY_ORDER,WIDTH);
     printf("Output file = %s \n",outputFileName);
-    out_fd = open(outputFileName,O_TRUNC | O_RDWR);
+    out_fd = open(outputFileName,O_TRUNC | O_RDWR | O_CREAT,S_IRUSR|S_IWUSR| S_IROTH);
     if(out_fd == -1){
          perror("error:");
          printf("No output file exiting \n");
