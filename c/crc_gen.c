@@ -4,7 +4,7 @@
 // The code generates Verilog code for module 2 division by
 // specified polynomial.
 // The polymonial to be specified without any omission of leading 
-// or trailing zeros 
+// or trailing zeros / ones 
 // Eg. x^3 + x^2 + 1 Be represeted as i.e. D (1101)
 //--------------------------------------------------------
 
