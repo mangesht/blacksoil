@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 
+// Mangesh looked at it 
 class abc {
         public : 
                 abc(int i) : myValue(i)
