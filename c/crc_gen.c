@@ -110,10 +110,11 @@ int main(int argc,char *argv[]) {
     sprintf(str,"reg [%d:0] q;\n",WIDTH-1);
     writef(str);
     for(idx=0;idx<=WIDTH;idx++){
-        sprintf(str,"wire [%d:0] ds_%d;",POLY_ORDER + WIDTH -1 ,idx);
+        sprintf(str,"wire [%d:0] ds_%d;\n",POLY_ORDER + WIDTH -1 ,idx);
+        writef(str);
     }
     writef("always @(posedge clk) begin\n");
-    writef("if reset == 1'b1) begin \n");
+    writef("if (reset == 1'b1) begin \n");
     writef("d=0;\n");
     writef("end else begin\n");
     sprintf(str,"d[%d:%d] = ds_%d[%d:0];\n",POLY_ORDER + WIDTH -1 , WIDTH,WIDTH,POLY_ORDER-1);
