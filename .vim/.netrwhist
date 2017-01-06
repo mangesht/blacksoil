@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/work/mangesh/ethSwitch/jan2/myrepo/v3j/dv/scripts'
+let g:netrw_dirhist_2='/work/mangesh/ethSwitch/myrepo/v3j/dv/src'
+let g:netrw_dirhist_3='/work/mangesh/ethSwitch/myrepo/v3n/rtl'
+let g:netrw_dirhist_4='/work/mangesh/ethSwitch/myrepo/v3j/rtl'
