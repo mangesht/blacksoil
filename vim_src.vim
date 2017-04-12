@@ -3,8 +3,8 @@
 :se hlsearch
 :set ts=4
 :set expandtab
-
-set guifont=Droid\ Sans\ Mono\ 12
+set guifont=Courier\ 10\ Pitch\ 14
+"set guifont=Droid\ Sans\ Mono\ 12
 
 " Expansions for UVM
 
