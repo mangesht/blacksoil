@@ -1,0 +1,48 @@
+
+<html>
+<body>
+<canvas id="mangesh" width="400" height="600" style="border:1px solid #000000;">
+</canvas>
+
+<script>
+var c =document.getElementById("mangesh");
+var ctx = c.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0,0);
+ctx.lineTo(300,100);
+ctx.lineTo(300,50);
+ctx.stroke();
+--> Drawing a Circle 
+var radius = 50 ; 
+var i;
+for(i=0;i<10;i++) { 
+    ctx.beginPath();
+    ctx.arc(200,300,radius+i*10,i*Math.PI/20,2*Math.PI - Math.PI/2);
+    ctx.stroke();
+} 
+
+--> Add Text 
+ctx.font = "14px Arial";
+--> text,x,y
+ctx.fillText("Mangesh Thakare",100,500);
+ctx.font = "8px Times New Roman";
+ctx.lineWidth=0.10;
+for(i=0;i<14;i++) {
+   ctx.fillText(i*50,i*50,10); 
+   ctx.fillText(i*50,10,i*50); 
+    --> Horizonal Grid 
+    ctx.beginPath();
+    ctx.moveTo(0,i*50);
+    ctx.lineTo(400,i*50);
+    ctx.stroke();
+    --> Vertical Grid 
+    ctx.beginPath();
+    ctx.moveTo(i*50,0);
+    ctx.lineTo(i*50,600);
+    ctx.stroke();
+}
+
+</script>
+
+</body>
+</html>
