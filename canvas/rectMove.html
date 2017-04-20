@@ -1,0 +1,198 @@
+<html>
+<body>
+
+<p>Log Messages:</p>
+<p id="log"></p>
+
+<canvas id="mangesh" width="600" height="600" style="border:1px solid #000000;">
+</canvas>
+
+
+<script>
+
+function myRect(ltx,lty,width,height) { 
+    this.ltx = ltx;
+    this.lty = lty; 
+    this.width = width; 
+    this.height = height; 
+
+} 
+
+var WIDTH = 600;
+var HEIGHT = 600;
+var rects = [];
+var drawRectActive; 
+var drawRectStarted; 
+// Indicated that the drawing of rectable is enabled 
+// Variable ce enabling local drawing 
+var drawCurrentTmr; 
+var newRltx ;
+var newRlty ;
+var newRrbx ;
+var newRrby ;
+var canvas =document.getElementById("mangesh");
+var ctx = canvas.getContext("2d");
+
+var log=document.getElementById("log");
+
+// ctx.fillStyle = "#FAF7F8";
+ //rect(0,0,WIDTH,HEIGHT);
+ ctx.stroke();
+
+
+
+function init() { 
+    ctx.lineCap = "square";
+    ctx.shadowBlur = 0;
+    ctx.lineWidth ="1";
+    ctx.strokeStyle = "#000000";
+    var r = new myRect(10,10,30,20); 
+    rects.push(r); 
+    r = new myRect(100,100,100,50); 
+  //  rects.push(r); 
+
+} 
+
+function rect(x,y,w,h) {
+// ctx.lineWidth ="0.75";
+ ctx.beginPath();
+ //ctx.rect(x,y,w,h);
+ ctx.strokeRect(x,y,w,h);
+ ctx.closePath();
+ ctx.stroke();
+ 
+ //ctx.lineWidth ="1";
+ ctx.beginPath(); 
+ ctx.moveTo(x,y);
+ ctx.lineTo(x+w,y);
+ ctx.lineTo(x+w,y+h);
+ ctx.lineTo(x,y+h);
+ ctx.lineTo(x,y);
+ ctx.closePath(); 
+// ctx.stroke();
+
+}
+
+function draw(){ 
+ var r ;
+
+ ctx.clearRect(0, 0, WIDTH, HEIGHT);
+ for(i=0;i<rects.length;i++) { 
+     r = rects[i]; 
+     rect(r.ltx,r.lty,r.width,r.height);
+ } 
+
+ctx.strokeText (rects.length ,100,500);
+}
+
+function getSelectedObject(x,y) { 
+ var r ;
+ var res = -1 ; 
+ for(i=0;i<rects.length;i++) { 
+    r = rects[i];
+    if(x >= r.ltx && x <= r.ltx+r.width && y >= r.lty && y <= r.lty + r.height) { 
+        res = i; 
+    } 
+ } 
+    
+ return res; 
+} 
+var  curRrbx ; 
+var  curRrby ; 
+var oldCurx = -1;
+var oldCury;
+var oldCurw;
+var oldCurh;
+function drawCurrent(){ 
+    if(drawRectStarted == 1) { 
+        var rx = newRltx < curRrbx ? newRltx : curRrbx ; 
+        var width = newRltx < curRrbx ? curRrbx - newRltx : newRltx - curRrbx ; 
+
+        var ry = newRlty < curRrby ? newRlty : curRrby ; 
+        var height = newRlty < curRrby ? curRrby - newRlty : newRlty - curRrby ;
+        if(oldCurx != -1) { 
+           ctx.strokeStyle = "#ffffff";
+           rect(oldCurx,oldCury,oldCurw,oldCurh);
+           ctx.strokeStyle = "#000000";
+           rect(rx , ry,width , height) ; 
+        } 
+        oldCurx = rx ; 
+        oldCury = ry ; 
+        oldCurw = width ; 
+        oldCurh = height ; 
+    } 
+} 
+
+function mouseMove(e) { 
+
+    var x = e.pageX - canvas.offsetLeft ; 
+    var y = e.pageY - canvas.offsetTop; 
+
+        curRrbx = x; 
+        curRrby = y; 
+
+        var str = "mouse move drawing"; 
+        str = str.concat( x , " ", y); 
+        log.innerHTML = str ;
+} 
+
+function myUp(e) {
+    var x = e.pageX - canvas.offsetLeft ; 
+    var y = e.pageY - canvas.offsetTop; 
+    if(drawRectStarted == 1) { 
+        drawRectStarted = 0;
+        oldCurx = -1; 
+        newRrbx = x; 
+        newRrby = y; 
+        var rx = newRltx < newRrbx ? newRltx : newRrbx ; 
+        var width = newRltx < newRrbx ? newRrbx - newRltx : newRltx - newRrbx ; 
+
+        var ry = newRlty < newRrby ? newRlty : newRrby ; 
+        var height = newRlty < newRrby ? newRrby - newRlty : newRlty - newRrby ; 
+        var r = new myRect(rx,ry,width,height); 
+        rects.push(r); 
+        draw(); 
+        var str = "completed drawing"; 
+        str = str.concat( x , " ", y); 
+        log.innerHTML = str ;
+
+        clearInterval(drawCurrentTmr);
+
+    } 
+} 
+function myDown(e) {
+    var x = e.pageX - canvas.offsetLeft ; 
+    var y = e.pageY - canvas.offsetTop; 
+    var objId = getSelectedObject(x,y);
+    if(objId == 0) { 
+        drawRectActive = 1 ; 
+        log.innerHTML = "Base Rect Selected";
+    }else if(drawRectActive == 1){ 
+        // User started drawing rect
+        
+        newRltx = x ;
+        newRlty = y ;
+        drawRectStarted = 1; 
+        var str = "started drawing"; 
+        str = str.concat( x , " ", y); 
+        //log.innerHTML = "started drawing" ;
+        log.innerHTML = str ;
+       drawCurrentTmr = setInterval(drawCurrent,10);
+    } 
+} 
+
+init();
+
+//ctx.fillStyle = "#FAF7F8";
+//rect(20,20,50,50);
+draw(); 
+
+setInterval(draw,100);
+canvas.onmousedown = myDown;
+canvas.onmouseup = myUp;
+canvas.onmousemove = mouseMove;
+
+</script>
+
+</body>
+</html>
