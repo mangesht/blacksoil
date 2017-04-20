@@ -12,7 +12,7 @@ ctx.moveTo(0,0);
 ctx.lineTo(300,100);
 ctx.lineTo(300,50);
 ctx.stroke();
---> Drawing a Circle 
+// Drawing a Circle 
 var radius = 50 ; 
 var i;
 for(i=0;i<10;i++) { 
@@ -21,25 +21,38 @@ for(i=0;i<10;i++) {
     ctx.stroke();
 } 
 
---> Add Text 
+// Add Text 
 ctx.font = "14px Arial";
---> text,x,y
+// text,x,y
 ctx.fillText("Mangesh Thakare",100,500);
 ctx.font = "8px Times New Roman";
 ctx.lineWidth=0.10;
 for(i=0;i<14;i++) {
    ctx.fillText(i*50,i*50,10); 
    ctx.fillText(i*50,10,i*50); 
-    --> Horizonal Grid 
+    // Horizonal Grid 
     ctx.beginPath();
     ctx.moveTo(0,i*50);
     ctx.lineTo(400,i*50);
     ctx.stroke();
-    --> Vertical Grid 
+    // Vertical Grid 
     ctx.beginPath();
     ctx.moveTo(i*50,0);
     ctx.lineTo(i*50,600);
     ctx.stroke();
+
+    ctx.strokeStyle = "#ff0000";
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.lineTo(300,300);
+    ctx.stroke();
+    ctx.strokeStyle = "#000000";
+    ctx.beginPath();
+    ctx.moveTo(200,200);
+    ctx.lineTo(300,300);
+    ctx.stroke();
+
+
 }
 
 </script>
