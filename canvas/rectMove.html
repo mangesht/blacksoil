@@ -45,11 +45,14 @@ function init() {
     ctx.lineCap = "square";
     ctx.shadowBlur = 0;
     ctx.lineWidth ="1";
-    ctx.strokeStyle = "#000000";
-    var r = new myRect(10,10,30,20); 
+    ctx.strokeStyle = "#ff00ff";
+    var r = new myRect(10,10,30,50); 
     rects.push(r); 
     r = new myRect(100,100,100,50); 
   //  rects.push(r); 
+    ctx.strokeStyle = "#000000";
+
+    ctx.strokeText ("Select Me" ,10,70);
 
 } 
 
@@ -83,6 +86,7 @@ function draw(){
  } 
 
 ctx.strokeText (rects.length ,100,500);
+ctx.strokeText ("Select Me" ,10,70);
 }
 
 function getSelectedObject(x,y) { 
