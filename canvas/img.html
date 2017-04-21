@@ -1,0 +1,22 @@
+<html>
+<body>
+
+<canvas id="mangesh" width="400" height="600" style="border:1px solid #000000;">
+</canvas>
+<img id="dice" src= "dice.jpg">
+
+<p><button onClick="drawImage()">Try It </button></p>
+
+<script>
+
+function drawImage() { 
+    var c = document.getElementById("mangesh");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("dice");
+    ctx.drawImage(img,10,100);
+} 
+
+</script>
+
+</body>
+</html>
