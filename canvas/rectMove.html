@@ -63,6 +63,12 @@ function Line(x1,y1,x2,y2){
         this.y1=y1;
         this.x2=x2;
         this.y2=y2;
+        if((x2-x1) == 0) { 
+            this.m = 1000000 ; 
+        } else { 
+            this.m = (y2-y1)/(x2-x1);
+        } 
+        this.c = this.y1 - this.m * this.x1;
     }
     Line.prototype.drawLine=function(){ 
         
@@ -109,6 +115,39 @@ function Line(x1,y1,x2,y2){
         ctx.fill();
         ctx.restore();
     }
+    Line.prototype.getDistanceFromPoint=function(x1,y1){ 
+        var c2 ; 
+        var x3;
+        var y3;
+        var dist ; 
+        var tx1;
+        var tx2;
+        var ty1;
+        var ty2;
+        // Check if the point is in the rectable inscribed 
+        tx1 = this.x1; 
+        tx2 = this.x2; 
+        ty1 = this.y1; 
+        ty2 = this.y2; 
+        if(this.m == 0) { 
+            ty1 = this.y1 - 2 ; 
+            ty2 = this.y2 + 2 ; 
+        }else if(this.m > 1000) { 
+            tx1 = this.x1 - 2 ; 
+            tx2 = this.x2 + 2 ; 
+        }
+        if(((x1-tx1)*(x1-tx2) < 0) && ((y1-ty1)*(y1-ty2) < 0)) { 
+             c2 = y1 + x1 / this.m ;
+             x3 = this.m * (c2-this.c) / (this.m*this.m + 1) ;
+             y3 = this.m*x3 + this.c ;
+             dist = Math.sqrt((y1-y3)*(y1-y3) + (x1-x3)*(x1-x3));
+        } else { 
+             dist = 10000;
+        } 
+        return dist;
+        
+    } 
+    
 
 
 function ResizeInfo(){
@@ -325,6 +364,12 @@ function draw(){
  // Drawing lines 
  for(i=0;i<lines.length;i++) { 
     l = lines[i];
+     if(selectedObject == (i+2000)) { 
+         ctx.strokeStyle = "#ff0000";
+     } else { 
+         ctx.strokeStyle = r.style;
+    }
+
     l.drawLine();
  }
 ctx.strokeStyle = "#000000";
@@ -355,7 +400,7 @@ function getSelectedObject(x,y) {
     if(x >= r.ltx && x <= r.ltx+r.width && y >= r.lty && y <= r.lty + r.height) { 
         res = i; 
     } 
- } 
+ }
  if(res != -1) { return (1000+res); } 
  for(i=0;i<rects.length;i++) { 
     r = rects[i];
@@ -363,8 +408,22 @@ function getSelectedObject(x,y) {
         res = i; 
     } 
  } 
-    
- return res; 
+ if(res !=-1) { return res;  } 
+ // Check if the lines are selected 
+ for(i=0;i<lines.length;i++) { 
+        var d ; 
+        r = lines[i];
+        d = r.getDistanceFromPoint(x,y);
+        if(d<8) { 
+            res = i ; 
+        }
+        var str = "Distance from line" ; 
+        str = str.concat(i , " is " , d);
+        log.innerHTML = str ;
+        
+ } 
+ if(res != -1) { return (res + 2000) ; } 
+ 
 } 
 var  curRrbx ; 
 var  curRrby ; 
@@ -503,8 +562,10 @@ function myUp(e) {
         newRrbx = x; 
         newRrby = y; 
         var l = new Line(newRltx,newRlty,newRrbx,newRrby);
-        attachToNearest(l);
-        lines.push(l);
+        if((Math.abs(newRltx - newRrbx) + Math.abs(newRlty - newRrby)) > 20 ) { 
+            attachToNearest(l);
+            lines.push(l);
+        } 
         clearInterval(drawCurrentTmr);
         drawLineStarted = 0 ; 
 
@@ -523,7 +584,7 @@ function myDown(e) {
     if(objId == 0) { 
         drawRectActive = 1 ; 
         log.innerHTML = "Base Rect Selected";
-    } else if(objId >= 1000) { 
+    } else if((objId >= 1000) && (objId < 2000) ) { 
         // User started resizing rect 
         if((objId == 1000) || (objId == 1003) ) { 
             newRltx = rects[selectedObject].ltx + rects[selectedObject].width;
