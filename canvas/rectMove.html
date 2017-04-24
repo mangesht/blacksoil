@@ -130,7 +130,8 @@ function myRect(ltx,lty,width,height) {
     this.style = "#000000";
     this.update_cor = function( ltx,lty,width,height) { 
 
-         this.ltx = ltx;
+         this.ltx = ltx;Math.abs(l.x1-r.x1)
+
          this.lty = lty; 
          this.width = width; 
          this.height = height; 
@@ -159,7 +160,111 @@ function myRect(ltx,lty,width,height) {
 
 } 
 
+var ac = 0; 
+function attachToNearest(l) {
+    var dmin = 1000000; // Large number
+    var dx; 
+    var dy; 
+    var selR;
+    var closeX;
+    var closeY;
+    var CLOSENESS_CRITERION = 10; 
+    var found = 0 ; 
+    var i ;
+    var r ;
+    ac++;
+    // Snap Line start
+    found = 0 ;
+    dmin = 1000000; // Large number
+    for(i=0;i<rects.length;i++) { 
+        r = rects[i];
+        dx= 100000;
+        dy= 100000;
+        if((l.y1 > r.lty) && (l.y1<(r.lty+r.height))) { 
+             dx = Math.min(Math.abs(l.x1-r.ltx) ,Math.abs(l.x1-r.ltx-r.width))
 
+        }
+        if((l.x1 > r.ltx) && (l.x1<(r.ltx+r.width))) { 
+             dy = Math.min(Math.abs(l.y1-r.lty) ,Math.abs(l.y1-r.lty-r.height))
+        }
+        if((Math.min(dx , dy) < dmin) && (Math.min(dx , dy) < CLOSENESS_CRITERION))  { 
+            // This is the Closer object
+            dmin = Math.min(dx , dy) ;
+            found = 1; 
+            selR = r; 
+            if(dx < dy) { 
+                // The object is closer to Verticle lines 1 or 3
+                closeY = l.y1;
+                if(Math.abs(l.x1- selR.ltx) > Math.abs(l.x1- selR.ltx-selR.width)) { 
+                    closeX = selR.ltx+selR.width;
+                } else {
+                    closeX = selR.ltx;
+                }                
+            }else{ 
+                // The object is closer to horizontal lines 0 or 2
+                closeX = l.x1;
+                if(Math.abs(l.y1- selR.lty) > Math.abs(l.y1- selR.lty-selR.height)) { 
+                    closeY = selR.lty+selR.height;
+                } else {
+                    closeY = selR.lty;
+                }                
+            } 
+        } 
+    } 
+    if(found == 1) { 
+        l.x1 = closeX;
+        l.y1 = closeY;
+
+    } 
+
+    // Snap Line End
+    found = 0 ;
+    dmin = 1000000; // Large number
+    for(i=0;i<rects.length;i++) { 
+        r = rects[i];
+        dx= 100000;
+        dy= 100000;
+        if((l.y2 > r.lty) && (l.y2<(r.lty+r.height))) { 
+             dx = Math.min(Math.abs(l.x2-r.ltx) ,Math.abs(l.x2-r.ltx-r.width))
+
+        }
+        if((l.x2 > r.ltx) && (l.x2<(r.ltx+r.width))) { 
+             dy = Math.min(Math.abs(l.y2-r.lty) ,Math.abs(l.y2-r.lty-r.height))
+        }
+        if((Math.min(dx , dy) < dmin) && (Math.min(dx , dy) < CLOSENESS_CRITERION))  { 
+            // This is the Closer object
+            dmin = Math.min(dx , dy) ;
+            found = 1; 
+            selR = r; 
+            if(dx < dy) { 
+                // The object is closer to Verticle lines 1 or 3
+                closeY = l.y2;
+                if(Math.abs(l.x2- selR.ltx) > Math.abs(l.x2- selR.ltx-selR.width)) { 
+                    closeX = selR.ltx+selR.width;
+                } else {
+                    closeX = selR.ltx;
+                }                
+            }else{ 
+                // The object is closer to horizontal lines 0 or 2
+                closeX = l.x2;
+                if(Math.abs(l.y2- selR.lty) > Math.abs(l.y2- selR.lty-selR.height)) { 
+                    closeY = selR.lty+selR.height;
+                } else {
+                    closeY = selR.lty;
+                }                
+            } 
+        } 
+    } 
+    if(found == 1) { 
+        l.x2 = closeX;
+        l.y2 = closeY;
+
+    } 
+
+
+
+    return  ; 
+}
 // ctx.fillStyle = "#FAF7F8";
  //rect(0,0,WIDTH,HEIGHT);
  ctx.stroke();
@@ -398,8 +503,10 @@ function myUp(e) {
         newRrbx = x; 
         newRrby = y; 
         var l = new Line(newRltx,newRlty,newRrbx,newRrby);
+        attachToNearest(l);
         lines.push(l);
         clearInterval(drawCurrentTmr);
+        drawLineStarted = 0 ; 
 
     } 
     
