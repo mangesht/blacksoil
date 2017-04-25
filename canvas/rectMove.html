@@ -124,18 +124,23 @@ function Line(x1,y1,x2,y2){
         var tx2;
         var ty1;
         var ty2;
+        var selMargin = 4; 
         // Check if the point is in the rectable inscribed 
         tx1 = this.x1; 
         tx2 = this.x2; 
         ty1 = this.y1; 
         ty2 = this.y2; 
-        if(this.m == 0) { 
-            ty1 = this.y1 - 2 ; 
-            ty2 = this.y2 + 2 ; 
-        }else if(this.m > 1000) { 
-            tx1 = this.x1 - 2 ; 
-            tx2 = this.x2 + 2 ; 
+        if(Math.abs(this.m) < 0.065) { 
+            ty1 = this.y1 < this.y2 ? this.y1  -selMargin : this.y1 +selMargin   ; 
+            ty2 = this.y1 < this.y2 ? this.y2  +selMargin : this.y2 -selMargin   ; 
+        }else if(Math.abs(this.m) > 100) { 
+            tx1 = this.x1 < this.x2 ? this.x1  -selMargin : this.x1 +selMargin   ; 
+            tx2 = this.x1 < this.x2 ? this.x2  +selMargin : this.x2 -selMargin   ; 
         }
+
+        var str = "Line Equation = " ; 
+        str = str.concat("y = " , this.m , " x + " , this.c);
+        str = str.concat("trying to find if Point " , x1 , " ",y1 ,"is inside " , tx1 , " " , ty1 , " ", tx2 ," ",ty2);
         if(((x1-tx1)*(x1-tx2) < 0) && ((y1-ty1)*(y1-ty2) < 0)) { 
              c2 = y1 + x1 / this.m ;
              x3 = this.m * (c2-this.c) / (this.m*this.m + 1) ;
@@ -144,6 +149,8 @@ function Line(x1,y1,x2,y2){
         } else { 
              dist = 10000;
         } 
+        str = str.concat("dist = " , dist);
+        //log.innerHTML = str ;
         return dist;
         
     } 
@@ -169,7 +176,7 @@ function myRect(ltx,lty,width,height) {
     this.style = "#000000";
     this.update_cor = function( ltx,lty,width,height) { 
 
-         this.ltx = ltx;Math.abs(l.x1-r.x1)
+         this.ltx = ltx;
 
          this.lty = lty; 
          this.width = width; 
@@ -179,20 +186,21 @@ function myRect(ltx,lty,width,height) {
     this.resize_shape = function (){ 
         resize_boxes = []; 
         var rz; 
-
+        var sz = 8 ; 
+        var szb2 =  sz / 2 ; 
         var str = "Resize Called. Boxes ="; 
         //var log=document.getElementById("log");
         str = str.concat( resize_boxes.length); 
         str = str.concat(this.lty ); 
         log.innerHTML = str ;
 
-        rz = new myRect(this.ltx+this.width/2,this.lty-2,4,4); 
+        rz = new myRect(this.ltx+this.width/2,this.lty-szb2,sz,sz); 
         resize_boxes.push(rz); 
-        rz = new myRect(this.ltx+this.width-2,this.lty+this.height/2,4,4); 
+        rz = new myRect(this.ltx+this.width-szb2,this.lty+this.height/2,sz,sz); 
         resize_boxes.push(rz); 
-        rz = new myRect(this.ltx+this.width/2,this.lty+this.height-2,4,4); 
+        rz = new myRect(this.ltx+this.width/2,this.lty+this.height-szb2,sz,sz); 
         resize_boxes.push(rz); 
-        rz = new myRect(this.ltx-2,this.lty+this.height/2,4,4); 
+        rz = new myRect(this.ltx-szb2,this.lty+this.height/2,sz,sz); 
         resize_boxes.push(rz); 
         return; 
     } ;
@@ -419,7 +427,7 @@ function getSelectedObject(x,y) {
         }
         var str = "Distance from line" ; 
         str = str.concat(i , " is " , d);
-        log.innerHTML = str ;
+        //log.innerHTML = str ;
         
  } 
  if(res != -1) { return (res + 2000) ; } 
@@ -536,6 +544,10 @@ function myUp(e) {
             rects[selectedObject].update_cor(rx,ry,width,height); 
         rects[selectedObject].resize_shape();
         resizeInfo.resize_active = 0 ; 
+
+        var str = "completed drawing"; 
+        str = str.concat( x , " ", y); 
+        log.innerHTML = str ;
     } else if(drawRectStarted == 1) { 
         drawRectStarted = 0;
         oldCurx = -1; 
@@ -572,7 +584,7 @@ function myUp(e) {
     } 
     
     var str = "Resize "; 
-    if(selectedObject > 0) { 
+    if(selectedObject > 0 && selectedObject < 1000) { 
         str = str.concat(rects[selectedObject].ltx , " ", rects[selectedObject].lty , " " ,  rects[selectedObject].width , " ",  rects[selectedObject].height); 
         log.innerHTML = str ;
     } 
@@ -595,6 +607,10 @@ function myDown(e) {
         } 
         resizeInfo.resize_dir = objId - 1000; 
         resizeInfo.resize_active = 1; 
+
+        //var str = "Selected Object "; 
+        //str = str.concat(objId ); 
+        //log.innerHTML = str ;
     }else if(drawRectActive == 1){ 
         // User started drawing rect
         
@@ -619,7 +635,7 @@ function myDown(e) {
         selectedObject = objId;
         var str = "Selected Object "; 
         str = str.concat(objId ); 
-        log.innerHTML = str ;
+        //log.innerHTML = str ;
     }  
 } 
 
