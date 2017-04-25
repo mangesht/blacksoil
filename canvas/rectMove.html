@@ -63,12 +63,15 @@ function Line(x1,y1,x2,y2){
         this.y1=y1;
         this.x2=x2;
         this.y2=y2;
-        if((x2-x1) == 0) { 
-            this.m = 1000000 ; 
-        } else { 
-            this.m = (y2-y1)/(x2-x1);
-        } 
-        this.c = this.y1 - this.m * this.x1;
+        this.update_eq = function() { 
+             if((this.x2-this.x1) == 0) { 
+                 this.m = 1000000 ; 
+             } else { 
+                 this.m = (this.y2-this.y1)/(this.x2-this.x1);
+             } 
+             this.c = this.y1 - this.m * this.x1;
+        };
+        this.update_eq();
     }
     Line.prototype.drawLine=function(){ 
         
@@ -154,12 +157,37 @@ function Line(x1,y1,x2,y2){
         return dist;
         
     } 
-    
+    Line.prototype.resize_shape = function (){
+        resize_boxes = []; 
+        var rz; 
+        var sz = 8 ; 
+        var szb2 =  sz / 2 ; 
+        var str = "Resize Called line. Boxes ="; 
+        //var log=document.getElementById("log");
+        str = str.concat( resize_boxes.length); 
+        str = str.concat(this.lty ); 
+        log.innerHTML = str ;
 
+        rz = new myRect(this.x1-szb2,this.y1-szb2,sz,sz); 
+        resize_boxes.push(rz); 
+        rz = new myRect(this.x2-szb2,this.y2-szb2,sz,sz); 
+        resize_boxes.push(rz); 
+        return; 
+    }
+
+    
+    Line.prototype.update = function (x1,y1,x2,y2){
+        this.x1=x1;
+        this.y1=y1;
+        this.x2=x2;
+        this.y2=y2;
+        this.update_eq();
+    } 
 
 function ResizeInfo(){
     this.resize_active = 0; 
     this.resize_dir = 0;
+    this.type = 0 ; 
     this.clear = function(){ 
         resize_boxes = [];
         this.resize_active = 0 ; 
@@ -395,6 +423,7 @@ if(draw_blink < 7) {
  draw_blink = 0;  
 }  
 ctx.strokeText (rects.length ,100,500);
+ctx.strokeText (lines.length ,150,500);
 ctx.strokeText ("Select Me" ,10,70);
 }
 
@@ -444,7 +473,7 @@ function drawCurrent(){
         var ry; 
         var width; 
         var height; 
-    if(resizeInfo.resize_active == 1) { 
+    if(resizeInfo.resize_active == 1 && resizeInfo.type == 0 ) { 
         if(resizeInfo.resize_dir == 0) {
             rx = rects[selectedObject].ltx ; 
             width = rects[selectedObject].width ; 
@@ -462,10 +491,9 @@ function drawCurrent(){
         oldCury = ry ; 
         oldCurw = width ; 
         oldCurh = height ; 
-
-
-
         } 
+
+
     } else if(drawRectStarted == 1) { 
         rx = newRltx < curRrbx ? newRltx : curRrbx ; 
         width = newRltx < curRrbx ? curRrbx - newRltx : newRltx - curRrbx ; 
@@ -483,11 +511,29 @@ function drawCurrent(){
         oldCurw = width ; 
         oldCurh = height ; 
     } else if(drawLineStarted == 1) { 
-        if(oldCurx != -1) { 
-            var l = new Line(newRltx,newRlty,oldCurx,oldCury); 
+        if(oldCurx != -1) {
+            var l; 
+            if(resizeInfo.resize_active == 1 ) {
+                if(resizeInfo.resize_dir == 0) { 
+                     l = new Line(oldCurx,oldCury,newRltx ,newRlty);
+                }  else { 
+                     l = new Line(newRltx ,newRlty,oldCurx,oldCury);
+                } 
+            } else { 
+                l = new Line(newRltx,newRlty,oldCurx,oldCury); 
+            } 
             ctx.strokeStyle = "#ffffff";
             l.drawLine();
-            l = new Line(newRltx,newRlty,curRrbx,curRrby); 
+            if(resizeInfo.resize_active == 1 ) {
+                if(resizeInfo.resize_dir == 0) { 
+                     l = new Line(curRrbx,curRrby,newRltx ,newRlty);
+                }  else { 
+                     l = new Line(newRltx ,newRlty,curRrbx,curRrby);
+                } 
+            } else { 
+
+                l = new Line(newRltx,newRlty,curRrbx,curRrby); 
+            } 
             ctx.strokeStyle = "#000000";
             l.drawLine();
         }
@@ -514,7 +560,7 @@ function mouseMove(e) {
 function myUp(e) {
     var x = e.pageX - canvas.offsetLeft ; 
     var y = e.pageY - canvas.offsetTop; 
-    if(resizeInfo.resize_active == 1) { 
+    if((resizeInfo.resize_active == 1) && (resizeInfo.type == 0)) { 
         oldCurx = -1; 
         newRrbx = x; 
         newRrby = y; 
@@ -548,6 +594,18 @@ function myUp(e) {
         var str = "completed drawing"; 
         str = str.concat( x , " ", y); 
         log.innerHTML = str ;
+    } else if((resizeInfo.resize_active == 1) && (resizeInfo.type == 1)) { 
+        // Line is getting resized
+        if(resizeInfo.resize_dir == 0) { 
+            lines[selectedObject-2000].update(x,y,lines[selectedObject-2000].x2,lines[selectedObject-2000].y2);
+        }else if(resizeInfo.resize_dir == 1) { 
+            lines[selectedObject-2000].update(lines[selectedObject-2000].x1,lines[selectedObject-2000].y1,x,y);
+        } 
+        attachToNearest(lines[selectedObject-2000]);
+        lines[selectedObject-2000].resize_shape();
+        resizeInfo.resize_active = 0 ; 
+        clearInterval(drawCurrentTmr);
+        drawLineStarted = 0 ; 
     } else if(drawRectStarted == 1) { 
         drawRectStarted = 0;
         oldCurx = -1; 
@@ -593,24 +651,41 @@ function myDown(e) {
     var x = e.pageX - canvas.offsetLeft ; 
     var y = e.pageY - canvas.offsetTop; 
     var objId = getSelectedObject(x,y);
+
+        var str = "Selected Object  "; 
+        str = str.concat(objId );
+        //log.innerHTML = str ;
     if(objId == 0) { 
         drawRectActive = 1 ; 
         log.innerHTML = "Base Rect Selected";
     } else if((objId >= 1000) && (objId < 2000) ) { 
-        // User started resizing rect 
-        if((objId == 1000) || (objId == 1003) ) { 
-            newRltx = rects[selectedObject].ltx + rects[selectedObject].width;
-            newRlty = rects[selectedObject].lty + rects[selectedObject].height;
-        }else if((objId == 1001) || (objId == 1002)) {
-            newRltx = rects[selectedObject].ltx ;
-            newRlty = rects[selectedObject].lty ;
-        } 
+
         resizeInfo.resize_dir = objId - 1000; 
         resizeInfo.resize_active = 1; 
+        // User started resizing rect 
+        if(resizeInfo.type == 0) { 
+             if((objId == 1000) || (objId == 1003) ) { 
+                 newRltx = rects[selectedObject].ltx + rects[selectedObject].width;
+                 newRlty = rects[selectedObject].lty + rects[selectedObject].height;
+             }else if((objId == 1001) || (objId == 1002)) {
+                 newRltx = rects[selectedObject].ltx ;
+                 newRlty = rects[selectedObject].lty ;
+             }
+        } else if(resizeInfo.type == 1) { 
+             // Chose the point that is not going to move
+             newRltx = resizeInfo.resize_dir == 0 ? lines[selectedObject-2000].x2 : lines[selectedObject-2000].x1;
+             newRlty = resizeInfo.resize_dir == 0 ? lines[selectedObject-2000].y2 : lines[selectedObject-2000].y1;
+             drawLineStarted = 1; 
+             oldCurx = -1 ;
+             var str = "started drawing"; 
+             str = str.concat( x , " ", y); 
+             log.innerHTML = str ;
+             drawCurrentTmr = setInterval(drawCurrent,10);
+        } 
 
-        //var str = "Selected Object "; 
-        //str = str.concat(objId ); 
-        //log.innerHTML = str ;
+        str = str.concat("Selected Object for resize " );
+        str = str.concat(objId , " dir = ",resizeInfo.resize_dir , "type = " , resizeInfo.type ); 
+        log.innerHTML = str ;
     }else if(drawRectActive == 1){ 
         // User started drawing rect
         
@@ -656,12 +731,18 @@ function resize_clicked(e){
     
         var str = "Resize clicked "; 
         //str = str.concat( x , " ", y); 
-        if(selectedObject > 0) { 
+        if(selectedObject > 0 && selectedObject <1000) { 
             str = str.concat("object " , selectedObject , " " ) ;
             rects[selectedObject].resize_shape(); 
             str = str.concat(rects[selectedObject].lty);
             resizeInfo.resize_active = 0; 
+            resizeInfo.type = 0; 
+        } else if(selectedObject >=2000  && selectedObject <3000) { 
+            lines[selectedObject-2000].resize_shape();
+            resizeInfo.resize_active = 0; 
+            resizeInfo.type = 1; 
         } 
+
         //log.innerHTML = str ;
 } 
 
