@@ -21,6 +21,7 @@
 .button5 {border-radius: 50%;}
 </style>
 
+<script type="text/javascript" src="tree.js"></script>
 
 <p>Log Messages:</p>
 <p id="log"></p>
@@ -353,6 +354,7 @@ function init() {
     ctx.strokeStyle = "#ff00ff";
     var r = new myRect(10,10,30,50); 
     rects.push(r); 
+    var t = new Tree();
     r = new myRect(100,100,100,50); 
   //  rects.push(r); 
     ctx.strokeStyle = "#000000";
