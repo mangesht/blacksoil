@@ -19,8 +19,10 @@ function Tree(){
         var i;
         var idx;
         for(i=0;i<chld.length;i++){
+            console.log("making my self parent for ",chld[i].element.name);
             idx = -1; 
-            chld.parent = n ;
+            chld[i].parent = n ;
+            n.addChild(chld[i]);
             idx = p.children.indexOf(chld[i]);
             if(idx >= 0) { 
                 p.children.splice(idx,1);
@@ -29,7 +31,12 @@ function Tree(){
             }
         }
         p.addChild(n);
+        
     }
+    this.add = function(n){ 
+        var m = new Node(n);
+        this.addNode(m);
+    } 
     this.search_parent = function(n){
         var p; 
         var cur_rt = this.root;
@@ -53,6 +60,7 @@ function Tree(){
     this.removeNode = function(n){
         // This removes the node n from tree
         var idx = -1; 
+        console.log("removing node" , n.element.name);
         idx = n.parent.children.indexOf(n);
         if(idx >= 0) { 
             n.parent.children.splice(idx,1);
@@ -79,7 +87,7 @@ function Tree(){
         var cur;
         console.log(this.root.element.name);
         cur  = this.root;
-        var str = "";
+        var str = "Showing :";
         var i;
         this.makeBFSArray();
         for(i=0;i<this.bfsAr.length;i++) { 
@@ -97,7 +105,7 @@ function Node(element){
         var str = "";
         n.parent = this;
         this.children.push(n);
-        console.log(str.concat("added ",n.element.name , "as a child to ",this.element.name ));
+        console.log(str.concat("added ",n.element.name , " as a child to ",this.element.name ));
         
     };
     this.getNextNode = function() {
@@ -190,112 +198,121 @@ function Node(element){
 }
 
 // Test Code 
-function myRect(ltx,lty,width,height) { 
-    this.ltx = ltx;
-    this.lty = lty; 
-    this.width = width; 
-    this.height = height; 
-    this.style = "#000000";
-    this.name = "";
-    this.update_cor = function( ltx,lty,width,height) { 
-
-         this.ltx = ltx;
-
-         this.lty = lty; 
-         this.width = width; 
-         this.height = height; 
-    }; 
-
-    this.resize_shape = function (){ 
-        resize_boxes = []; 
-        var rz; 
-        var sz = 8 ; 
-        var szb2 =  sz / 2 ; 
-        var str = "Resize Called. Boxes ="; 
-        //var log=document.getElementById("log");
-        str = str.concat( resize_boxes.length); 
-        str = str.concat(this.lty ); 
-        log.innerHTML = str ;
-
-        rz = new myRect(this.ltx+this.width/2,this.lty-szb2,sz,sz); 
-        resize_boxes.push(rz); 
-        rz = new myRect(this.ltx+this.width-szb2,this.lty+this.height/2,sz,sz); 
-        resize_boxes.push(rz); 
-        rz = new myRect(this.ltx+this.width/2,this.lty+this.height-szb2,sz,sz); 
-        resize_boxes.push(rz); 
-        rz = new myRect(this.ltx-szb2,this.lty+this.height/2,sz,sz); 
-        resize_boxes.push(rz); 
-        return; 
-    } ;
-
-    this.is_enclosed_in = function (n) { 
-          console.log("Checking if " , this.name , " is enclosed in " , n.name);
-          if( (this.ltx  > n.ltx) && (this.lty > n.lty) && 
-               ((this.ltx+this.width) < (n.ltx + n.width)) && 
-               ((this.lty+this.height) < (n.lty + n.height))) { 
-                console.log("True");
-                return true;
-           } else { 
-                console.log("False");
-                return false;
-           }   
-    } ;
-} 
-
+//function myRect(ltx,lty,width,height) { 
+//    this.ltx = ltx;
+//    this.lty = lty; 
+//    this.width = width; 
+//    this.height = height; 
+//    this.style = "#000000";
+//    this.name = "";
+//    this.update_cor = function( ltx,lty,width,height) { 
+//
+//         this.ltx = ltx;
+//
+//         this.lty = lty; 
+//         this.width = width; 
+//         this.height = height; 
+//    }; 
+//
+//    this.resize_shape = function (){ 
+//        resize_boxes = []; 
+//        var rz; 
+//        var sz = 8 ; 
+//        var szb2 =  sz / 2 ; 
+//        var str = "Resize Called. Boxes ="; 
+//        //var log=document.getElementById("log");
+//        str = str.concat( resize_boxes.length); 
+//        str = str.concat(this.lty ); 
+//        log.innerHTML = str ;
+//
+//        rz = new myRect(this.ltx+this.width/2,this.lty-szb2,sz,sz); 
+//        resize_boxes.push(rz); 
+//        rz = new myRect(this.ltx+this.width-szb2,this.lty+this.height/2,sz,sz); 
+//        resize_boxes.push(rz); 
+//        rz = new myRect(this.ltx+this.width/2,this.lty+this.height-szb2,sz,sz); 
+//        resize_boxes.push(rz); 
+//        rz = new myRect(this.ltx-szb2,this.lty+this.height/2,sz,sz); 
+//        resize_boxes.push(rz); 
+//        return; 
+//    } ;
+//
+//    this.is_enclosed_in = function (n) { 
+//          console.log("Checking if " , this.name , " is enclosed in " , n.name);
+//          if( (this.ltx  > n.ltx) && (this.lty > n.lty) && 
+//               ((this.ltx+this.width) < (n.ltx + n.width)) && 
+//               ((this.lty+this.height) < (n.lty + n.height))) { 
+//                console.log("True");
+//                return true;
+//           } else { 
+//                console.log("False");
+//                return false;
+//           }   
+//    } ;
+//} 
+//
 
 console.log("Mangesh here");
 
-var t = new Tree();
-var r ;
-r = new myRect(0,0,1000,1000);
-r.name = "test";
-var n;
-n  = new Node(r);
-t.addNode(n);
-
-
-r = new myRect(50,50,200,200);
-r.name = "top";
-n  = new Node(r);
-t.addNode(n);
-
-r = new myRect(350,50,200,200);
-r.name = "top2";
-n  = new Node(r);
-t.addNode(n);
-
-r = new myRect(51,51,50,50);
-r.name = "env1";
-n  = new Node(r);
-t.addNode(n);
-
-
-r = new myRect(351,51,50,50);
-r.name = "env21";
-n  = new Node(r);
-t.addNode(n);
-
-r = new myRect(102,51,50,50);
-r.name = "env2";
-n  = new Node(r);
-t.addNode(n);
-
-
-r = new myRect(402,51,50,50);
-r.name = "env22";
-n  = new Node(r);
-t.addNode(n);
-
-r = new myRect(103,52,20,20);
-r.name = "agent1";
-n  = new Node(r);
-t.addNode(n);
-
-
-r = new myRect(124,52,20,20);
-r.name = "agent2";
-n  = new Node(r);
-t.addNode(n);
-
-t.show();
-
+//var t = new Tree();
+//var r ;
+//r = new myRect(0,0,1000,1000);
+//r.name = "test";
+//var n;
+////n  = new Node(r);
+////t.addNode(n);
+//t.add(r);
+//t.show();
+//
+//r = new myRect(124,52,20,20);
+//r.name = "agent2";
+//n  = new Node(r);
+//t.addNode(n);
+//t.show();
+//
+//r = new myRect(402,51,50,50);
+//r.name = "env22";
+//n  = new Node(r);
+//t.addNode(n);
+//
+//
+//r = new myRect(50,50,200,200);
+//r.name = "top";
+//n  = new Node(r);
+//t.addNode(n);
+//t.show();
+//
+//r = new myRect(350,50,200,200);
+//r.name = "top2";
+//n  = new Node(r);
+//t.addNode(n);
+//t.show();
+//
+//r = new myRect(51,51,50,50);
+//r.name = "env1";
+//n  = new Node(r);
+//t.addNode(n);
+//t.show();
+//
+//
+//r = new myRect(351,51,50,50);
+//r.name = "env21";
+//n  = new Node(r);
+//t.addNode(n);
+//
+//r = new myRect(102,51,50,50);
+//r.name = "env2";
+//n  = new Node(r);
+//t.addNode(n);
+//
+//
+//r = new myRect(103,52,20,20);
+//r.name = "agent1";
+//n  = new Node(r);
+//t.addNode(n);
+//
+//t.show();
+//// Remove env1
+//t.removeNode(t.root.children[0].children[1]);
+//
+//t.show();
+//
