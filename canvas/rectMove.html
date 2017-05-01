@@ -29,6 +29,10 @@
 <button width="50" height="40" style="background: #ccc url(cursor.png);" class="button cursor" onclick="cursor_clicked()">"   "</button>
 <button width="50" height="40" style="background: #ccc url(line.png);" class="button linebtn" onclick="line_clicked()">"   "</button>
 
+<button width="50" height="40" style="background: #ccc url(rect.png);" class="button rectbtn" onclick="rect_clicked()">"   "</button>
+
+<button width="50" height="40"  class="button showTreebtn" onclick="showTree_clicked()">"Show Tree"</button>
+
 <canvas id="mangesh" width="600" height="600" style="border:1px solid #000000;">
 </canvas>
 
@@ -37,6 +41,8 @@
 
 var WIDTH = 600;
 var HEIGHT = 600;
+var obT;
+var cidx = 0 ;  
 var rects = [];
 var lines = [];
 var resize_boxes = [];
@@ -64,6 +70,8 @@ function Line(x1,y1,x2,y2){
         this.y1=y1;
         this.x2=x2;
         this.y2=y2;
+        this.name = "";
+        this.type = "line";
         this.update_eq = function() { 
              if((this.x2-this.x1) == 0) { 
                  this.m = 1000000 ; 
@@ -178,10 +186,12 @@ function Line(x1,y1,x2,y2){
 
     
     Line.prototype.update = function (x1,y1,x2,y2){
-        this.x1=x1;
-        this.y1=y1;
-        this.x2=x2;
-        this.y2=y2;
+        this.x1=Math.round(x1);
+        this.y1=Math.round(y1);
+        this.x2=Math.round(x2);
+        this.y2=Math.round(y2);
+        console.log("Updateing line with " , x1," ",y1," ",x2," ",y2) ;
+        console.log("Updateing line from " , this.x1," ",this.y1," ",this.x2," ",this.y2) ;
         this.update_eq();
     } 
 
@@ -203,13 +213,83 @@ function myRect(ltx,lty,width,height) {
     this.width = width; 
     this.height = height; 
     this.style = "#000000";
+    this.name = "";
+    this.type = "rect";
+    this.edges =[];
     this.update_cor = function( ltx,lty,width,height) { 
+         var i;
+         var l ; 
+         // Also change the edges based on movement
+         // Do it first as the old information will gegt over written 
+         console.log("Updating ",this.name , " with Edges " , this.edges.length); 
+         for(i=0;i<this.edges.length;i++){ 
+             var lx1 , ly1 , lx2 , ly2 ; 
+             l = this.edges[i];
+             if((l.x1 == this.ltx) && (l.y1 > this.lty ) &&(l.y1 <= this.lty + this.height )) { 
+                // The point x1,y1 of line l lies on 3 
+                lx1 = ltx;
+                ly1 = lty + ( l.y1 - this.lty ) * height / this.height;
+                lx2 = l.x2;
+                ly2 = l.y2;
+                l.update(lx1,ly1,lx2,ly2);
+             } else if((l.x2 == this.ltx) && (l.y2 > this.lty ) &&(l.y2 <= this.lty + this.height )) { 
+                // The point x2,y2 of line l lies on 3 
+                lx2 = ltx;
+                ly2 = lty + ( l.y2 - this.lty ) * height / this.height;
+                lx1 = l.x1;
+                ly1 = l.y1;
+                l.update(lx1,ly1,lx2,ly2);
+             } else if((l.x1 == this.ltx + this.width) && (l.y1 > this.lty ) &&(l.y1 <= this.lty + this.height )) { 
+                // The point x1,y1 of line l lies on 1 
+                lx1 = ltx + width;
+                ly1 = lty + ( l.y1 - this.lty ) * height / this.height;
+                lx2 = l.x2;
+                ly2 = l.y2;
+                l.update(lx1,ly1,lx2,ly2);
+             } else if((l.x2 == this.ltx + this.width) && (l.y2 > this.lty ) &&  (l.y2 <= this.lty + this.height )) { 
+                // The point x2,y2 of line l lies on 1 
+                lx2 = ltx+ width;
+                ly2 = lty + ( l.y2 - this.lty ) * height / this.height;
+                lx1 = l.x1;
+                ly1 = l.y1;
+                l.update(lx1,ly1,lx2,ly2);
+             } else  if((l.y1 == this.lty) && (l.x1 > this.ltx) &&  (l.x1 <= this.ltx + this.width )) { 
+                // The point x1,y1 of line l lies on 0 
+                lx1 = ltx + (l.x1 - this.ltx) * width / this.width;
+                ly1 = lty ; 
+                lx2 = l.x2;
+                ly2 = l.y2;
+                l.update(lx1,ly1,lx2,ly2);
+             } else  if((l.y2 == this.lty) && (l.x2 > this.ltx) &&  (l.x2 <= this.ltx + this.width )) { 
+                // The point x2,y2 of line l lies on 0 
+                lx2 = ltx+ (l.x2 - this.ltx) * width / this.width;
+                ly2 = lty ; 
+                lx1 = l.x1;
+                ly1 = l.y1;
+                l.update(lx1,ly1,lx2,ly2);
+             } else  if((l.y1 == this.lty + this.height) && (l.x1 > this.ltx) && (l.x1 <= this.ltx + this.width )) { 
+                // The point x1,y1 of line l lies on 2 
+                lx1 = ltx+ (l.x1 - this.ltx) * width / this.width;
+                ly1 = lty + height ; 
+                lx2 = l.x2;
+                ly2 = l.y2;
+                l.update(lx1,ly1,lx2,ly2);
+             } else  if((l.y2 == this.lty + this.height) && (l.x2 > this.ltx) && (l.x2 <= this.ltx + this.width )) { 
+                // The point x2,y2 of line l lies on 2 
+                lx2 = ltx+ (l.x2 - this.ltx) * width / this.width;
+                ly2 = lty  + height; 
+                lx1 = l.x1;
+                ly1 = l.y1;
+                l.update(lx1,ly1,lx2,ly2);
 
+             }
+         } 
          this.ltx = ltx;
 
          this.lty = lty; 
          this.width = width; 
          this.height = height; 
+         
     }; 
 
     this.resize_shape = function (){ 
@@ -233,6 +313,34 @@ function myRect(ltx,lty,width,height) {
         resize_boxes.push(rz); 
         return; 
     } ;
+
+    this.is_enclosed_in = function (n) { 
+          console.log("Checking if " , this.name , " is enclosed in " , n.name);
+          if( (this.ltx  > n.ltx) && (this.lty > n.lty) && 
+               ((this.ltx+this.width) < (n.ltx + n.width)) && 
+               ((this.lty+this.height) < (n.lty + n.height))) { 
+                console.log("True");
+                return true;
+           } else { 
+                console.log("False");
+                return false;
+           }   
+    } ;
+
+    this.addEdge = function(l){
+        if(this.edges != null) { 
+            // Check if the edge exists
+            var idx= this.edges.indexOf(l); 
+            if(idx>0) { 
+                // The edge already exists 
+                console.log("The edge ", l.name , " exists on ",this.name);
+            }else{
+                this.edges.push(l);
+            }
+        }else{ 
+             this.edges.push(l);
+        } 
+    };
 
 } 
 
@@ -285,6 +393,7 @@ function attachToNearest(l) {
                     closeY = selR.lty;
                 }                
             } 
+            if((resizeInfo.resize_active == 0) || (resizeInfo.type != 1)) { selR.addEdge(l); } 
         } 
     } 
     if(found == 1) { 
@@ -329,6 +438,7 @@ function attachToNearest(l) {
                     closeY = selR.lty;
                 }                
             } 
+            if((resizeInfo.resize_active == 0) || (resizeInfo.type != 1)) { selR.addEdge(l); } 
         } 
     } 
     if(found == 1) { 
@@ -352,14 +462,18 @@ function init() {
     ctx.shadowBlur = 0;
     ctx.lineWidth ="1";
     ctx.strokeStyle = "#ff00ff";
-    var r = new myRect(10,10,30,50); 
+    obT = new Tree();
+    var r = new myRect(0,0,30000,50000); 
+    r.name = "Root";
+    obT.add(r);
     rects.push(r); 
-    var t = new Tree();
-    r = new myRect(100,100,100,50); 
+   // rects.push(r); 
+   // var t = new Tree();
+    //r = new myRect(100,100,100,50); 
   //  rects.push(r); 
     ctx.strokeStyle = "#000000";
 
-    ctx.strokeText ("Select Me" ,10,70);
+   // ctx.strokeText ("Select Me" ,10,70);
     resizeInfo = new ResizeInfo();
 
 } 
@@ -387,7 +501,8 @@ function rect(x,y,w,h) {
 var draw_blink = 0 ; 
 function draw(){ 
  var r ;
-
+ var tx,ty;
+ var tl;
  ctx.clearRect(0, 0, WIDTH, HEIGHT);
  for(i=0;i<rects.length;i++) { 
      r = rects[i]; 
@@ -398,6 +513,11 @@ function draw(){
     }
     
      rect(r.ltx,r.lty,r.width,r.height);
+    tl = 8*(r.name.length); 
+    tx = r.ltx + r.width/2 - tl/2;
+    ty = r.lty + r.height/2 - 8;
+    ctx.strokeText (r.name ,tx,ty);
+     
  } 
  // Drawing lines 
  for(i=0;i<lines.length;i++) { 
@@ -426,7 +546,7 @@ if(draw_blink < 7) {
 }  
 ctx.strokeText (rects.length ,100,500);
 ctx.strokeText (lines.length ,150,500);
-ctx.strokeText ("Select Me" ,10,70);
+//ctx.strokeText ("Select Me" ,10,70);
 }
 
 function getSelectedObject(x,y) { 
@@ -441,13 +561,6 @@ function getSelectedObject(x,y) {
     } 
  }
  if(res != -1) { return (1000+res); } 
- for(i=0;i<rects.length;i++) { 
-    r = rects[i];
-    if(x >= r.ltx && x <= r.ltx+r.width && y >= r.lty && y <= r.lty + r.height) { 
-        res = i; 
-    } 
- } 
- if(res !=-1) { return res;  } 
  // Check if the lines are selected 
  for(i=0;i<lines.length;i++) { 
         var d ; 
@@ -463,6 +576,51 @@ function getSelectedObject(x,y) {
  } 
  if(res != -1) { return (res + 2000) ; } 
  
+
+ // Search Rects 
+ // Search in the rects using tree
+ var selectedObj = null;
+ var cur; 
+ var sAr = []; 
+    var sarLen; 
+  sAr.push(obT.root);
+
+ console.log("Searching for match with len = " , sAr.length);
+    sarLen = sAr.length;
+ while((sarLen > 0)&& (sAr != null)) { 
+    console.log("sAr Len = " ,sAr.length);
+    sarLen = sAr.length;
+    var found = 0;
+    for(i=0;i<sarLen;i++){
+        r = sAr[i].element; 
+        if(x >= r.ltx && x <= r.ltx+r.width && y >= r.lty && y <= r.lty + r.height) { 
+            console.log("the point in inslide ",r.name);
+            selectedObj = sAr[i];
+            sAr = sAr[i].children;
+            sarLen = sAr.length;
+            i += 100000;
+            found = 1; 
+        }
+    }
+    if(found==0) { 
+        sarLen = 0;
+    } 
+ }
+ if(selectedObj != null) { 
+     console.log("Selected object is not null ",selectedObj.element.name);
+     res = rects.indexOf(selectedObj.element);
+     res = res == 0 ? -1 : res;
+ }
+ 
+ console.log("Search done in tree " , res) ;
+// for(i=0;i<rects.length;i++) { 
+//    r = rects[i];
+//    if(x >= r.ltx && x <= r.ltx+r.width && y >= r.lty && y <= r.lty + r.height) { 
+//        res = i; 
+//    } 
+// } 
+ if(res !=-1) { return res;  } 
+
 } 
 var  curRrbx ; 
 var  curRrby ; 
@@ -590,6 +748,13 @@ function myUp(e) {
             width = newRltx < newRrbx ? newRrbx - newRltx : newRltx - newRrbx ; 
         }
             rects[selectedObject].update_cor(rx,ry,width,height); 
+        var r ;
+        var n ;
+        r = rects[selectedObject];
+        //  Search the node
+        n = obT.searchNode(r);
+        obT.removeNode(n);
+        obT.addNode(n);
         rects[selectedObject].resize_shape();
         resizeInfo.resize_active = 0 ; 
 
@@ -621,7 +786,10 @@ function myUp(e) {
         var area = width * height ; 
         if(area > 16) { 
             var r = new myRect(rx,ry,width,height); 
+            r.name = r.name.concat("comp",cidx);
+            cidx++;
             rects.push(r); 
+            obT.add(r);
         }
         draw(); 
         var str = "completed drawing"; 
@@ -634,9 +802,12 @@ function myUp(e) {
         newRrbx = x; 
         newRrby = y; 
         var l = new Line(newRltx,newRlty,newRrbx,newRrby);
+
+        l.name = l.name.concat("line",cidx);
         if((Math.abs(newRltx - newRrbx) + Math.abs(newRlty - newRrby)) > 20 ) { 
             attachToNearest(l);
             lines.push(l);
+            cidx++;
         } 
         clearInterval(drawCurrentTmr);
         drawLineStarted = 0 ; 
@@ -657,10 +828,11 @@ function myDown(e) {
         var str = "Selected Object  "; 
         str = str.concat(objId );
         //log.innerHTML = str ;
-    if(objId == 0) { 
-        drawRectActive = 1 ; 
-        log.innerHTML = "Base Rect Selected";
-    } else if((objId >= 1000) && (objId < 2000) ) { 
+//   if(objId == 0) { 
+//       drawRectActive = 1 ; 
+//       log.innerHTML = "Base Rect Selected";
+//   } else 
+    if((objId >= 1000) && (objId < 2000) ) { 
 
         resizeInfo.resize_dir = objId - 1000; 
         resizeInfo.resize_active = 1; 
@@ -716,6 +888,25 @@ function myDown(e) {
     }  
 } 
 
+function showTree_clicked(e){ 
+    obT.show();
+    var len = obT.bfsAr.length ;
+    var i,j;
+    for(i=0;i<len;i++){ 
+        if(obT.bfsAr[i].element.edges.length>0){
+            console.log("Edge count for ",obT.bfsAr[i].element.name ," is ",obT.bfsAr[i].element.edges.length);
+            for(j=0;j<obT.bfsAr[i].element.edges.length;j++) { 
+                console.log(obT.bfsAr[i].element.name , " has " ,obT.bfsAr[i].element.edges[j].name); 
+           } 
+        }
+    } 
+} 
+function rect_clicked(e){ 
+    drawRectActive = 1 ; 
+    drawRectStarted = 0; 
+    resizeInfo.clear();
+    drawLineActive = 0; 
+}
 function line_clicked(e) { 
     drawRectActive = 0 ;
     drawRectStarted = 0; 
